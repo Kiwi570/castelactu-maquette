@@ -1,4 +1,4 @@
-// Castel Actu — socle commun à toutes les pages (v3)
+// Castel Actu — socle commun à toutes les pages (v4)
 // Principe : tout ce qui est visible au premier affichage est animé en CSS dès la première image
 // (aucun éclair visible → caché → visible). Le JavaScript prend le relais pour le reste.
 const g = window.gsap;
@@ -49,8 +49,14 @@ export function rideau(action) {
 
 /* ---------- Défilement programmé ---------- */
 let defilAuto = 0;
+// une entrée en cours (translateY) ne doit pas fausser la position visée
+function decalageEntree(el) {
+  const t = getComputedStyle(el).transform;
+  if (!t || t === 'none') return 0;
+  try { return new DOMMatrixReadOnly(t).m42; } catch (e) { return 0; }
+}
 function positionDe(el, decalage = 0) {
-  return Math.max(0, el.getBoundingClientRect().top + window.scrollY - (hauteurEntete() + 12) + decalage);
+  return Math.max(0, el.getBoundingClientRect().top - decalageEntree(el) + window.scrollY - (hauteurEntete() + 12) + decalage);
 }
 function sauter(y) {
   // Lenis garde en mémoire la hauteur de page : on la remet à jour avant de sauter (sinon le saut est tronqué)
@@ -379,7 +385,7 @@ export async function tramesGL(liste) {
   if (!els.length) return [];
   if (calme()) { els.forEach(el => el.classList.add('encree')); return []; }
   try {
-    const mod = await import('./halftone.js?v=3');
+    const mod = await import('./halftone.js?v=4');
     return els.map(el => {
       const inst = mod.monter(el);
       if (!inst) el.classList.add('encree');

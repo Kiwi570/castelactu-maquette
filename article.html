@@ -25,12 +25,12 @@
 <meta name="twitter:image" content="https://castelactu-maquette.vercel.app/og/og-article.jpg">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/fonts.css?v=3">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
-<link rel="modulepreload" href="assets/js/article.js?v=3">
-<link rel="modulepreload" href="assets/js/app.js?v=3">
-<link rel="modulepreload" href="assets/js/data.js?v=3">
-<link rel="modulepreload" href="assets/js/halftone.js?v=3">
+<link rel="stylesheet" href="assets/css/fonts.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="modulepreload" href="assets/js/article.js?v=4">
+<link rel="modulepreload" href="assets/js/app.js?v=4">
+<link rel="modulepreload" href="assets/js/data.js?v=4">
+<link rel="modulepreload" href="assets/js/halftone.js?v=4">
 <link rel="modulepreload" href="assets/vendor/ogl.min.mjs">
 <script>
 (function () {
@@ -43,6 +43,14 @@
     sessionStorage.setItem('ca-vu', '1');
     if (sessionStorage.getItem('ca-tourne') === '1') { sessionStorage.removeItem('ca-tourne'); if (!calme) d.classList.add('tourne-entree'); }
   } catch (e) {}
+  window.__dateJour = function () {
+    try {
+      var f = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date());
+      f = f.charAt(0).toUpperCase() + f.slice(1);
+      var els = document.querySelectorAll('[data-date-jour]');
+      for (var i = 0; i < els.length; i++) els[i].textContent = f;
+    } catch (e) {}
+  };
 })();
 </script>
 </head>
@@ -58,16 +66,16 @@
       <img src="img/logo/castelactu-240.webp" srcset="img/logo/castelactu-240.webp 240w, img/logo/castelactu-480.webp 480w" sizes="90px" width="240" height="139" alt="Castel Actu">
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="index.html#actu">L’actu</a>
-      <a href="index.html#carte">Communes</a>
-      <a href="index.html#chantiers">Chantiers</a>
-      <a href="index.html#agenda">Agenda</a>
-      <a href="index.html#ecouter">Podcast</a>
-      <a href="index.html#qui">Qui sommes-nous</a>
+      <a href="actu.html">L’actu</a>
+      <a href="actu.html#communes">Communes</a>
+      <a href="chantiers.html">Chantiers</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="le-media.html#ecouter">Podcast</a>
+      <a href="le-media.html">Le média</a>
     </nav>
     <div class="entete__actions">
       <a class="etat-alerte" href="index.html#alerte" data-etat="calme"><span class="etat-alerte__point" aria-hidden="true"></span><span class="etat-alerte__txt">Pas d’alerte</span></a>
-      <a class="icone-btn" href="index.html#recherche" data-recherche title="Rechercher une info">
+      <a class="icone-btn" href="actu.html#recherche" data-recherche title="Rechercher une info">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span class="sr">Rechercher une info</span>
       </a>
       <button class="icone-btn icone-btn--texte" type="button" data-calme aria-pressed="false" title="Mode calme&nbsp;: réduire les animations">
@@ -82,12 +90,13 @@
 </header>
 <div class="menu" id="menu" hidden>
   <button class="icone-btn menu__fermer" type="button" data-menu-fermer><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg><span class="sr">Fermer le menu</span></button>
-  <a href="index.html#actu">L’actu</a>
-  <a href="index.html#carte">Communes</a>
-  <a href="index.html#chantiers">Chantiers</a>
-  <a href="index.html#agenda">Agenda</a>
-  <a href="index.html#ecouter">Podcast</a>
-  <a href="index.html#qui">Qui sommes-nous</a>
+  <a href="index.html">La Une</a>
+  <a href="actu.html">L’actu</a>
+  <a href="actu.html#communes">Communes</a>
+  <a href="chantiers.html">Chantiers</a>
+  <a href="agenda.html">Agenda</a>
+  <a href="le-media.html#ecouter">Podcast</a>
+  <a href="le-media.html">Le média</a>
   <a class="btn btn--rouge" href="envoyer-une-info.html">Envoyer une info</a>
   <div class="menu__calme"><button class="icone-btn" type="button" data-calme aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span></button><span>Mode calme</span></div>
 </div>
@@ -98,7 +107,7 @@
   <section class="article-tete">
     <div class="wrap">
       <nav aria-label="Fil d’Ariane" class="fil-ariane" data-entree="haut">
-        <ol><li><a href="index.html">Accueil</a></li><li><a href="index.html#actu" data-ariane-rub>Loisirs</a></li><li aria-current="page" data-ariane-titre>Central 8</li></ol>
+        <ol><li><a href="index.html">Accueil</a></li><li><a href="actu.html" data-ariane-rub>Loisirs</a></li><li aria-current="page" data-ariane-titre>Central 8</li></ol>
       </nav>
       <div class="meta" data-a-meta data-entree="haut" style="--d:.05s"><span class="rub">Loisirs</span><span class="commune">Châteaubriant</span><span class="date-a-completer">Date de publication à compléter</span><span data-a-vues><strong>103 295</strong> vues sur Facebook</span></div>
       <h1 data-a-titre data-entree style="--d:.08s">Central 8, nouveau complexe de loisirs</h1>
@@ -168,6 +177,17 @@
   <div class="wrap">
     <div class="pied__titre-boite"><p class="pied__titre" aria-hidden="true" data-pied-titre><span class="pied__mesure">Castel Actu</span></p></div>
     <div class="pied__grille">
+      <nav aria-label="Sommaire du site">
+        <h2>Sommaire</h2>
+        <ul class="pied__sommaire">
+          <li><a href="index.html">La Une</a></li>
+          <li><a href="actu.html">Toute l’actu</a></li>
+          <li><a href="chantiers.html">Les chantiers</a></li>
+          <li><a href="agenda.html">Agenda et infos pratiques</a></li>
+          <li><a href="le-media.html">Le média, le podcast</a></li>
+          <li><a href="envoyer-une-info.html">Envoyer une info</a></li>
+        </ul>
+      </nav>
       <div>
         <h2>Contact</h2>
         <p>Association « Castel Actu »<br>17 rue d’Ancenis, 44110 Châteaubriant<br>Tél. <span class="selectionnable">06 99 59 99 75</span><br><span class="selectionnable">contact@castelactu.fr</span></p>
@@ -207,6 +227,6 @@
 <script src="assets/vendor/SplitText.min.js"></script>
 <script src="assets/vendor/Flip.min.js"></script>
 <script src="assets/vendor/lenis.min.js"></script>
-<script type="module" src="assets/js/article.js?v=3"></script>
+<script type="module" src="assets/js/article.js?v=4"></script>
 </body>
 </html>

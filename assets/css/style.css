@@ -319,8 +319,6 @@ a:hover .trame.encree img, .trame.encree:hover img { transform: scale(1.035); }
 .fil__vide p { font-family: var(--f-titre); font-size: var(--t-21); font-weight: 700; max-width: 40ch; }
 
 /* --- Carte des communes --- */
-.carte-zone { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: center; }
-@media (min-width: 900px) { .carte-zone { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; } }
 .communes-liste { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--encre); }
 .communes-liste button { width: 100%; display: flex; justify-content: space-between; gap: 8px; align-items: center; min-height: 48px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--filet); background: none; cursor: pointer; font-family: var(--f-titre); font-size: var(--t-16); font-weight: 600; text-align: left; }
 .communes-liste button small { font-variant-numeric: tabular-nums; color: var(--encre-douce); font-size: var(--t-14); }
@@ -423,15 +421,7 @@ a:hover .trame.encree img, .trame.encree:hover img { transform: scale(1.035); }
 .video__jouer svg { width: 34px; height: 34px; margin-left: 5px; fill: #fff; }
 .a-completer { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-titre); font-size: var(--t-14); font-weight: 700; padding: 6px 10px; border: 1.5px dashed currentColor; }
 
-/* --- Agenda et pratique --- */
-.agenda__grille { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: start; }
-.evenement { display: grid; gap: 14px; align-content: start; background: var(--feuille); border: 2px solid var(--encre); }
-.evenement .trame { aspect-ratio: 3 / 2; }
-.evenement__corps { padding: 0 20px 22px; display: grid; gap: 10px; }
-.evenement h3 { font-size: var(--t-28); font-stretch: 84%; }
-.evenement__date { font-family: var(--f-titre); font-weight: 700; font-size: var(--t-18); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-.evenement__note { font-size: var(--t-16); color: var(--encre-douce); }
-.pratique { display: grid; gap: 14px; align-content: start; }
+/* --- Outils pratiques --- */
 .outil { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; align-items: center; padding: 18px; background: var(--encre); color: var(--feuille); text-decoration: none; min-height: 120px; }
 .outil:hover { background: var(--bleu); }
 .outil svg { width: 88px; height: 88px; }
@@ -743,3 +733,224 @@ a:hover .trame.encree img, .trame.encree:hover img { transform: scale(1.035); }
 .formulaire { position: relative; }
 .formulaire.en-cours { pointer-events: none; }
 .menu { will-change: clip-path; }
+
+/* ===================================================================
+   v4 — une Une courte et quatre cahiers (L'actu, Chantiers, Agenda, Le média)
+   =================================================================== */
+/* Éléments construits par le script : cachés tant qu'ils ne sont pas prêts (secours à 2,4 s) */
+.js:not(.titres-prets) [data-attend] { visibility: hidden; animation: secours-visible 0s 2.4s forwards; }
+
+/* Liens et intertitres */
+.section__intro-bloc { display: grid; gap: 10px; justify-items: start; align-content: end; }
+.lien--fleche::after { content: "→"; margin-left: .45em; transition: transform .35s var(--ease); }
+.lien--fleche:hover::after, .lien--fleche:focus-visible::after { transform: translateX(4px); }
+.lien--clair { color: #fff; }
+.sous-titre { font-size: var(--t-28); font-stretch: 84%; font-weight: 850; line-height: 1; }
+
+/* --- Ouverture des cahiers : le titre du cahier sort de presse --- */
+.cahier { padding-top: calc(var(--h) + env(safe-area-inset-top, 0px) + 18px); padding-bottom: clamp(8px, 2vw, 20px); }
+.cahier__titre { font-size: min(var(--taille, 13.8cqi), 15rem); padding-bottom: var(--bas, 0); transform-origin: 0 100%; }
+.cahier + .section { padding-top: clamp(44px, 6vw, 80px); }
+.chiffres-zone + .section { padding-top: clamp(48px, 6vw, 88px); }
+.entree .cahier__titre { animation: cahier-titre .9s cubic-bezier(.16, 1, .3, 1) var(--base) both; }
+@keyframes cahier-titre { from { opacity: 0; transform: scaleX(.62); } }
+.cahier__sous { align-items: center; }
+.cahier__accroche { max-width: 48ch; }
+.cahier__sommaire ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 22px; }
+.cahier__sommaire a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: var(--f-titre); font-weight: 700; font-size: var(--t-16); font-stretch: 92%; text-decoration: none; }
+.cahier__sommaire a span { font-size: var(--t-12); font-weight: 800; color: var(--rouge-texte); font-variant-numeric: tabular-nums; }
+.cahier__sommaire a:hover { color: var(--bleu); }
+
+/* --- Navigation : la page en cours --- */
+.menu a[aria-current="page"]::before { content: ""; display: inline-block; width: .32em; height: .32em; margin: 0 .3em .12em 0; background: var(--rouge); vertical-align: middle; }
+.pied__sommaire { display: grid; }
+.pied__sommaire a { display: inline-flex; align-items: center; min-height: 40px; text-decoration: none; }
+.pied__sommaire a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.pied__sommaire a[aria-current="page"] { font-weight: 800; color: var(--feuille); }
+
+/* --- Accueil : dernières infos --- */
+@media (min-width: 900px) {
+  .fil--court { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fil--court .carte--grande { grid-column: auto; grid-row: auto; }
+  .fil--court .carte--grande .trame { aspect-ratio: 3 / 2; }
+  .fil--court .carte--grande h3 { font-size: var(--t-21); }
+}
+.fil-suite { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: clamp(32px, 4vw, 48px); padding-top: 22px; border-top: 1.5px solid var(--encre); }
+.fil-suite .btn small { font-size: var(--t-12); font-weight: 800; padding: 2px 7px; background: var(--feuille); color: var(--encre); font-variant-numeric: tabular-nums; }
+.fil-suite__puces { display: flex; flex-wrap: wrap; gap: 8px; }
+a.puce { text-decoration: none; color: inherit; }
+a.puce:hover { background: var(--encre); color: var(--feuille); }
+a.puce:hover small { color: rgba(245,244,239,.7); }
+.puce--creuse { border-style: dashed; }
+@media (max-width: 640px) {
+  .fil-suite__puces { flex-wrap: nowrap; overflow-x: auto; width: calc(100% + var(--gout) + var(--gout-d)); margin-inline: calc(var(--gout) * -1) calc(var(--gout-d) * -1); padding: 2px var(--gout-d) 8px var(--gout); scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  .fil-suite__puces::-webkit-scrollbar { display: none; }
+  .fil-suite__puces .puce { flex: none; }
+}
+
+/* Sur téléphone, le fil devient une liste : la première info en grand, les suivantes en lignes */
+@media (max-width: 639px) {
+  .fil--liste { gap: 0; }
+  .fil--liste .carte { padding-block: 14px; border-top: 1px solid var(--filet); }
+  .fil--liste .carte--grande { padding-top: 0; padding-bottom: 24px; border-top: 0; }
+  .fil--liste .carte:not(.carte--grande) { gap: 8px; }
+  .fil--liste .carte:not(.carte--grande) .carte__lien { grid-template-columns: 104px minmax(0, 1fr); column-gap: 14px; row-gap: 6px; align-items: start; }
+  .fil--liste .carte:not(.carte--grande) .trame { grid-row: 1 / span 3; aspect-ratio: 1; }
+  .fil--liste .carte:not(.carte--grande) h3 { font-size: var(--t-18); }
+  .fil--liste .carte:not(.carte--grande) .carte__resume, .fil--liste .carte:not(.carte--grande) .mention-credit { display: none; }
+  .fil--liste .carte:not(.carte--grande) .carte__tampon { position: static; justify-self: start; margin-left: 118px; font-size: var(--t-12); padding: 4px 8px 3px; border-width: 2px; }
+  .fil--liste .carte:not(.carte--grande) .carte__pied { margin-left: 118px; }
+}
+/* Mention IA sur les petites vignettes : toute la largeur, en bas */
+.une__aussi .mention-ia, .suivi__vignette .mention-ia { left: 0; right: 0; bottom: 0; padding: 1px 2px; border: 0; border-top: 1px solid var(--encre); font-size: 9px; line-height: 1.25; text-align: center; letter-spacing: 0; }
+@media (max-width: 639px) { .fil--liste .carte:not(.carte--grande) .mention-ia { left: 0; right: 0; bottom: 0; padding: 1px 2px; border: 0; border-top: 1px solid var(--encre); font-size: 9px; line-height: 1.25; text-align: center; letter-spacing: 0; } }
+.suivi__vignette .mention-credit { display: none; }
+
+/* --- Accueil : la sélection de chantiers se termine sur le lien vers le suivi --- */
+.chantiers__fin { flex: none; width: min(78vw, 25rem); aspect-ratio: 4 / 3; display: grid; align-content: end; gap: 10px; padding: 26px 24px 20px; position: relative; overflow: hidden; background: var(--encre); color: var(--feuille); text-decoration: none; scroll-snap-align: start; transition: background .3s var(--ease); }
+.chantiers__fin::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 14px; background: repeating-linear-gradient(-45deg, var(--rouge) 0 14px, var(--feuille) 14px 28px); }
+.chantiers__fin:hover { background: var(--bleu); }
+.chantiers__fin-nb { font-family: var(--f-titre); font-weight: 900; font-stretch: 72%; font-size: clamp(4.4rem, 8vw, 7.6rem); line-height: .8; color: var(--rouge); }
+.chantiers__fin:hover .chantiers__fin-nb { color: var(--feuille); }
+.chantiers__fin-txt { font-family: var(--f-titre); font-weight: 800; font-stretch: 86%; font-size: var(--t-21); line-height: 1.1; max-width: 18ch; }
+.chantiers__fin-cta { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--f-titre); font-weight: 700; font-size: var(--t-16); }
+.chantiers__fin-cta::after { content: "→"; margin-left: .45em; transition: transform .35s var(--ease); }
+.chantiers__fin:hover .chantiers__fin-cta::after { transform: translateX(5px); }
+.chantiers--epingle .chantiers__fin { aspect-ratio: auto; height: var(--trame-h, 300px); width: max(var(--trame-h, 300px), 17rem); }
+
+/* --- Accueil : les plus lus et le podcast --- */
+.lus-ecoute { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .lus-ecoute { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: start; } }
+.lus-ecoute__lus { display: grid; gap: 14px; justify-items: start; }
+.lus-ecoute__lus .classement { width: 100%; }
+.classement--court li { grid-template-columns: clamp(52px, 7vw, 84px) minmax(0, 1fr); padding-block: 18px; }
+@media (min-width: 900px) { .classement--court li { grid-template-columns: 84px minmax(0, 1fr) 11rem; } }
+.classement--court .classement__rang { font-size: clamp(3.2rem, 6vw, 5.4rem); }
+.classement--court h3 { font-size: clamp(1.15rem, 1.7vw, 1.5rem); }
+.lus-ecoute__note { max-width: 52ch; }
+.lecteur__lien { color: var(--feuille); justify-self: start; }
+
+/* --- Accueil : l'agenda en bref --- */
+.bref { background: var(--feuille); border-block: 6px solid var(--encre); padding-block: clamp(28px, 4vw, 44px); }
+.bref__in { display: grid; gap: 20px 44px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 1000px) { .bref__in { grid-template-columns: minmax(12rem, auto) minmax(0, 1fr) auto; } }
+.bref__tete { display: grid; gap: 6px; }
+.bref__titre { font-size: clamp(2.6rem, 5vw, 4.4rem); font-stretch: 78%; font-weight: 900; line-height: .9; }
+.bref__liste { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--encre); }
+.bref__liste li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding-block: 8px; border-bottom: 1px solid var(--filet); }
+.bref__liste a, .bref__vide { display: grid; gap: 1px; min-height: 44px; align-content: center; text-decoration: none; }
+.bref__date { font-family: var(--f-titre); font-size: var(--t-14); font-weight: 700; color: var(--encre-douce); }
+.bref__quoi { font-family: var(--f-titre); font-size: var(--t-18); font-weight: 800; font-stretch: 88%; line-height: 1.15; }
+.bref__liste a:hover .bref__quoi { color: var(--bleu); }
+.bref__vide .bref__quoi { color: var(--encre-douce); font-weight: 700; }
+.bref__liste li.bref__vide { display: grid; justify-content: start; }
+.bref .tampon { font-size: var(--t-12); }
+.bref__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; }
+
+/* --- L'actu : le fil et la carte côte à côte --- */
+.cahier + .actu-page { padding-top: clamp(28px, 4vw, 48px); }
+.actu { display: grid; gap: 56px; grid-template-columns: minmax(0, 1fr); }
+.actu__fil { min-width: 0; }
+.actu__carte-in { display: grid; gap: 12px; }
+.actu__carte .communes-liste { margin-top: 8px; }
+@media (min-width: 1100px) {
+  .actu { grid-template-columns: minmax(0, 1fr) clamp(18rem, 24vw, 22rem); gap: 48px; align-items: start; }
+  .actu__carte { position: sticky; top: calc(var(--h) + 20px); }
+  .actu__carte .communes-liste { display: none; }
+  .fil--page { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) { .fil--page { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.plan .pin.actif circle.goutte { fill: var(--rouge); }
+
+/* --- Chantiers : chiffres, suivi, aperçu au survol --- */
+.chiffres-zone { padding-top: clamp(20px, 3vw, 32px); }
+.chiffres { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block: 1.5px solid var(--encre); }
+@media (min-width: 900px) { .chiffres { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.chiffre { display: grid; gap: 8px; align-content: start; padding: 18px 16px 20px 0; text-decoration: none; border-bottom: 1px solid var(--filet); }
+.chiffre:first-child { grid-column: 1 / -1; }
+.chiffre:nth-child(2n + 1):not(:first-child) { padding-left: 16px; border-left: 1px solid var(--filet); }
+@media (min-width: 900px) {
+  .chiffre, .chiffre:nth-child(2n + 1):not(:first-child) { border-bottom: 0; padding-left: 20px; border-left: 1px solid var(--filet); }
+  .chiffre:first-child { grid-column: auto; padding-left: 0; border-left: 0; }
+}
+.chiffre .odo { font-size: clamp(2.6rem, 5vw, 4.4rem); transition: color .25s; }
+.chiffre__txt { font-family: var(--f-titre); font-weight: 700; font-size: var(--t-16); line-height: 1.2; max-width: 14ch; }
+.chiffre:hover .odo { color: var(--rouge-texte); }
+
+.suivi__groupes { display: grid; gap: clamp(40px, 5vw, 64px); }
+.suivi__groupe { scroll-margin-top: calc(var(--h) + 24px); }
+.suivi__titre { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.suivi__titre .tampon { font-size: var(--t-18); }
+.suivi__nb { font-family: var(--f-titre); font-weight: 900; font-stretch: 75%; font-size: var(--t-36); line-height: 1; }
+.suivi__liste { list-style: none; margin: 0; padding: 0; border-top: 6px solid var(--encre); }
+.suivi__ligne {
+  display: grid; grid-template-columns: 72px minmax(0, 1fr); grid-template-areas: "v nom" "v commune" "v etat" "v vues";
+  column-gap: 16px; row-gap: 3px; align-items: center; padding-block: 14px; border-bottom: 1.5px solid var(--encre);
+  text-decoration: none; transition: background .25s var(--ease), padding .35s var(--ease);
+}
+.suivi__vignette { grid-area: v; align-self: start; width: 72px; aspect-ratio: 1; }
+.suivi__nom { grid-area: nom; font-family: var(--f-titre); font-weight: 800; font-stretch: 86%; font-size: var(--t-21); line-height: 1.1; }
+.suivi__commune { grid-area: commune; font-family: var(--f-titre); font-size: var(--t-14); font-weight: 600; color: var(--encre-douce); }
+.suivi__etat { grid-area: etat; font-family: var(--f-titre); font-size: var(--t-14); line-height: 1.35; }
+.suivi__vues { grid-area: vues; font-family: var(--f-titre); font-size: var(--t-14); color: var(--encre-douce); font-variant-numeric: tabular-nums; }
+.suivi__fleche { display: none; }
+.suivi__ligne:hover .suivi__nom { color: var(--bleu); }
+@media (min-width: 900px) {
+  .suivi__ligne { grid-template-columns: 72px minmax(0, 1.6fr) minmax(0, .8fr) minmax(0, 1.5fr) 7rem 2rem; grid-template-areas: "v nom commune etat vues fleche"; column-gap: 24px; min-height: 100px; }
+  .suivi__vues { text-align: right; }
+  .suivi__fleche { display: block; grid-area: fleche; justify-self: end; font-family: var(--f-titre); font-size: var(--t-28); font-weight: 800; transition: transform .35s var(--ease); }
+  .suivi__ligne:hover { background: var(--feuille); }
+  .suivi__ligne:hover .suivi__fleche { transform: translateX(6px); color: var(--rouge-texte); }
+  .apercu-actif .suivi__ligne { grid-template-columns: minmax(0, 1.6fr) minmax(0, .8fr) minmax(0, 1.5fr) 7rem 2rem; grid-template-areas: "nom commune etat vues fleche"; min-height: 84px; padding-inline: 0 12px; }
+  .apercu-actif .suivi__vignette { display: none; }
+  .apercu-actif .suivi__ligne:hover { padding-left: 16px; }
+}
+.apercu-flottant { position: fixed; left: 0; top: 0; z-index: 80; width: 300px; aspect-ratio: 4 / 3; pointer-events: none; visibility: hidden; opacity: 0; overflow: hidden; background: var(--encre); border: 2px solid var(--encre); box-shadow: 10px 10px 0 var(--encre); }
+.apercu-flottant figure { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .25s var(--ease); }
+.apercu-flottant figure.actif { opacity: 1; }
+.apercu-flottant img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Agenda --- */
+.a-venir:empty { display: none; }
+.a-venir { margin-bottom: 28px; }
+.rdvs { display: grid; gap: 28px; }
+.rdv { display: grid; grid-template-columns: minmax(0, 1fr); background: var(--feuille); border: 2px solid var(--encre); }
+@media (min-width: 900px) { .rdv { grid-template-columns: 13rem minmax(0, 5fr) minmax(0, 6fr); } }
+.rdv__date { position: relative; display: grid; align-content: start; justify-items: start; gap: 6px; padding: 22px; background: var(--encre); color: var(--feuille); }
+.rdv__jours { font-family: var(--f-titre); font-weight: 900; font-stretch: 72%; font-size: clamp(2.6rem, 4vw, 3.8rem); line-height: .9; }
+.rdv__jours--long { font-size: clamp(2rem, 2.8vw, 2.6rem); white-space: nowrap; }
+.rdv__mois { font-family: var(--f-titre); font-weight: 700; font-size: var(--t-16); }
+.rdv__mois::first-letter { text-transform: uppercase; }
+.rdv__date .tampon { margin-top: 12px; color: var(--feuille); background: transparent; mix-blend-mode: normal; }
+.rdv--passe .rdv__date { background: var(--encre-douce); }
+.rdv__image { aspect-ratio: 3 / 2; }
+@media (min-width: 900px) { .rdv__image { aspect-ratio: auto; min-height: 17rem; } }
+.rdv__corps { display: grid; gap: 10px; align-content: start; padding: 22px; }
+.rdv__lieu { font-family: var(--f-titre); font-size: var(--t-14); font-weight: 700; color: var(--bleu); }
+.rdv h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-stretch: 80%; }
+.rdv__libelle { font-family: var(--f-titre); font-size: var(--t-18); font-weight: 700; }
+.rdv__note { font-size: var(--t-16); color: var(--encre-douce); }
+.pratique-zone { padding-top: 0; }
+.outils { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 800px) { .outils { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.outil--rouge { background: var(--rouge-texte); color: #fff; }
+.outil--rouge:hover { background: var(--rouge-texte); }
+.numeros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+.numero { display: grid; gap: 0; min-height: 52px; align-content: center; padding: 6px 10px; border: 1.5px solid rgba(255,255,255,.6); color: #fff; text-decoration: none; font-family: var(--f-titre); }
+.numero b { font-size: var(--t-21); font-weight: 900; line-height: 1; }
+.numero span { font-size: var(--t-12); font-weight: 600; }
+.numero:hover { background: #fff; color: var(--rouge-texte); }
+
+/* --- Le média : contact et soutien --- */
+.soutenir { display: grid; gap: 14px; align-content: start; padding: clamp(22px, 3vw, 32px); background: var(--feuille); color: var(--encre); border: 2px solid var(--encre); box-shadow: 10px 10px 0 var(--encre); }
+.soutenir h3 { font-size: var(--t-28); font-stretch: 84%; }
+.appel .soutenir p { font-size: var(--t-16); max-width: none; }
+.soutenir__liste { list-style: none; margin: 0; padding: 0; display: grid; }
+.soutenir__liste li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 14px; padding-block: 10px; border-top: 1px solid var(--filet); font-family: var(--f-titre); font-size: var(--t-16); }
+.soutenir__liste strong { font-weight: 800; }
+.soutenir .a-completer { color: var(--encre-douce); }
+#ecouter { padding-top: clamp(64px, 9vw, 128px); }
+
+/* Les tampons en attente (agrandis et invisibles) ne doivent jamais élargir la page sur téléphone.
+   clip ne crée pas de zone de défilement : les blocs collants (sticky) et la galerie épinglée restent intacts. */
+@supports (overflow: clip) { main { overflow-x: clip; } }

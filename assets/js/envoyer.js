@@ -1,6 +1,6 @@
 // Castel Actu — formulaire « Envoyer une info » (simulé : rien n'est envoyé)
-import { demarrer, anime, defilerVers, echap, dateDuJour, trames } from './app.js?v=3';
-import { RUBRIQUES, COMMUNES } from './data.js?v=3';
+import { demarrer, anime, defilerVers, echap, dateDuJour, trames } from './app.js?v=4';
+import { RUBRIQUES, COMMUNES } from './data.js?v=4';
 
 const g = window.gsap;
 const $ = (s, r = document) => r.querySelector(s);

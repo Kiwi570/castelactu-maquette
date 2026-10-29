@@ -1,6 +1,6 @@
 // Castel Actu — fiche article (gabarit : article.html#identifiant)
-import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis, rideau } from './app.js?v=3';
-import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=3';
+import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis, rideau } from './app.js?v=4';
+import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=4';
 
 const g = window.gsap;
 const ST = window.ScrollTrigger;
@@ -41,7 +41,7 @@ let gl = null;
 function remplir(id) {
   const a = ARTICLES.find(x => x.id === id) || ARTICLES.find(x => x.id === 'central-8');
   document.title = `${a.titre} | Castel Actu`;
-  $('[data-ariane-rub]').textContent = rubrique(a.rubrique).nom;
+  const ariane = $('[data-ariane-rub]'); ariane.textContent = rubrique(a.rubrique).nom; ariane.href = `actu.html?rubrique=${a.rubrique}`;
   $('[data-ariane-titre]').textContent = a.titre;
   $('[data-a-meta]').innerHTML = `<span class="rub">${echap(rubrique(a.rubrique).nom)}</span><span class="commune">${echap(noms(a))}</span><span class="date-a-completer">Date de publication à compléter</span>${a.vues ? `<span><strong>${nombre(a.vues)}</strong> vues sur Facebook</span>` : ''}`;
   $('[data-a-titre]').textContent = a.titre;

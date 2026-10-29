@@ -1,10 +1,27 @@
-# Castel Actu — maquette v3
+# Castel Actu — maquette v4
 
 Maquette du futur site de Castel Actu, média local, indépendant et associatif du Pays de Châteaubriant.
 Site statique (HTML, CSS, JavaScript), sans étape de construction, prêt pour Vercel.
 
 Direction artistique « Rotative » : papier journal, deux encres tirées du logo (bleu Castel, rouge alerte),
 trame d'impression sur les photos, titres Archivo à largeur variable, textes Newsreader.
+
+## Nouveautés de la v4 (une Une plus courte, quatre cahiers)
+
+- L’accueil passe d’environ 23 écrans à 9 sur ordinateur (11 sur téléphone, contre 28) : la Une, 6 dernières infos,
+  une sélection de 5 chantiers, les plus lus avec le podcast, l’agenda en bref et l’appel à envoyer une info.
+- Quatre nouvelles pages, chacune ouverte par son titre de cahier imprimé et un sommaire :
+  - `actu.html` : le fil complet filtrable (rubrique, commune, mot), la carte des 11 communes à côté du fil, les plus lus.
+    Les filtres suivent l’adresse : `actu.html?rubrique=travaux&commune=soudan` s’ouvre directement filtré.
+  - `chantiers.html` : les chiffres par statut, la visite en galerie épinglée, le suivi statut par statut
+    (la photo du chantier suit la souris au survol d’une ligne).
+  - `agenda.html` : les rendez-vous (un événement terminé est marqué comme tel), les infos pratiques, les numéros d’urgence.
+  - `le-media.html` : qui sommes-nous, l’audience, le podcast et la vidéo, le contact et les façons de soutenir l’association.
+- Navigation, menu téléphone et pied de page renvoient vers ces pages ; la page en cours est signalée.
+- Sur téléphone, le fil devient une liste : la première info en grand, les suivantes en lignes avec vignette.
+- La galerie des chantiers avance un peu plus vite que le défilement (moins de hauteur de page).
+- Mention « Illustration IA » ajoutée sur les petites vignettes qui n’en avaient pas (À la une aussi, classement).
+- Une image de partage par page.
 
 ## Nouveautés de la v3 (audit des effets et transitions)
 
@@ -39,11 +56,16 @@ trame d'impression sur les photos, titres Archivo à largeur variable, textes Ne
 
 ## Pages
 
-- `index.html` : la Une, l'audience, le fil filtrable (rubrique, commune, recherche), la carte des 11 communes,
-  les chantiers (galerie horizontale épinglée), les plus lus, le podcast et la vidéo, l'agenda, qui sommes-nous, l'appel à envoyer une info.
+- `index.html` : la Une, les dernières infos, une sélection de chantiers, les plus lus et le podcast, l’agenda en bref, l’appel.
+- `actu.html` : toute l’actu, filtrable, avec la carte des 11 communes et les plus lus.
+- `chantiers.html` : le suivi des chantiers (chiffres, galerie, statut par statut).
+- `agenda.html` : agenda et infos pratiques.
+- `le-media.html` : qui sommes-nous, audience, podcast et vidéo, contact et soutien.
 - `article.html#identifiant` : fiche article type. Le même gabarit affiche chaque info (ex. `article.html#le-smash`).
-- `envoyer-une-info.html` : formulaire en 5 étapes (simulé, rien n'est envoyé) et mini-Une composée à la fin.
+- `envoyer-une-info.html` : formulaire en 5 étapes (simulé, rien n’est envoyé) et mini-Une composée à la fin.
 - `404.html` : page introuvable.
+
+Le code commun aux pages est dans `assets/js/app.js` (socle) et `assets/js/sections.js` (cartes, galerie, classement, podcast).
 
 ## Mettre à jour le contenu
 
@@ -54,7 +76,7 @@ Tout le contenu dynamique est dans **`assets/js/data.js`** : articles, rubriques
 - Une image générée par IA doit garder `ia: true` (mention « Illustration IA », AI Act art. 50).
 
 Après toute modification de CSS ou JS, **augmenter le numéro `?v=N`** partout (pages HTML, `modulepreload`,
-`import` des modules et `import('./halftone.js?v=N')`), à l'identique, sinon les visiteurs gardent l'ancienne version.
+`import` des modules, dont `sections.js`, et `import('./halftone.js?v=N')`), à l'identique, sinon les visiteurs gardent l'ancienne version.
 
 ## Images
 
@@ -71,7 +93,7 @@ Après toute modification de CSS ou JS, **augmenter le numéro `?v=N`** partout 
 - Date du relevé d'audience ; correspondance des compteurs de vues avec les articles (à confirmer).
 - Lien de la chaîne YouTube, présentation de Castel FM, contenu Météo.
 - Fichiers audio du podcast : `audio/info-en-bref-economie.mp3`, `audio/info-en-bref-evenement.mp3`.
-- Dates de la prochaine Foire de Béré, affiche Théâtre de Verre 2026-2027.
+- Dates de la prochaine Foire de Béré, affiche Théâtre de Verre 2026-2027 : l’agenda n’a plus aucun rendez-vous à venir.
 - Modalités d'adhésion ou de don à l'association.
 - Politique de confidentialité et conditions d'utilisation (obligatoires avec les formulaires).
 - Délai de réponse aux infos envoyées.

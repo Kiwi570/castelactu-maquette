@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Toute l’actu du Pays de Châteaubriant | Castel Actu</title>
+<meta name="description" content="Commerces, travaux, sport, culture : les infos des 11 communes du Pays de Châteaubriant, par rubrique, par commune ou par mot.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#E7E4DB">
+<link rel="icon" type="image/png" sizes="64x64" href="img/logo/favicon-64.png">
+<link rel="apple-touch-icon" href="img/logo/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Castel Actu">
+<meta property="og:title" content="Toute l’actu du Pays de Châteaubriant | Castel Actu">
+<meta property="og:description" content="Commerces, travaux, sport, culture : les infos des 11 communes du Pays de Châteaubriant, par rubrique, par commune ou par mot.">
+<meta property="og:url" content="https://castelactu-maquette.vercel.app/actu">
+<meta property="og:image" content="https://castelactu-maquette.vercel.app/og/og-actu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Toute l’actu du Pays de Châteaubriant sur Castel Actu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Toute l’actu du Pays de Châteaubriant | Castel Actu">
+<meta name="twitter:description" content="Commerces, travaux, sport, culture : les infos des 11 communes du Pays de Châteaubriant, par rubrique, par commune ou par mot.">
+<meta name="twitter:image" content="https://castelactu-maquette.vercel.app/og/og-actu.jpg">
+<link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="modulepreload" href="assets/js/actu.js?v=4">
+<link rel="modulepreload" href="assets/js/app.js?v=4">
+<link rel="modulepreload" href="assets/js/data.js?v=4">
+<link rel="modulepreload" href="assets/js/sections.js?v=4">
+<script>
+(function () {
+  var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
+  var calme = false;
+  try { if (localStorage.getItem('ca-calme') === '1') calme = true; } catch (e) {}
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+  d.classList.add(calme ? 'calme' : 'entree');
+  try {
+    sessionStorage.setItem('ca-vu', '1');
+    if (sessionStorage.getItem('ca-tourne') === '1') { sessionStorage.removeItem('ca-tourne'); if (!calme) d.classList.add('tourne-entree'); }
+  } catch (e) {}
+  window.__dateJour = function () {
+    try {
+      var f = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date());
+      f = f.charAt(0).toUpperCase() + f.slice(1);
+      var els = document.querySelectorAll('[data-date-jour]');
+      for (var i = 0; i < els.length; i++) els[i].textContent = f;
+    } catch (e) {}
+  };
+})();
+</script>
+</head>
+<body data-page="actu">
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<div class="tourne" aria-hidden="true"><span class="tourne__marque">Castel Actu</span></div>
+<div class="curseur" aria-hidden="true"></div>
+
+<header class="entete">
+  <div class="entete__in">
+    <a class="logo" href="index.html" aria-label="Castel Actu, retour à l’accueil">
+      <img src="img/logo/castelactu-240.webp" srcset="img/logo/castelactu-240.webp 240w, img/logo/castelactu-480.webp 480w" sizes="90px" width="240" height="139" alt="Castel Actu">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="actu.html" aria-current="page">L’actu</a>
+      <a href="actu.html#communes">Communes</a>
+      <a href="chantiers.html">Chantiers</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="le-media.html#ecouter">Podcast</a>
+      <a href="le-media.html">Le média</a>
+    </nav>
+    <div class="entete__actions">
+      <a class="etat-alerte" href="index.html#alerte" data-etat="calme"><span class="etat-alerte__point" aria-hidden="true"></span><span class="etat-alerte__txt">Pas d’alerte</span></a>
+      <a class="icone-btn" href="actu.html#recherche" data-recherche title="Rechercher une info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span class="sr">Rechercher une info</span>
+      </a>
+      <button class="icone-btn icone-btn--texte" type="button" data-calme aria-pressed="false" title="Mode calme&nbsp;: réduire les animations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="icone-btn__label">Mode calme</span>
+      </button>
+      <a class="btn btn--rouge" href="envoyer-une-info.html" data-magnet>Envoyer une info</a>
+      <button class="icone-btn burger" type="button" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg><span class="sr">Ouvrir le menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <button class="icone-btn menu__fermer" type="button" data-menu-fermer><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg><span class="sr">Fermer le menu</span></button>
+  <a href="index.html">La Une</a>
+  <a href="actu.html" aria-current="page">L’actu</a>
+  <a href="actu.html#communes">Communes</a>
+  <a href="chantiers.html">Chantiers</a>
+  <a href="agenda.html">Agenda</a>
+  <a href="le-media.html#ecouter">Podcast</a>
+  <a href="le-media.html">Le média</a>
+  <a class="btn btn--rouge" href="envoyer-une-info.html">Envoyer une info</a>
+  <div class="menu__calme"><button class="icone-btn" type="button" data-calme aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span></button><span>Mode calme</span></div>
+</div>
+
+<main id="contenu">
+  <section class="cahier" aria-labelledby="titre-page">
+    <div class="wrap">
+      <div class="une__bandeau">
+        <time data-date-jour data-entree="haut">Édition du jour</time>
+        <span class="une__bandeau-milieu" data-entree="haut" style="--d:.04s">Castel Actu, le fil des infos</span>
+        <span data-entree="haut" style="--d:.08s"><span data-total-infos>23</span> infos, 11 communes</span>
+      </div>
+      <script>__dateJour();</script>
+      <div class="titre-journal-boite cahier__boite">
+        <h1 class="titre-journal cahier__titre" id="titre-page" style="--taille:13.6cqi"><span class="titre-journal__plaque" data-texte="Toute l’actu" data-entree="plaque"><span>Toute l’actu</span></span></h1>
+      </div>
+      <div class="une__sous cahier__sous">
+        <p class="une__accroche cahier__accroche" data-entree style="--d:.06s">Commerces qui ouvrent, chantiers, sport, culture&nbsp;: filtrez par rubrique, par commune, ou cherchez un mot.</p>
+        <nav class="cahier__sommaire" aria-label="Dans cette page" data-entree style="--d:.1s"><ol><li><a href="#recherche"><span>01</span>Le fil</a></li><li><a href="#communes"><span>02</span>Les communes</a></li><li><a href="#plus-lus"><span>03</span>Les plus lus</a></li></ol></nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="section actu-page" aria-label="Le fil des infos">
+    <div class="wrap actu">
+      <div class="actu__fil">
+        <div class="filtres" id="recherche" data-entree data-attend style="--d:.14s">
+          <div class="filtres__rubriques" role="group" aria-label="Filtrer par rubrique" data-filtres-rubriques></div>
+          <div class="filtres__ligne">
+            <label class="champ" for="filtre-commune">Commune
+              <select id="filtre-commune" data-filtre-commune><option value="">Les 11 communes</option></select>
+            </label>
+            <label class="champ" for="filtre-recherche">Rechercher
+              <input id="filtre-recherche" type="search" placeholder="Central 8, piscine, Treffieux…" autocomplete="off" data-filtre-recherche>
+            </label>
+          </div>
+          <p class="filtres__etat" aria-live="polite" data-filtres-etat></p>
+        </div>
+        <div class="fil fil--liste fil--page" data-fil></div>
+      </div>
+      <aside class="actu__carte" id="communes" aria-labelledby="titre-communes">
+        <div class="actu__carte-in">
+          <h2 class="sous-titre" id="titre-communes">11 communes, une seule rédaction</h2>
+          <p class="petit">Touchez une commune pour filtrer le fil.</p>
+          <figure class="plan-bloc">
+            <div class="plan" data-plan>
+              <div class="plan__fond" aria-hidden="true"><img src="img/grok/accueil-texture-papier-16x9-960.webp" alt="" loading="lazy"></div>
+              <svg viewBox="0 0 600 600" role="group" aria-label="Carte schématique des 11 communes" data-plan-svg></svg>
+            </div>
+            <figcaption class="plan__legende">Carte schématique, positions approximatives.</figcaption>
+          </figure>
+          <ul class="communes-liste" data-communes-liste></ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="plus-lus" aria-labelledby="titre-plus-lus">
+    <div class="wrap">
+      <div class="section__tete">
+        <h2 class="section__titre" id="titre-plus-lus" data-split>Les plus lus</h2>
+        <p class="section__intro">Classés par vues sur Facebook, telles qu’affichées sur le site actuel. Correspondance des chiffres à confirmer.</p>
+      </div>
+      <ol class="classement" data-classement></ol>
+    </div>
+  </section>
+
+  <section class="section appel" aria-labelledby="titre-appel">
+    <div class="wrap">
+      <div class="appel__grille">
+        <div style="display:grid;gap:24px">
+          <h2 id="titre-appel" data-split>Il manque une info&nbsp;? Envoyez-la.</h2>
+          <p>Particulier, association, commerce ou entreprise&nbsp;: une info, une photo, une vidéo, vérifiée avant toute publication.</p>
+          <div class="appel__actions"><a class="btn btn--clair" href="envoyer-une-info.html" data-magnet>Envoyer une info</a></div>
+        </div>
+        <div class="trame" data-trame>
+          <picture>
+            <source media="(max-width: 640px)" srcset="img/grok/accueil-envoyer-info-9x16-960.webp">
+            <img src="img/grok/accueil-envoyer-info-4x5-960.webp" srcset="img/grok/accueil-envoyer-info-4x5-480.webp 480w, img/grok/accueil-envoyer-info-4x5-960.webp 960w" sizes="(min-width: 900px) 38vw, 100vw" alt="Mains qui filment avec un téléphone" loading="lazy" width="1200" height="1500">
+          </picture>
+          <span class="mention-ia">Illustration IA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied__titre-boite"><p class="pied__titre" aria-hidden="true" data-pied-titre><span class="pied__mesure">Castel Actu</span></p></div>
+    <div class="pied__grille">
+      <nav aria-label="Sommaire du site">
+        <h2>Sommaire</h2>
+        <ul class="pied__sommaire">
+          <li><a href="index.html">La Une</a></li>
+          <li><a href="actu.html" aria-current="page">Toute l’actu</a></li>
+          <li><a href="chantiers.html">Les chantiers</a></li>
+          <li><a href="agenda.html">Agenda et infos pratiques</a></li>
+          <li><a href="le-media.html">Le média, le podcast</a></li>
+          <li><a href="envoyer-une-info.html">Envoyer une info</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <p>Association « Castel Actu »<br>17 rue d’Ancenis, 44110 Châteaubriant<br>Tél. <span class="selectionnable">06 99 59 99 75</span><br><span class="selectionnable">contact@castelactu.fr</span></p>
+        <p style="margin-top:8px"><a class="lien lien--externe" href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook</a></p>
+      </div>
+      <div>
+        <h2>Mentions légales</h2>
+        <p>Éditeur&nbsp;: association « Castel Actu ».<br>Directeur de la publication&nbsp;: Gaetan Lassalle.<br>SIRET 100 220 995 00011. RNA W441007944.<br>Page Facebook créée le 13/11/2016, association déclarée le 21/01/2026.<br>Hébergeur&nbsp;: à mettre à jour à la mise en ligne.</p>
+      </div>
+      <div>
+        <h2>Confidentialité</h2>
+        <p>Politique de confidentialité à rédiger&nbsp;: elle doit expliquer l’usage des données envoyées par les formulaires (contact, envoi d’info, lettre d’info).</p>
+        <p style="margin-top:8px">Conditions d’utilisation&nbsp;: à rédiger.</p>
+      </div>
+      <div class="lettre">
+        <div class="trame" data-trame style="aspect-ratio:16/9;margin-bottom:6px"><img src="img/grok/commun-journal-plie-16x9-480.webp" srcset="img/grok/commun-journal-plie-16x9-480.webp 480w, img/grok/commun-journal-plie-16x9-960.webp 960w" sizes="(min-width: 900px) 22vw, 100vw" alt="Journal plié et tasse de café sur une table de café" loading="lazy" width="1168" height="784"><span class="mention-ia">Illustration IA</span></div>
+        <h2>La lettre de Castel Actu</h2>
+        <p>L’essentiel du Pays de Châteaubriant dans votre boîte mail.</p>
+        <form class="lettre__form" data-lettre novalidate>
+          <label class="sr" for="lettre-email">Votre adresse e-mail</label>
+          <div class="lettre__ligne"><input id="lettre-email" type="email" placeholder="votre@adresse.fr" autocomplete="email" required><button type="submit">S’inscrire</button></div>
+          <p class="lettre__msg" data-lettre-msg aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div class="pied__bas">
+      <span>© 2016-2026 Castel Actu. Tous droits de reproduction interdits.</span>
+      <span>Maquette de travail, non référencée.</span>
+      <a class="lien" href="#contenu" data-haut>Haut de page</a>
+      <span class="pied__calme"><button class="icone-btn" type="button" data-calme aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span></button>Mode calme</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/Flip.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script type="module" src="assets/js/actu.js?v=4"></script>
+</body>
+</html>
