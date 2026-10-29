@@ -1,6 +1,6 @@
 // Castel Actu — fiche article (gabarit : article.html#identifiant)
-import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis } from './app.js?v=2';
-import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=2';
+import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis, rideau } from './app.js?v=3';
+import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=3';
 
 const g = window.gsap;
 const ST = window.ScrollTrigger;
@@ -37,7 +37,8 @@ function miniPlan(a) {
 }
 
 let gl = null;
-async function rendre(id, premier = false) {
+// Remplit la fiche (synchrone : rien ne s'affiche avant que le bon article soit en place)
+function remplir(id) {
   const a = ARTICLES.find(x => x.id === id) || ARTICLES.find(x => x.id === 'central-8');
   document.title = `${a.titre} | Castel Actu`;
   $('[data-ariane-rub]').textContent = rubrique(a.rubrique).nom;
@@ -86,27 +87,19 @@ async function rendre(id, premier = false) {
   }).join('');
 
   trames(document); tampons(document);
-  const [inst] = await tramesGL([vis]);
-  gl = inst || null;
-  if (gl && anime()) {
-    gl.progression(0);
-    const o = { v: 0 };
-    g.to(o, { v: 1, duration: 1.8, delay: premier ? .7 : .2, ease: 'power2.inOut', onUpdate: () => gl?.progression(o.v) });
-  } else if (gl) gl.progression(1);
-
-  if (!premier && anime()) {
-    g.fromTo('.article-tete .wrap > *', { y: 24, opacity: 0 }, { y: 0, opacity: 1, stagger: .06, duration: .6, ease: 'power3.out' });
-  }
   ST?.refresh();
+  return vis;
 }
 
-function intro() {
-  if (!anime()) return;
-  const tl = g.timeline({ defaults: { ease: 'power3.out' } });
-  tl.from('.fil-ariane, [data-a-meta]', { y: -12, opacity: 0, duration: .5, stagger: .06 })
-    .from('[data-a-titre]', { yPercent: 30, opacity: 0, rotateX: -40, transformOrigin: '50% 0', transformPerspective: 900, duration: 1, ease: 'power4.out' }, .05)
-    .from('[data-a-chapo], [data-a-statut]', { y: 20, opacity: 0, duration: .7, stagger: .08 }, .25)
-    .from('.article-visuel figure', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'power4.inOut' }, .2);
+// La photo sort de presse : trame d'impression, puis la couleur
+async function imprimer(vis, delai) {
+  const [inst] = await tramesGL([vis]);
+  gl = inst || null;
+  if (!gl) return;
+  if (!anime()) { gl.progression(1); return; }
+  gl.progression(0);
+  const o = { v: 0 };
+  g.to(o, { v: 1, duration: 1.8, delay: delai, ease: 'power2.inOut', onUpdate: () => gl?.progression(o.v) });
 }
 
 function progression() {
@@ -130,21 +123,32 @@ function partage() {
 }
 
 const id = () => decodeURIComponent(location.hash.slice(1)) || 'central-8';
-rendre(id(), true).then(() => { intro(); });
+const premierVisuel = remplir(id());
+document.body.classList.add('pret');
 demarrer();
 progression();
 partage();
+imprimer(premierVisuel, document.documentElement.classList.contains('tourne-entree') ? .75 : .55);
 
-// Les liens « À lire aussi » restent sur la même page : on change d'article
+// Changer d'article sous le rideau : la page tourne, le nouvel article est déjà en haut
+function enHaut() { if (lenis) lenis.scrollTo(0, { immediate: true, force: true }); else window.scrollTo(0, 0); }
+let courant = id();
+function changer(cible, pousser) {
+  if (cible === courant) return;
+  courant = cible;
+  let vis;
+  rideau(() => {
+    gl?.detruire(); gl = null;
+    if (pousser) history.pushState(null, '', `#${cible}`);
+    vis = remplir(cible);
+    enHaut();
+  }).then(() => { if (vis) imprimer(vis, .1); });
+}
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="article.html#"]');
-  if (!a || e.metaKey || e.ctrlKey) return;
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
   e.preventDefault();
-  const cible = a.getAttribute('href').split('#')[1];
-  history.pushState(null, '', `#${cible}`);
-  enHaut();
-  rendre(cible);
+  changer(a.getAttribute('href').split('#')[1], true);
 }, true);
-function enHaut() { if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0); }
-window.addEventListener('hashchange', () => { rendre(id()); enHaut(); });
-window.addEventListener('popstate', () => { rendre(id()); });
+window.addEventListener('popstate', () => changer(id(), false));
+window.addEventListener('hashchange', () => changer(id(), false));

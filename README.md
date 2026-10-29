@@ -1,10 +1,27 @@
-# Castel Actu — maquette v2
+# Castel Actu — maquette v3
 
 Maquette du futur site de Castel Actu, média local, indépendant et associatif du Pays de Châteaubriant.
 Site statique (HTML, CSS, JavaScript), sans étape de construction, prêt pour Vercel.
 
 Direction artistique « Rotative » : papier journal, deux encres tirées du logo (bleu Castel, rouge alerte),
 trame d'impression sur les photos, titres Archivo à largeur variable, textes Newsreader.
+
+## Nouveautés de la v3 (audit des effets et transitions)
+
+- Plus aucun éclair au chargement : ce qui est visible à l'ouverture est animé en CSS dès la première image
+  (la rotative, la Une, les entrées de l'article, le rideau d'arrivée). Le JavaScript prend le relais ensuite.
+- La rotative ne dépend plus du chargement du script : elle reste fluide même si la page charge lentement.
+- Changement de page : le rideau couvre la nouvelle page dès son premier affichage, puis s'efface.
+- Changement d'article (« À lire aussi ») : la page tourne et le nouvel article arrive en haut.
+- Lien direct vers une section (index.html#agenda, menu depuis une autre page) : corrige une erreur qui bloquait
+  les animations et l'arrivée au mauvais endroit.
+- Grands sauts dans la page (menu, en-tête) : passage sous le rideau au lieu d'un long défilement.
+- Filtres : les cartes ne disparaissent plus pour réapparaître une seconde fois.
+- Photos imprimées (WebGL) : plaque d'impression puis trame puis couleur, sans passage par une image pâle ;
+  le compte-fils ne suit plus le doigt pendant le défilement sur téléphone.
+- Titre du journal et du pied de page dimensionnés en CSS (plus de saut de taille au chargement).
+- Formulaire : feuillets qui glissent l'un sur l'autre sans trou, double clic sans effet.
+- Menu téléphone : volet qui se déroule et se referme. Filets des titres qui se tracent avec le titre.
 
 ## Nouveautés de la v2 (audit complet)
 
@@ -36,8 +53,8 @@ Tout le contenu dynamique est dans **`assets/js/data.js`** : articles, rubriques
 - Une échéance (`echeance.fin`) dépassée bascule seule en « Échéance passée ». Un événement terminé s'affiche « Terminé ».
 - Une image générée par IA doit garder `ia: true` (mention « Illustration IA », AI Act art. 50).
 
-Après toute modification de CSS ou JS, **augmenter le numéro `?v=N`** partout (pages HTML et `import` des modules),
-à l'identique, sinon les visiteurs gardent l'ancienne version.
+Après toute modification de CSS ou JS, **augmenter le numéro `?v=N`** partout (pages HTML, `modulepreload`,
+`import` des modules et `import('./halftone.js?v=N')`), à l'identique, sinon les visiteurs gardent l'ancienne version.
 
 ## Images
 

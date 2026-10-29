@@ -25,16 +25,41 @@
 <meta name="twitter:image" content="https://castelactu-maquette.vercel.app/og/og-accueil.jpg">
 <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/fonts.css?v=2">
-<link rel="stylesheet" href="assets/css/style.css?v=2">
-<link rel="modulepreload" href="assets/js/app.js?v=2">
-<link rel="modulepreload" href="assets/js/data.js?v=2">
+<link rel="stylesheet" href="assets/css/fonts.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="modulepreload" href="assets/js/accueil.js?v=3">
+<link rel="modulepreload" href="assets/js/app.js?v=3">
+<link rel="modulepreload" href="assets/js/data.js?v=3">
+<link rel="modulepreload" href="assets/js/halftone.js?v=3">
+<link rel="modulepreload" href="assets/vendor/ogl.min.mjs">
 <script>
 (function () {
   var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
-  try { if (localStorage.getItem('ca-calme') === '1') d.classList.add('calme'); } catch (e) {}
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('calme');
-  try { if (sessionStorage.getItem('ca-vu')) d.classList.add('deja-vu'); } catch (e) {}
+  var calme = false;
+  try { if (localStorage.getItem('ca-calme') === '1') calme = true; } catch (e) {}
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+  d.classList.add(calme ? 'calme' : 'entree');
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  try {
+    if (sessionStorage.getItem('ca-vu')) d.classList.add('deja-vu');
+    sessionStorage.setItem('ca-vu', '1');
+    if (sessionStorage.getItem('ca-tourne') === '1') { sessionStorage.removeItem('ca-tourne'); if (!calme) d.classList.add('tourne-entree'); }
+  } catch (e) {}
+  window.__dateJour = function () {
+    try {
+      var f = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }).format(new Date());
+      f = f.charAt(0).toUpperCase() + f.slice(1);
+      var els = document.querySelectorAll('[data-date-jour]');
+      for (var i = 0; i < els.length; i++) els[i].textContent = f;
+    } catch (e) {}
+  };
+  window.__horloge = function () {
+    try {
+      var h = new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Europe/Paris' }).format(new Date());
+      var els = document.querySelectorAll('[data-horloge]');
+      for (var i = 0; i < els.length; i++) els[i].textContent = h;
+    } catch (e) {}
+  };
 })();
 </script>
 </head>
@@ -45,10 +70,11 @@
   <div class="rotative__haut"></div><div class="rotative__bas"></div>
   <div class="rouleau rouleau--haut"><span class="rouleau__bandes"></span></div><div class="rouleau rouleau--bas"><span class="rouleau__bandes"></span></div>
   <div class="rotative__centre">
-    <div class="rotative__titre">Castel Actu</div>
+    <div class="rotative__titre"><span style="--i:0">C</span><span style="--i:1">a</span><span style="--i:2">s</span><span style="--i:3">t</span><span style="--i:4">e</span><span style="--i:5">l</span><span style="--i:6">&nbsp;</span><span style="--i:7">A</span><span style="--i:8">c</span><span style="--i:9">t</span><span style="--i:10">u</span></div>
     <p class="rotative__date"><span data-date-jour>Édition du jour</span><br><b>Pays de Châteaubriant</b></p>
   </div>
 </div>
+<script>__dateJour();</script>
 <div class="tourne" aria-hidden="true"><span class="tourne__marque">Castel Actu</span></div>
 <div class="curseur" aria-hidden="true"></div>
 
@@ -98,17 +124,20 @@
   <section class="une" id="une" aria-labelledby="titre-journal">
     <div class="wrap">
       <div class="une__bandeau">
-        <time data-date-jour>Édition du jour</time>
-        <span class="une__bandeau-milieu">Média local, indépendant et associatif</span>
-        <span>Depuis le 13 novembre 2016</span>
+        <time data-date-jour data-entree="haut">Édition du jour</time>
+        <span class="une__bandeau-milieu" data-entree="haut" style="--d:.04s">Média local, indépendant et associatif</span>
+        <span data-entree="haut" style="--d:.08s">Depuis le 13 novembre 2016</span>
       </div>
-      <h1 class="titre-journal" id="titre-journal" data-ajuste><span class="titre-journal__plaque" data-texte="Castel Actu"><span>Castel Actu</span></span></h1>
+      <script>__dateJour();</script>
+      <div class="titre-journal-boite">
+        <h1 class="titre-journal" id="titre-journal"><span class="titre-journal__plaque" data-texte="Castel Actu" data-entree="plaque"><span>Castel Actu</span></span></h1>
+      </div>
       <div class="une__sous">
-        <p class="une__accroche">L’info 24/24 du Pays de Châteaubriant.</p>
-        <p class="une__communes">Châteaubriant, Erbray, Soudan, Fercé, Rougé, Louisfert, Ruffigné, Villepot, Soulvache, Issé, Treffieux</p>
+        <p class="une__accroche" data-entree style="--d:.06s">L’info 24/24 du Pays de Châteaubriant.</p>
+        <p class="une__communes" data-entree style="--d:.1s">Châteaubriant, Erbray, Soudan, Fercé, Rougé, Louisfert, Ruffigné, Villepot, Soulvache, Issé, Treffieux</p>
       </div>
 
-      <div class="alerte-zone" id="alerte" aria-live="polite">
+      <div class="alerte-zone" id="alerte" aria-live="polite" data-entree style="--d:.12s">
         <div class="alerte-calme" data-alerte-calme>
           <strong>Pas d’alerte actuellement.</strong>
           <span class="petit">Route coupée, météo, coupure&nbsp;: les alertes s’affichent ici en premier.</span>
@@ -122,34 +151,38 @@
       </div>
 
       <article class="une__grille">
-        <a class="une__visuel" href="article.html#central-8" aria-label="Lire&nbsp;: Central 8, nouveau complexe de loisirs">
+        <a class="une__visuel" href="article.html#central-8" aria-label="Lire&nbsp;: Central 8, nouveau complexe de loisirs" data-entree="clip" style="--d:.02s">
           <div class="trame trame--contain" data-gl data-trame data-cadrage="contain" data-fond="#000000" style="--fond:#000000">
             <img src="img/articles/central-8-960.webp" srcset="img/articles/central-8-480.webp 480w, img/articles/central-8-960.webp 960w, img/articles/central-8-1600.webp 1600w" sizes="(min-width: 900px) 58vw, 100vw" width="785" height="550" alt="Logo de Central 8, lettres blanches sur fond bordeaux" fetchpriority="high">
             <span class="mention-credit">Logo&nbsp;: Central 8</span>
           </div>
         </a>
         <div class="une__texte">
-          <div class="meta"><span class="rub">Loisirs</span><span class="commune">Châteaubriant</span><span class="date-a-completer">Date de publication à compléter</span></div>
-          <h2><a href="article.html#central-8">Central 8, nouveau complexe de loisirs</a></h2>
-          <p class="chapo">Bowling, laser, trampoline et arcade&nbsp;: Central 8 s’installe au 10 avenue Jean Moulin. Ouverture annoncée au printemps 2026.</p>
-          <div class="une__statut" data-statut="central-8">
-            <span class="tampon" data-tampon>Ouverture annoncée</span>
-            <p>Ouverture annoncée pour le printemps 2026.</p>
+          <div class="meta" data-entree style="--d:.1s"><span class="rub">Loisirs</span><span class="commune">Châteaubriant</span><span class="date-a-completer">Date de publication à compléter</span></div>
+          <h2 data-entree style="--d:.14s"><a href="article.html#central-8">Central 8, nouveau complexe de loisirs</a></h2>
+          <p class="chapo" data-entree style="--d:.18s">Bowling, laser, trampoline et arcade&nbsp;: Central 8 s’installe au 10 avenue Jean Moulin. Ouverture annoncée au printemps 2026.</p>
+          <div class="une__statut" data-statut="central-8" data-entree style="--d:.22s">
+            <span class="tampon tampon--passe" data-entree="tampon" style="--d:.5s">Échéance passée</span>
+            <p>Ouverture annoncée pour le printemps 2026&nbsp;: échéance passée, statut à vérifier.</p>
           </div>
-          <p class="vues"><strong data-odo="103295">103 295</strong> vues sur Facebook</p>
-          <div class="une__liens">
+          <p class="vues" data-entree style="--d:.26s"><strong data-odo="103295">103 295</strong> vues sur Facebook</p>
+          <div class="une__liens" data-entree style="--d:.3s">
             <a class="btn" href="article.html#central-8" data-magnet>Lire l’article</a>
             <a class="lien lien--externe" href="https://www.facebook.com/CastelActu/posts/pfbid02wukghx9Uchhcfv1aoY7bbJCfAcV26KhjLkPYjTVsjXaYQ6a8dFZqeTxvCL6J2LJWl" target="_blank" rel="noopener">La publication Facebook</a>
           </div>
         </div>
       </article>
       <div class="une__aussi" data-une-aussi>
-        <h3>À la une aussi</h3>
+        <h3 data-entree style="--d:.3s">À la une aussi</h3>
+        <a href="article.html#le-smash" data-entree style="--d:.34s"><div class="trame" data-trame><img src="img/articles/le-smash-480.webp" srcset="img/articles/le-smash-480.webp 480w, img/articles/le-smash-960.webp 960w" sizes="120px" alt="" decoding="async"></div><span>Le Smas’h, complexe sportif en construction</span></a>
+        <a href="article.html#credit-mutuel" data-entree style="--d:.38s"><div class="trame" data-trame><img src="img/articles/credit-mutuel-480.webp" srcset="img/articles/credit-mutuel-480.webp 480w, img/articles/credit-mutuel-960.webp 960w" sizes="120px" alt="" decoding="async"></div><span>Le nouveau Crédit Mutuel prend forme zone Horizon</span></a>
+        <a href="article.html#bijouterie-camille" data-entree style="--d:.42s"><div class="trame" data-trame><img src="img/articles/bijouterie-camille-480.webp" srcset="img/articles/bijouterie-camille-480.webp 480w, img/articles/bijouterie-camille-960.webp 960w" sizes="120px" alt="" decoding="async"></div><span>La Bijouterie de Camille a ouvert zone Horizon</span></a>
       </div>
     </div>
-    <div class="ticker" aria-hidden="true">
+    <div class="ticker" aria-hidden="true" data-entree="bas" style="--d:.36s">
       <span class="ticker__label"><span class="direct-point" aria-hidden="true"></span>En continu</span>
       <time class="ticker__heure" data-horloge>--:--:--</time>
+      <script>__horloge();</script>
       <div class="ticker__piste"><ul data-ticker></ul></div>
     </div>
   </section>
@@ -374,7 +407,7 @@
 
 <footer class="pied">
   <div class="wrap">
-    <p class="pied__titre" aria-hidden="true" data-pied-titre data-ajuste><span class="pied__mesure">Castel Actu</span></p>
+    <div class="pied__titre-boite"><p class="pied__titre" aria-hidden="true" data-pied-titre><span class="pied__mesure">Castel Actu</span></p></div>
     <div class="pied__grille">
       <div>
         <h2>Contact</h2>
@@ -415,6 +448,6 @@
 <script src="assets/vendor/SplitText.min.js"></script>
 <script src="assets/vendor/Flip.min.js"></script>
 <script src="assets/vendor/lenis.min.js"></script>
-<script type="module" src="assets/js/accueil.js?v=2"></script>
+<script type="module" src="assets/js/accueil.js?v=3"></script>
 </body>
 </html>

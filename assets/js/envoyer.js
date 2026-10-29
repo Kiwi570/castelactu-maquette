@@ -1,6 +1,6 @@
 // Castel Actu — formulaire « Envoyer une info » (simulé : rien n'est envoyé)
-import { demarrer, anime, defilerVers, echap, dateDuJour, trames } from './app.js?v=2';
-import { RUBRIQUES, COMMUNES } from './data.js?v=2';
+import { demarrer, anime, defilerVers, echap, dateDuJour, trames } from './app.js?v=3';
+import { RUBRIQUES, COMMUNES } from './data.js?v=3';
 
 const g = window.gsap;
 const $ = (s, r = document) => r.querySelector(s);
@@ -69,19 +69,45 @@ function valider(i) {
   return erreur(et, '');
 }
 
+let enTransition = false;
+// on ne fait défiler que si le haut du formulaire est hors de vue
+function recadrer() {
+  const ind = $('[data-etapes]');
+  const r = ind.getBoundingClientRect();
+  const h = document.querySelector('.entete')?.getBoundingClientRect().height || 64;
+  if (r.top < h + 8 || r.top > window.innerHeight * .45) defilerVers(ind);
+}
 function aller(n) {
+  if (enTransition || n === courante || n < 0 || n >= etapes.length) return;
   const avant = etapes[courante], apres = etapes[n];
   const sens = n > courante ? 1 : -1;
   courante = n;
   indic.forEach((li, i) => { li.classList.toggle('fait', i < n); li.classList.toggle('courant', i === n); if (i === n) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current'); });
-  const montrer = () => {
-    avant.hidden = true; apres.hidden = false;
-    if (anime()) g.fromTo(apres, { xPercent: 8 * sens, rotate: 1.2 * sens, opacity: 0 }, { xPercent: 0, rotate: 0, opacity: 1, duration: .5, ease: 'power3.out' });
-    apres.querySelector('input, select, textarea, button')?.focus({ preventScroll: true });
-    defilerVers('[data-etapes]');
-  };
-  if (anime()) g.to(avant, { xPercent: -10 * sens, rotate: -2 * sens, opacity: 0, duration: .3, ease: 'power2.in', onComplete: montrer });
-  else montrer();
+  const focus = () => apres.querySelector('input:not([type="hidden"]), select, textarea, button')?.focus({ preventScroll: true });
+  if (!anime()) { avant.hidden = true; apres.hidden = false; focus(); recadrer(); return; }
+  enTransition = true;
+  // le feuillet suivant glisse par-dessus le précédent : pas de trou, pas de saut de page
+  form.style.minHeight = `${avant.offsetHeight}px`;
+  form.classList.add('en-cours');
+  apres.hidden = false;
+  g.set(apres, { position: 'absolute', top: 0, left: 0, right: 0 });
+  g.to(form, { minHeight: apres.offsetHeight, duration: .5, ease: 'power3.inOut' });
+  g.fromTo(apres, { xPercent: 12 * sens, rotate: 1.2 * sens, opacity: 0 }, { xPercent: 0, rotate: 0, opacity: 1, duration: .5, ease: 'power3.out' });
+  g.to(avant, {
+    xPercent: -8 * sens, rotate: -1.5 * sens, opacity: 0, duration: .3, ease: 'power2.in',
+    onComplete: () => {
+      avant.hidden = true;
+      g.set(avant, { clearProps: 'all' });
+    },
+  });
+  g.delayedCall(.52, () => {
+    g.set(apres, { clearProps: 'position,top,left,right' });
+    form.style.minHeight = '';
+    form.classList.remove('en-cours');
+    enTransition = false;
+    focus();
+    recadrer();
+  });
 }
 
 form.addEventListener('click', e => {
@@ -128,7 +154,7 @@ form.addEventListener('submit', e => {
 });
 
 $('[data-recommencer]').addEventListener('click', () => {
-  form.reset(); fichiers = []; apercus.innerHTML = ''; cpt.textContent = '0 / 2000';
+  form.reset(); fichiers = []; apercus.innerHTML = ''; cpt.textContent = '0 / 2000'; enTransition = false;
   resultat.hidden = true; form.hidden = false; $('[data-etapes]').hidden = false;
   etapes.forEach((et, i) => { et.hidden = i !== 0; g?.set(et, { clearProps: 'all' }); });
   courante = 0; indic.forEach((li, i) => { li.classList.toggle('fait', false); li.classList.toggle('courant', i === 0); });

@@ -25,15 +25,22 @@
 <meta name="twitter:image" content="https://castelactu-maquette.vercel.app/og/og-accueil.jpg">
 <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/fonts.css?v=2">
-<link rel="stylesheet" href="/assets/css/style.css?v=2">
-<link rel="modulepreload" href="/assets/js/app.js?v=2">
-<link rel="modulepreload" href="/assets/js/data.js?v=2">
+<link rel="stylesheet" href="/assets/css/fonts.css?v=3">
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<link rel="modulepreload" href="/assets/js/page.js?v=3">
+<link rel="modulepreload" href="/assets/js/app.js?v=3">
+<link rel="modulepreload" href="/assets/js/data.js?v=3">
 <script>
 (function () {
   var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
-  try { if (localStorage.getItem('ca-calme') === '1') d.classList.add('calme'); } catch (e) {}
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('calme');
+  var calme = false;
+  try { if (localStorage.getItem('ca-calme') === '1') calme = true; } catch (e) {}
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+  d.classList.add(calme ? 'calme' : 'entree');
+  try {
+    sessionStorage.setItem('ca-vu', '1');
+    if (sessionStorage.getItem('ca-tourne') === '1') { sessionStorage.removeItem('ca-tourne'); if (!calme) d.classList.add('tourne-entree'); }
+  } catch (e) {}
 })();
 </script>
 </head>
@@ -87,9 +94,9 @@
   <section class="page-404" aria-labelledby="titre-404">
     <div class="page-404__fond" aria-hidden="true"><img src="/img/grok/404-journal-froisse-16x9-1600.webp" srcset="/img/grok/404-journal-froisse-16x9-960.webp 960w, /img/grok/404-journal-froisse-16x9-1600.webp 1600w" sizes="100vw" alt="" width="1168" height="784"></div>
     <div class="wrap">
-      <h1 id="titre-404"><span class="titre-journal__plaque" data-texte="404"><span>404</span></span></h1>
-      <p>Cette page n’est pas sortie des presses. Elle a peut-être changé d’adresse.</p>
-      <div class="une__liens">
+      <h1 id="titre-404"><span class="titre-journal__plaque" data-texte="404" data-entree="plaque"><span>404</span></span></h1>
+      <p data-entree style="--d:.12s">Cette page n’est pas sortie des presses. Elle a peut-être changé d’adresse.</p>
+      <div class="une__liens" data-entree style="--d:.2s">
         <a class="btn" href="/index.html" data-magnet>Revenir à la Une</a>
         <a class="btn btn--creux" href="/index.html#actu">Voir toute l’actu</a>
         <a class="lien" href="/envoyer-une-info.html">Envoyer une info</a>
@@ -101,7 +108,7 @@
 
 <footer class="pied">
   <div class="wrap">
-    <p class="pied__titre" aria-hidden="true" data-pied-titre data-ajuste><span class="pied__mesure">Castel Actu</span></p>
+    <div class="pied__titre-boite"><p class="pied__titre" aria-hidden="true" data-pied-titre><span class="pied__mesure">Castel Actu</span></p></div>
     <div class="pied__grille">
       <div>
         <h2>Contact</h2>
@@ -142,6 +149,6 @@
 <script src="/assets/vendor/SplitText.min.js"></script>
 <script src="/assets/vendor/Flip.min.js"></script>
 <script src="/assets/vendor/lenis.min.js"></script>
-<script type="module" src="/assets/js/page.js?v=2"></script>
+<script type="module" src="/assets/js/page.js?v=3"></script>
 </body>
 </html>

@@ -125,7 +125,11 @@ export function monter(el, { progression = 0, contain = false, fond = null } = {
     uniforms.uHover.value += (survolCible - h) * 0.14;
     uniforms.uProgress.value += (progressionCible - p) * 0.18;
     const enMouvement = Math.abs(survolCible - uniforms.uHover.value) > 0.002 || Math.abs(progressionCible - uniforms.uProgress.value) > 0.002;
-    if (sale || enMouvement) { renderer.render({ scene: mesh }); sale = false; }
+    if (sale || enMouvement) {
+      renderer.render({ scene: mesh }); sale = false;
+      // première image dessinée : la plaque s'efface sous l'impression
+      if (!el.classList.contains('gl')) { void canvas.offsetWidth; el.classList.add('gl'); }
+    }
     if (enMouvement) raf = requestAnimationFrame(rendu);
   }
   function boucle() { if (!raf && visible && pret) raf = requestAnimationFrame(rendu); }
@@ -136,7 +140,6 @@ export function monter(el, { progression = 0, contain = false, fond = null } = {
     texture.image = image;
     uniforms.uImg.value = [image.naturalWidth, image.naturalHeight];
     el.appendChild(canvas);
-    el.classList.add('gl');
     pret = true; taille();
   };
   image.onerror = () => { el.classList.add('encree'); };
@@ -152,15 +155,13 @@ export function monter(el, { progression = 0, contain = false, fond = null } = {
     uniforms.uMouse.value = [(x - r.left) * renderer.dpr, (r.height - (y - r.top)) * renderer.dpr];
     sale = true; boucle();
   }
-  el.addEventListener('pointermove', e => { survolCible = 1; bouger(e.clientX, e.clientY); });
+  // compte-fils à la souris seulement : au doigt, il suivrait le défilement de la page
+  el.addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; survolCible = 1; bouger(e.clientX, e.clientY); });
   el.addEventListener('pointerleave', () => { survolCible = 0; boucle(); });
-  el.addEventListener('touchstart', e => { survolCible = 1; const t = e.touches[0]; bouger(t.clientX, t.clientY); }, { passive: true });
-  el.addEventListener('touchmove', e => { const t = e.touches[0]; bouger(t.clientX, t.clientY); }, { passive: true });
-  el.addEventListener('touchend', () => { survolCible = 0; boucle(); }, { passive: true });
 
   return {
     el,
     progression(v) { progressionCible = Math.max(0, Math.min(1, v)); boucle(); },
-    detruire() { ro.disconnect(); io.disconnect(); cancelAnimationFrame(raf); canvas.remove(); el.classList.remove('gl'); },
+    detruire() { ro.disconnect(); io.disconnect(); cancelAnimationFrame(raf); canvas.remove(); el.classList.remove('gl'); renderer.gl.getExtension('WEBGL_lose_context')?.loseContext(); },
   };
 }

@@ -1,6 +1,6 @@
 // Castel Actu — page d'accueil
-import { demarrer, anime, calme, pointeurFin, estMobile, defilerVers, odometre, trames, tampons, aimants, imageHTML, echap, tramesGL, hauteurEntete, lenis } from './app.js?v=2';
-import { ARTICLES, AUDIENCE, COMMUNES, RUBRIQUES, AGENDA, PODCASTS, ALERTE, rubrique, commune, echeancePassee, nombre } from './data.js?v=2';
+import { demarrer, anime, pointeurFin, estMobile, defilerVers, odometre, trames, tampons, imageHTML, echap, tramesGL, hauteurEntete, ancreInitiale } from './app.js?v=3';
+import { ARTICLES, AUDIENCE, COMMUNES, RUBRIQUES, AGENDA, PODCASTS, ALERTE, rubrique, commune, echeancePassee, nombre } from './data.js?v=3';
 
 const g = window.gsap;
 const ST = window.ScrollTrigger;
@@ -29,29 +29,26 @@ function mentionImage(a) {
 const lienArticle = a => `article.html#${a.id}`;
 const nomsCommunes = a => a.communes.map(c => commune(c).nom).join(', ');
 
-/* ---------- Ouverture : la rotative ---------- */
+/* ---------- Ouverture : la rotative ----------
+   Elle est entièrement animée en CSS (aucune dépendance au chargement du script).
+   Ici, on se cale seulement sur l'ouverture des volets pour lancer la suite. */
+const OUVERTURE_VOLETS = 1340; // ms, identique au CSS
 function ouverture() {
   const r = $('.rotative');
-  if (!r || !g || getComputedStyle(r).display === 'none') return Promise.resolve(false);
-  try { sessionStorage.setItem('ca-vu', '1'); } catch (e) {}
-  const titre = $('.rotative__titre', r);
-  titre.innerHTML = [...titre.textContent].map(c => `<span>${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+  if (!r || getComputedStyle(r).display === 'none') return Promise.resolve(false);
+  const retirer = () => { r.remove(); window.__ouvertureFin = performance.now(); };
+  r.addEventListener('animationend', e => { if (e.target === r && e.animationName === 'rotative-fin') retirer(); });
+  setTimeout(retirer, 2600);
   return new Promise(resolve => {
-    const tl = g.timeline({ defaults: { ease: 'power3.out' }, onComplete: () => { r.remove(); window.__ouvertureFin = performance.now(); } });
-    tl.to('.rouleau__bandes', { x: -432, duration: 1.6, ease: 'power2.inOut' }, 0)
-      .from('.rouleau--haut', { yPercent: -120, duration: .5 }, 0)
-      .from('.rouleau--bas', { yPercent: 120, duration: .5 }, 0)
-      .from(titre.children, { yPercent: 60, scaleY: 1.6, opacity: 0, transformOrigin: '50% 100%', stagger: .035, duration: .45 }, .1)
-      .from(titre, { scaleX: .55, duration: .9, ease: 'power4.out' }, .1)
-      .from('.rotative__date', { opacity: 0, y: 14, duration: .3 }, .65)
-      .from('.rotative__date b', { scale: 2.4, rotate: -14, opacity: 0, duration: .3, ease: 'back.out(2.2)' }, .82)
-      .to('.rouleau--haut', { yPercent: -320, duration: .5, ease: 'power3.in' }, 1.18)
-      .to('.rouleau--bas', { yPercent: 320, duration: .5, ease: 'power3.in' }, 1.18)
-      .to('.rotative__centre', { yPercent: -24, opacity: 0, duration: .4, ease: 'power3.in' }, 1.22)
-      .set(r, { backgroundColor: 'transparent' }, 1.34)
-      .to('.rotative__haut', { yPercent: -101, duration: .55, ease: 'power4.inOut' }, 1.34)
-      .to('.rotative__bas', { yPercent: 101, duration: .55, ease: 'power4.inOut' }, 1.34)
-      .add(() => resolve(true), 1.24);
+    const volet = $('.rotative__haut', r);
+    const a = volet.getAnimations ? volet.getAnimations()[0] : null;
+    if (a && a.currentTime != null) {
+      const reste = OUVERTURE_VOLETS - a.currentTime;
+      setTimeout(() => resolve(true), Math.max(0, reste));
+    } else {
+      volet.addEventListener('animationstart', () => resolve(true), { once: true });
+      setTimeout(() => resolve(true), 1600);
+    }
   });
 }
 
@@ -60,19 +57,13 @@ function une() {
   const a = ARTICLES.find(x => x.une);
   const statut = $('[data-statut]');
   if (statut && a) {
+    // le statut est déjà écrit dans la page ; on ne le réécrit que s'il a changé depuis
     const t = tamponDe(a);
-    const tp = $('[data-tampon]', statut);
-    if (t) { tp.textContent = t.texte; tp.className = `tampon ${t.classe}`; }
-    $('p', statut).textContent = phraseEcheance(a);
+    const tp = $('.tampon', statut), ph = $('p', statut);
+    if (t && tp.textContent !== t.texte) { tp.textContent = t.texte; tp.className = `tampon ${t.classe}`; }
+    const phrase = phraseEcheance(a);
+    if (ph.textContent !== phrase) ph.textContent = phrase;
   }
-  const odo = $('[data-odo]');
-  if (odo) odometre(odo, { valeur: +odo.dataset.odo });
-
-  const aussi = $('[data-une-aussi]');
-  ['le-smash', 'credit-mutuel', 'bijouterie-camille'].map(id => ARTICLES.find(x => x.id === id)).filter(Boolean).forEach(x => {
-    aussi.insertAdjacentHTML('beforeend', `<a href="${lienArticle(x)}"><div class="trame" data-trame>${imageHTML(x.image, { alt: '', sizes: '120px', largeur: 480 })}</div><span>${echap(x.titre)}</span></a>`);
-  });
-
   // défilant
   const ul = $('[data-ticker]');
   const items = ARTICLES.map(x => `<li><a href="${lienArticle(x)}" tabindex="-1">${echap(x.titre)}</a></li>`).join('');
@@ -109,21 +100,12 @@ function une() {
   });
 }
 
-function animationsUne(apresOuverture) {
+/* Le titre du journal se resserre au défilement, les plaques couleur se décalent */
+function defilementUne() {
   if (!anime()) return;
   const plaque = $('.titre-journal__plaque');
-  const tl = g.timeline({ defaults: { ease: 'power3.out' }, onComplete: () => { window.__uneFin = performance.now(); } });
-  tl.fromTo(plaque, { '--rx': '14px', '--ry': '-9px' }, { '--rx': '0px', '--ry': '0px', duration: .8, ease: 'power4.out' }, 0)
-    .from('.une__bandeau > *', { y: -14, opacity: 0, stagger: .04, duration: .35 }, 0)
-    .from('.une__sous > *', { y: 16, opacity: 0, stagger: .05, duration: .4 }, .06)
-    .from('.une__texte > *', { y: 24, opacity: 0, stagger: .035, duration: .4 }, .08)
-    .from('.une__visuel', { clipPath: 'inset(0 0 100% 0)', duration: .7, ease: 'power4.inOut' }, 0)
-    .from('.une__aussi > *', { y: 20, opacity: 0, stagger: .05, duration: .4 }, .2)
-    .from('.ticker', { yPercent: 100, opacity: 0, duration: .4 }, .3);
-
-  // le titre du journal se resserre au défilement, les plaques se décalent
   g.to('.titre-journal', { fontStretch: '92%', ease: 'none', scrollTrigger: { trigger: '.une', start: 'top top', end: 'bottom top', scrub: true } });
-  g.to(plaque, { '--rx': '6px', '--ry': '3px', ease: 'none', scrollTrigger: { trigger: '.une', start: 'top top', end: 'bottom top', scrub: true } });
+  g.fromTo(plaque, { '--rx': '0px', '--ry': '0px' }, { '--rx': '6px', '--ry': '3px', ease: 'none', scrollTrigger: { trigger: '.une', start: 'top top', end: 'bottom top', scrub: true } });
 }
 
 /* ---------- Audience ---------- */
@@ -198,17 +180,30 @@ function fil() {
   appliquer(true);
   inclinaison(box);
   if (anime()) {
-    ST.batch('.carte', {
-      start: 'top 92%', once: true,
-      onEnter: lot => g.from(lot, { rotateX: -62, y: 40, opacity: 0, transformOrigin: '50% 0%', transformPerspective: 900, duration: 1, ease: 'power3.out', stagger: .08, clearProps: 'transform,opacity' }),
+    // état de départ posé dans la même tâche que la création des cartes : rien ne s'affiche avant
+    const cartes = $$('.carte', box);
+    g.set(cartes, { opacity: 0, y: 40, rotateX: -62, transformOrigin: '50% 0%', transformPerspective: 900 });
+    ST.batch(cartes, {
+      start: 'top 94%', once: true,
+      onEnter: lot => reveler(lot.filter(c => !c.dataset.revele), true),
     });
   }
   trames(box); tampons(box);
 }
 
+// Fait apparaître des cartes une seule fois (au défilement, ou tout de suite après un filtre)
+function reveler(cartes, anim) {
+  if (!cartes.length) return;
+  cartes.forEach(c => { c.dataset.revele = '1'; });
+  if (anim && anime()) g.to(cartes, { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'power3.out', stagger: .08, overwrite: true, clearProps: 'transform,opacity' });
+  else g?.set(cartes, { clearProps: 'transform,opacity' });
+}
+
 function appliquer(initial = false) {
   const box = $('[data-fil]');
   const cartes = $$('.carte', box);
+  // après un filtre, plus aucune carte n'attend son apparition : on les montre avant de les déplacer
+  if (!initial) reveler(cartes.filter(c => !c.dataset.revele), false);
   const etatFlip = (!initial && anime() && window.Flip) ? window.Flip.getState(cartes) : null;
   let visibles = 0;
   cartes.forEach(c => {
@@ -270,7 +265,7 @@ function inclinaison(box) {
 function filtrerCommune(id) {
   etat.commune = etat.commune === id ? '' : id;
   appliquer();
-  defilerVers('#actu');
+  defilerVers('#recherche');
 }
 
 /* ---------- Carte des 11 communes ---------- */
@@ -456,8 +451,17 @@ function chantiers() {
     });
   }
   installer();
-  let largeur = window.innerWidth;
-  window.addEventListener('resize', () => { if (Math.abs(window.innerWidth - largeur) > 40) { largeur = window.innerWidth; installer(); ST.refresh(); } });
+  // les images de la galerie se chargent avant d'arriver à l'écran (elles sont décalées hors champ)
+  ST.create({ trigger: sec, start: 'top bottom+=900', once: true, onEnter: () => $$('img[loading="lazy"]', piste).forEach(i => { i.loading = 'eager'; }) });
+  let largeur = window.innerWidth, hauteur = window.innerHeight, tempo;
+  window.addEventListener('resize', () => {
+    clearTimeout(tempo);
+    tempo = setTimeout(() => {
+      if (Math.abs(window.innerWidth - largeur) > 40 || Math.abs(window.innerHeight - hauteur) > 80) {
+        largeur = window.innerWidth; hauteur = window.innerHeight; installer(); ST.refresh();
+      }
+    }, 150);
+  });
 }
 
 /* ---------- Les plus lus ---------- */
@@ -552,19 +556,24 @@ function agenda() {
 
 /* ---------- Démarrage ---------- */
 function lancer() {
+  // le navigateur a pu sauter à l'ancre avant le script : on construit depuis le haut, puis on y retourne
+  if (window.scrollY) window.scrollTo(0, 0);
   une();
   audience();
   fil();
   plan();
-  chantiers();
   plusLus();
   podcasts();
   agenda();
   demarrer();
   rechercheEntete();
-  aimants();
-
+  defilementUne();
+  // la galerie épinglée est créée en dernier : les déclencheurs placés avant elle sont déjà en place
+  chantiers();
+  ST?.sort?.();
   ST?.refresh();
+  ancreInitiale();
+  document.fonts?.ready.then(() => ST?.refresh());
 }
 
 async function monterGL() {
@@ -585,10 +594,15 @@ function rechercheEntete() {
   if (location.hash === '#recherche') setTimeout(aller, 500);
 }
 
+const premiereVisite = !document.documentElement.classList.contains('deja-vu') && anime();
+// le compteur de la Une tourne après l'ouverture ; aux visites suivantes il est déjà en place
+const odoUne = $('[data-odo]');
+const jouerOdoUne = odoUne ? odometre(odoUne, { valeur: +odoUne.dataset.odo, manuel: true, immediat: !premiereVisite && !document.documentElement.classList.contains('entree') }) : () => {};
 const ouvertureEnCours = ouverture();
-lancer();
+// le gros de la construction attend que la première image soit affichée : l'ouverture démarre sans à-coup
+requestAnimationFrame(() => setTimeout(lancer, 0));
 ouvertureEnCours.then(apres => {
-  animationsUne(apres);
-  // la trame WebGL démarre après l'ouverture
-  setTimeout(monterGL, anime() ? 250 : 0);
+  // volets ouverts (ou visite suivante) : la Une s'imprime
+  setTimeout(jouerOdoUne, apres ? 380 : 260);
+  monterGL();
 });
