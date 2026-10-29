@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Envoyer une info à la rédaction | Castel Actu</title>
+<meta name="description" content="Une info, une photo, une vidéo du Pays de Châteaubriant ? Envoyez-la à la rédaction de Castel Actu.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#E7E4DB">
+<link rel="icon" type="image/png" sizes="64x64" href="img/logo/favicon-64.png">
+<link rel="apple-touch-icon" href="img/logo/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Castel Actu">
+<meta property="og:title" content="Envoyer une info à la rédaction | Castel Actu">
+<meta property="og:description" content="Une info, une photo, une vidéo du Pays de Châteaubriant ? Envoyez-la à la rédaction de Castel Actu.">
+<meta property="og:url" content="https://castelactu-maquette.vercel.app/envoyer-une-info">
+<meta property="og:image" content="https://castelactu-maquette.vercel.app/og/og-envoyer.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Envoyer une info à la rédaction de Castel Actu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Envoyer une info à la rédaction | Castel Actu">
+<meta name="twitter:description" content="Une info, une photo, une vidéo du Pays de Châteaubriant ? Envoyez-la à la rédaction de Castel Actu.">
+<meta name="twitter:image" content="https://castelactu-maquette.vercel.app/og/og-envoyer.jpg">
+<link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="assets/css/style.css?v=1">
+<link rel="modulepreload" href="assets/js/app.js?v=1">
+<link rel="modulepreload" href="assets/js/data.js?v=1">
+<script>
+(function () {
+  var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
+  try { if (localStorage.getItem('ca-calme') === '1') d.classList.add('calme'); } catch (e) {}
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('calme');
+})();
+</script>
+</head>
+<body data-page="envoyer">
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<div class="tourne" aria-hidden="true"><span class="tourne__marque">Castel Actu</span></div>
+<div class="curseur" aria-hidden="true"></div>
+
+<header class="entete">
+  <div class="entete__in">
+    <a class="logo" href="index.html" aria-label="Castel Actu, retour à l’accueil">
+      <img src="img/logo/castelactu-240.webp" srcset="img/logo/castelactu-240.webp 240w, img/logo/castelactu-480.webp 480w" sizes="90px" width="240" height="139" alt="Castel Actu">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html#actu">L’actu</a>
+      <a href="index.html#carte">Communes</a>
+      <a href="index.html#chantiers">Chantiers</a>
+      <a href="index.html#agenda">Agenda</a>
+      <a href="index.html#ecouter">Podcast</a>
+      <a href="index.html#qui">Qui sommes-nous</a>
+    </nav>
+    <div class="entete__actions">
+      <a class="etat-alerte" href="index.html#alerte" data-etat="calme"><span class="etat-alerte__point" aria-hidden="true"></span><span class="etat-alerte__txt">Pas d’alerte</span></a>
+      <button class="icone-btn" type="button" data-calme aria-pressed="false" title="Mode calme&nbsp;: réduire les animations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span>
+      </button>
+      <a class="btn btn--rouge" href="envoyer-une-info.html" data-magnet>Envoyer une info</a>
+      <button class="icone-btn burger" type="button" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h12"/></svg><span class="sr">Ouvrir le menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <button class="icone-btn menu__fermer" type="button" data-menu-fermer><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg><span class="sr">Fermer le menu</span></button>
+  <a href="index.html#actu">L’actu</a>
+  <a href="index.html#carte">Communes</a>
+  <a href="index.html#chantiers">Chantiers</a>
+  <a href="index.html#agenda">Agenda</a>
+  <a href="index.html#ecouter">Podcast</a>
+  <a href="index.html#qui">Qui sommes-nous</a>
+  <a class="btn btn--rouge" href="envoyer-une-info.html">Envoyer une info</a>
+  <div class="menu__calme"><button class="icone-btn" type="button" data-calme aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span></button><span>Mode calme</span></div>
+</div>
+
+<main id="contenu">
+  <section class="envoi-tete" aria-labelledby="titre-envoi">
+    <div class="envoi-tete__fond" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 640px)" srcset="img/grok/envoyer-hero-9x16-960.webp">
+        <img src="img/grok/envoyer-hero-16x9-1600.webp" srcset="img/grok/envoyer-hero-16x9-960.webp 960w, img/grok/envoyer-hero-16x9-1600.webp 1600w" sizes="100vw" alt="" fetchpriority="high" width="1168" height="784">
+      </picture>
+    </div>
+    <div class="wrap">
+      <h1 id="titre-envoi" data-split>Envoyer une info à la rédaction</h1>
+      <p>Particulier, association, commerce ou entreprise&nbsp;: partagez vos infos, photos ou vidéos et devenez acteur de l’actualité locale.</p>
+      <p class="urgence">Une urgence&nbsp;? <strong>Appelez d’abord le 112</strong> <span>(17 police, 18 pompiers, 15 Samu)</span></p>
+      <span class="mention-ia" style="position:static;justify-self:start">Illustration IA</span>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="wrap envoi">
+      <div>
+        <ol class="etapes" data-etapes aria-label="Étapes du formulaire">
+          <li class="courant"><span>Vous êtes</span></li>
+          <li><span>Le sujet</span></li>
+          <li><span>Votre info</span></li>
+          <li><span>Photos et vidéos</span></li>
+          <li><span>Vos coordonnées</span></li>
+        </ol>
+        <form class="formulaire" data-formulaire novalidate>
+          <div class="feuillet" data-etape="1">
+            <h2>Qui envoie cette info&nbsp;?</h2>
+            <fieldset>
+              <legend>Vous êtes</legend>
+              <div class="choix">
+                <label><input type="radio" name="profil" id="profil-particulier" value="Particulier" checked>Particulier</label>
+                <label><input type="radio" name="profil" id="profil-association" value="Association">Association</label>
+                <label><input type="radio" name="profil" id="profil-commerce" value="Commerce">Commerce</label>
+                <label><input type="radio" name="profil" id="profil-entreprise" value="Entreprise">Entreprise</label>
+              </div>
+            </fieldset>
+            <div class="navigation-etapes"><span></span><button class="btn" type="button" data-suivant>Continuer</button></div>
+          </div>
+
+          <div class="feuillet" data-etape="2" hidden>
+            <h2>De quoi s’agit-il&nbsp;?</h2>
+            <fieldset>
+              <legend>Rubrique</legend>
+              <div class="choix choix--petit" data-choix-rubrique></div>
+            </fieldset>
+            <label class="champ" for="envoi-commune">Commune concernée
+              <select id="envoi-commune" name="commune" data-choix-commune required></select>
+            </label>
+            <label class="champ" for="envoi-quand">Quand cela s’est-il passé&nbsp;? (facultatif)
+              <input id="envoi-quand" name="quand" type="datetime-local">
+            </label>
+            <p class="erreur" data-erreur hidden></p>
+            <div class="navigation-etapes"><button class="btn btn--creux" type="button" data-precedent>Retour</button><button class="btn" type="button" data-suivant>Continuer</button></div>
+          </div>
+
+          <div class="feuillet" data-etape="3" hidden>
+            <h2>Racontez-nous</h2>
+            <label class="champ" for="envoi-titre">Titre de votre info
+              <input id="envoi-titre" name="titre" type="text" maxlength="110" placeholder="Ex.&nbsp;: Un nouveau commerce ouvre en centre-ville" required>
+            </label>
+            <label class="champ" for="envoi-texte">Ce qui se passe
+              <textarea id="envoi-texte" name="texte" maxlength="2000" placeholder="Qui, quoi, où, quand&nbsp;? Donnez les détails utiles." required></textarea>
+            </label>
+            <span class="compteur-car" data-compteur-car>0 / 2000</span>
+            <label class="champ" for="envoi-lieu">Lieu précis (facultatif)
+              <input id="envoi-lieu" name="lieu" type="text" placeholder="Rue, quartier, lieu-dit">
+            </label>
+            <p class="erreur" data-erreur hidden></p>
+            <div class="navigation-etapes"><button class="btn btn--creux" type="button" data-precedent>Retour</button><button class="btn" type="button" data-suivant>Continuer</button></div>
+          </div>
+
+          <div class="feuillet" data-etape="4" hidden>
+            <h2>Photos et vidéos</h2>
+            <label class="depot" for="envoi-fichiers" data-depot>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg>
+              <strong>Ajoutez vos photos ou vidéos</strong>
+              <span class="petit">Glissez-les ici ou touchez pour choisir. 10 fichiers au plus. Rien n’est envoyé dans cette maquette.</span>
+              <input id="envoi-fichiers" name="fichiers" type="file" accept="image/*,video/*" multiple>
+            </label>
+            <div class="apercus" data-apercus></div>
+            <label class="case" for="envoi-droits"><input id="envoi-droits" name="droits" type="checkbox">J’ai pris ces images moi-même ou j’ai le droit de les partager, et les personnes reconnaissables sont d’accord.</label>
+            <p class="erreur" data-erreur hidden></p>
+            <div class="navigation-etapes"><button class="btn btn--creux" type="button" data-precedent>Retour</button><button class="btn" type="button" data-suivant>Continuer</button></div>
+          </div>
+
+          <div class="feuillet" data-etape="5" hidden>
+            <h2>Comment vous joindre</h2>
+            <div class="grille-2">
+              <label class="champ" for="envoi-prenom">Prénom
+                <input id="envoi-prenom" name="prenom" type="text" autocomplete="given-name" required>
+              </label>
+              <label class="champ" for="envoi-nom">Nom (facultatif)
+                <input id="envoi-nom" name="nom" type="text" autocomplete="family-name">
+              </label>
+              <label class="champ" for="envoi-email">E-mail
+                <input id="envoi-email" name="email" type="email" autocomplete="email" required>
+              </label>
+              <label class="champ" for="envoi-tel">Téléphone (facultatif)
+                <input id="envoi-tel" name="tel" type="tel" autocomplete="tel">
+              </label>
+            </div>
+            <label class="case" for="envoi-anonyme"><input id="envoi-anonyme" name="anonyme" type="checkbox">Ne pas citer mon nom si l’info est publiée.</label>
+            <label class="case" for="envoi-rgpd"><input id="envoi-rgpd" name="rgpd" type="checkbox" required>J’accepte que Castel Actu utilise ces informations pour traiter mon envoi et me recontacter si besoin. Politique de confidentialité à rédiger.</label>
+            <p class="erreur" data-erreur hidden></p>
+            <div class="navigation-etapes"><button class="btn btn--creux" type="button" data-precedent>Retour</button><button class="btn btn--rouge" type="submit">Envoyer à la rédaction</button></div>
+          </div>
+        </form>
+
+        <div class="feuillet" data-resultat hidden tabindex="-1">
+          <h2>Votre info est prête à partir</h2>
+          <p class="petit" style="font-size:var(--t-16)">Maquette&nbsp;: rien n’a été envoyé. Sur le vrai site, la rédaction recevrait votre info et la vérifierait avant toute publication.</p>
+          <div class="mini-une" data-mini-une></div>
+          <dl class="recap" data-recap></dl>
+          <div class="navigation-etapes"><span></span><button class="btn" type="button" data-recommencer>Envoyer une autre info</button></div>
+        </div>
+      </div>
+
+      <aside class="envoi-aside">
+        <div class="trame" data-trame>
+          <img src="img/grok/envoyer-carnet-4x5-960.webp" srcset="img/grok/envoyer-carnet-4x5-480.webp 480w, img/grok/envoyer-carnet-4x5-960.webp 960w" sizes="(min-width: 1000px) 22rem, 100vw" alt="Carnet de reporter, stylo et téléphone sur une table en bois" loading="lazy" width="784" height="1168">
+          <span class="mention-ia">Illustration IA</span>
+        </div>
+        <div class="devenir">
+          <h2>Ce que devient votre info</h2>
+          <p>Selon la charte de Castel Actu, l’info est proche des gens, fiable et vérifiée, respectueuse des faits comme des personnes.</p>
+          <ul>
+            <li>Chaque info est vérifiée avant toute publication.</li>
+            <li>Délai de réponse et suite donnée&nbsp;: à préciser par la rédaction.</li>
+          </ul>
+        </div>
+        <div class="devenir">
+          <h2>Ou directement</h2>
+          <p>E-mail&nbsp;: <span class="selectionnable">contact@castelactu.fr</span> <button class="copier" type="button" data-copier="contact@castelactu.fr">Copier</button></p>
+          <p>Téléphone&nbsp;: <span class="selectionnable">06 99 59 99 75</span> <button class="copier" type="button" data-copier="06 99 59 99 75">Copier</button></p>
+          <p><a class="lien lien--externe" href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Message sur Facebook</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <p class="pied__titre" aria-hidden="true" data-pied-titre data-ajuste><span class="pied__mesure">Castel Actu</span></p>
+    <div class="pied__grille">
+      <div>
+        <h2>Contact</h2>
+        <p>Association « Castel Actu »<br>17 rue d’Ancenis, 44110 Châteaubriant<br>Tél. <span class="selectionnable">06 99 59 99 75</span><br><span class="selectionnable">contact@castelactu.fr</span></p>
+        <p style="margin-top:8px"><a class="lien lien--externe" href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook</a></p>
+      </div>
+      <div>
+        <h2>Mentions légales</h2>
+        <p>Éditeur&nbsp;: association « Castel Actu ».<br>Directeur de la publication&nbsp;: Gaetan Lassalle.<br>SIRET 100 220 995 00011. RNA W441007944.<br>Page Facebook créée le 13/11/2016, association déclarée le 21/01/2026.<br>Hébergeur&nbsp;: à mettre à jour à la mise en ligne.</p>
+      </div>
+      <div>
+        <h2>Confidentialité</h2>
+        <p>Politique de confidentialité à rédiger&nbsp;: elle doit expliquer l’usage des données envoyées par les formulaires (contact, envoi d’info, lettre d’info).</p>
+        <p style="margin-top:8px">Conditions d’utilisation&nbsp;: à rédiger.</p>
+      </div>
+      <div class="lettre">
+        <div class="trame" data-trame style="aspect-ratio:16/9;margin-bottom:6px"><img src="img/grok/commun-journal-plie-16x9-480.webp" srcset="img/grok/commun-journal-plie-16x9-480.webp 480w, img/grok/commun-journal-plie-16x9-960.webp 960w" sizes="(min-width: 900px) 22vw, 100vw" alt="Journal plié et tasse de café sur une table de café" loading="lazy" width="1168" height="784"><span class="mention-ia">Illustration IA</span></div>
+        <h2>La lettre de Castel Actu</h2>
+        <p>L’essentiel du Pays de Châteaubriant dans votre boîte mail.</p>
+        <form class="lettre__form" data-lettre novalidate>
+          <label class="sr" for="lettre-email">Votre adresse e-mail</label>
+          <div class="lettre__ligne"><input id="lettre-email" type="email" placeholder="votre@adresse.fr" autocomplete="email" required><button type="submit">S’inscrire</button></div>
+          <p class="lettre__msg" data-lettre-msg aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div class="pied__bas">
+      <span>© 2016-2026 Castel Actu. Tous droits de reproduction interdits.</span>
+      <span>Maquette de travail, non référencée.</span>
+      <span class="pied__calme"><button class="icone-btn" type="button" data-calme aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12c3-5 6 5 9 0s6 5 9 0"/></svg><span class="sr">Mode calme</span></button>Mode calme</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/Flip.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script type="module" src="assets/js/envoyer.js?v=1"></script>
+</body>
+</html>

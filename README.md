@@ -1,0 +1,74 @@
+# Castel Actu — maquette v1
+
+Maquette du futur site de Castel Actu, média local, indépendant et associatif du Pays de Châteaubriant.
+Site statique (HTML, CSS, JavaScript), sans étape de construction, prêt pour Vercel.
+
+Direction artistique « Rotative » : papier journal, deux encres tirées du logo (bleu Castel, rouge alerte),
+trame d'impression sur les photos, titres Archivo à largeur variable, textes Newsreader.
+
+## Pages
+
+- `index.html` : la Une, l'audience, le fil filtrable (rubrique, commune, recherche), la carte des 11 communes,
+  les chantiers (galerie horizontale épinglée), les plus lus, le podcast et la vidéo, l'agenda, qui sommes-nous, l'appel à envoyer une info.
+- `article.html#identifiant` : fiche article type. Le même gabarit affiche chaque info (ex. `article.html#le-smash`).
+- `envoyer-une-info.html` : formulaire en 5 étapes (simulé, rien n'est envoyé) et mini-Une composée à la fin.
+- `404.html` : page introuvable.
+
+## Mettre à jour le contenu
+
+Tout le contenu dynamique est dans **`assets/js/data.js`** : articles, rubriques, communes, audience, agenda, podcast, alerte.
+
+- Une alerte : remplacer `export const ALERTE = null;` par `{ titre: '…', texte: '…' }`.
+- Une échéance (`echeance.fin`) dépassée bascule seule en « Échéance passée ». Un événement terminé s'affiche « Terminé ».
+- Une image générée par IA doit garder `ia: true` (mention « Illustration IA », AI Act art. 50).
+
+Après toute modification de CSS ou JS, **augmenter le numéro `?v=N`** partout (pages HTML et `import` des modules),
+à l'identique, sinon les visiteurs gardent l'ancienne version.
+
+## Images
+
+- `img/articles`, `img/agenda`, `img/equipe`, `img/logo` : images du site actuel, en WebP 480/960/1600.
+- `img/grok` : images générées avec Grok (ambiances uniquement, jamais de lieu réel).
+- `img/articles/voirie-d771-*` : visuel provisoire, photo à fournir.
+- Pour remplacer une image : garder le même nom de fichier.
+
+## À compléter par le client
+
+- Dates de publication des articles (le site actuel n'en affiche aucune).
+- Textes complets des articles, chapôs manquants.
+- Sources de plusieurs visuels (Ville Marie, JMT, rue du Château, Jardins du Château, piscine).
+- Date du relevé d'audience ; correspondance des compteurs de vues avec les articles (à confirmer).
+- Lien de la chaîne YouTube, présentation de Castel FM, contenu Météo.
+- Fichiers audio du podcast : `audio/info-en-bref-economie.mp3`, `audio/info-en-bref-evenement.mp3`.
+- Dates de la prochaine Foire de Béré, affiche Théâtre de Verre 2026-2027.
+- Modalités d'adhésion ou de don à l'association.
+- Politique de confidentialité et conditions d'utilisation (obligatoires avec les formulaires).
+- Délai de réponse aux infos envoyées.
+
+## Incohérences relevées sur le site actuel
+
+1. Trois chiffres d'audience : 1,7 million de vues/mois, 200 000 lecteurs/mois, « plus d'un million » (description Google).
+2. E-mail faux dans la section Contact : `contact@CasteActu.fr` (il manque un « l »).
+3. Deux adresses : « Centre ville » et « 17 rue d'Ancenis ».
+4. Aucune date sur les articles ; contenu arrêté vers mi-mars 2026.
+5. Emplacements vides visibles (« NOUVEAU ----- ----- », « + -- --- vues ») ; compteurs qui varient (35 441 / 35 444).
+6. Images IA sans mention, dont un portrait généré du fondateur.
+7. Capture Google Street View (© Google) utilisée pour Central 8 : non reprise ici.
+8. « Gaetan » sur le site, « Gaëtan » sur un visuel ; « Le Smas'h » à confirmer.
+9. Liens Conditions, Confidentialité et Contact qui renvoient à l'accueil.
+10. « Média associatif depuis 2016 » alors que l'association est déclarée le 21/01/2026.
+
+## À retirer pour la mise en ligne définitive
+
+- La balise `<meta name="robots" content="noindex, nofollow">` dans chaque page.
+- L'en-tête `X-Robots-Tag` dans `vercel.json`.
+- La mention « Maquette de travail, non référencée » du pied de page.
+- Les simulations : lettre d'info, formulaire d'envoi, exemple d'alerte (à brancher sur de vrais services).
+- Mettre à jour l'hébergeur dans les mentions légales et l'adresse des images de partage (`og:image`, `og:url`).
+
+## Technique
+
+- GSAP 3.15 (ScrollTrigger, SplitText, Flip), Lenis 1.3, OGL 1.0 : hébergés dans `assets/vendor`.
+- Polices Archivo et Newsreader en WOFF2 dans `assets/fonts` (licence OFL).
+- Trame WebGL (OGL) sur les grandes photos, version CSS sans WebGL, mode calme et « réduire les animations » respectés.
+- Aucune règle Cache-Control : Vercel revérifie chaque fichier à chaque visite.
