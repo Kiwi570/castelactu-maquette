@@ -198,7 +198,7 @@ export function titres(racineEl = document) {
   racineEl.querySelectorAll('[data-split]').forEach(el => {
     if (el.dataset.splitFait) return; el.dataset.splitFait = '1';
     window.SplitText.create(el, {
-      type: 'lines,words', mask: 'lines', autoSplit: true,
+      type: 'lines,words', mask: 'lines', autoSplit: true, reduceWhiteSpace: false,
       onSplit: self => g.from(self.words, { yPercent: 115, rotate: 3, duration: .95, stagger: .035, ease: 'power4.out', scrollTrigger: { trigger: el, start: 'top 86%', once: true } }),
     });
   });
@@ -284,7 +284,7 @@ export async function tramesGL(liste) {
   if (!els.length) return [];
   if (calme()) { els.forEach(el => el.classList.add('encree')); return []; }
   try {
-    const mod = await import('./halftone.js?v=1');
+    const mod = await import('./halftone.js?v=2');
     return els.map(el => {
       const inst = mod.monter(el);
       if (!inst) el.classList.add('encree');

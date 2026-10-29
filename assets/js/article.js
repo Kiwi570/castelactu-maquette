@@ -1,6 +1,6 @@
 // Castel Actu — fiche article (gabarit : article.html#identifiant)
-import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis } from './app.js?v=1';
-import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=1';
+import { demarrer, anime, trames, tampons, imageHTML, echap, tramesGL, lenis } from './app.js?v=2';
+import { ARTICLES, COMMUNES, rubrique, commune, echeancePassee, nombre } from './data.js?v=2';
 
 const g = window.gsap;
 const ST = window.ScrollTrigger;
@@ -55,6 +55,9 @@ async function rendre(id, premier = false) {
   const vis = $('[data-a-image]');
   gl?.detruire(); gl = null;
   vis.classList.remove('gl', 'encree');
+  vis.classList.toggle('trame--contain', a.cadrage === 'contain');
+  if (a.cadrage === 'contain') { vis.dataset.cadrage = 'contain'; vis.dataset.fond = a.fond || '#0E1733'; vis.style.setProperty('--fond', a.fond || '#0E1733'); }
+  else { delete vis.dataset.cadrage; delete vis.dataset.fond; vis.style.removeProperty('--fond'); }
   const mention = a.provisoire ? '' : a.ia ? '<span class="mention-ia">Illustration IA</span>' : (a.credit ? `<span class="mention-credit">${echap(a.credit)}</span>` : '');
   vis.innerHTML = imageHTML(a.image, { alt: a.titre, sizes: '100vw', lazy: false, largeur: 1600 }) + mention;
 
@@ -87,9 +90,8 @@ async function rendre(id, premier = false) {
   gl = inst || null;
   if (gl && anime()) {
     gl.progression(0);
-    setTimeout(() => gl?.progression(0.18), 300);
-    ST.getById('a-gl')?.kill();
-    ST.create({ id: 'a-gl', trigger: vis, start: 'top 70%', end: 'bottom 30%', scrub: true, onUpdate: s => gl?.progression(0.18 + s.progress * 0.95) });
+    const o = { v: 0 };
+    g.to(o, { v: 1, duration: 1.8, delay: premier ? .7 : .2, ease: 'power2.inOut', onUpdate: () => gl?.progression(o.v) });
   } else if (gl) gl.progression(1);
 
   if (!premier && anime()) {

@@ -1,5 +1,5 @@
 // Castel Actu — pages simples (404)
-import { demarrer, anime } from './app.js?v=1';
+import { demarrer, anime } from './app.js?v=2';
 
 demarrer();
 const g = window.gsap;

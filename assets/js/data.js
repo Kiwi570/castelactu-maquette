@@ -69,7 +69,7 @@ export const ARTICLES = [
   {
     id: 'central-8', titre: 'Central 8, nouveau complexe de loisirs', rubrique: 'loisirs', communes: ['chateaubriant'],
     resume: 'Bowling, laser, trampoline et arcade : Central 8 s’installe au 10 avenue Jean Moulin. Ouverture annoncée au printemps 2026.',
-    image: 'img/articles/central-8', ia: false, credit: 'Logo : Central 8', vues: 103295, une: true, chantier: true,
+    image: 'img/articles/central-8', cadrage: 'contain', fond: '#000000', ia: false, credit: 'Logo : Central 8', vues: 103295, une: true, chantier: true,
     tampon: 'Ouverture annoncée', echeance: { quoi: 'Ouverture annoncée', libelle: 'le printemps 2026', fin: '2026-06-20' },
     infos: [['Adresse', '10 avenue Jean Moulin, Châteaubriant'], ['Activités', 'Bowling, laser, trampoline, arcade'], ['Ouverture annoncée', 'Printemps 2026'], ['Site', 'central8.fr', 'https://central8.fr']],
     texte: ['Un nouveau complexe de loisirs prend place au 10 avenue Jean Moulin, à Châteaubriant : bowling, laser, trampoline et arcade sous un même toit.', 'L’ouverture était annoncée pour le printemps 2026. Plus d’infos sur central8.fr.'],
@@ -100,7 +100,7 @@ export const ARTICLES = [
   },
   {
     id: 'quartier-ville-marie', titre: 'Le nouveau quartier La Ville Marie sort de terre', rubrique: 'travaux', communes: ['chateaubriant'],
-    resume: null, image: 'img/articles/quartier-ville-marie', ia: false, credit: 'Visuel : source à compléter', vues: null, chantier: true, tampon: 'Sort de terre',
+    resume: null, image: 'img/articles/quartier-ville-marie', ia: false, credit: 'Source à compléter', vues: null, chantier: true, tampon: 'Sort de terre',
     fb: FB + 'pfbid02nkmsWadEtFkcwtHgpfjwtAtKjjYW9U91nkNwhdwMhhpVp1cnhewxjKdgX2qS5L6il',
   },
   {
@@ -113,7 +113,7 @@ export const ARTICLES = [
   {
     id: 'jmt', titre: 'JMT, une nouvelle enseigne bientôt à Châteaubriant ?', rubrique: 'commerce', communes: ['chateaubriant'],
     resume: 'Une nouvelle enseigne pourrait prochainement arriver à Châteaubriant.',
-    image: 'img/articles/jmt', ia: false, credit: 'Visuel : source à compléter', vues: null, tampon: 'Bientôt ?', fb: null,
+    image: 'img/articles/jmt', ia: false, credit: 'Source à compléter', vues: null, tampon: 'Bientôt ?', fb: null,
   },
   {
     id: 'bricomarche', titre: 'Travaux de rénovation pour Bricomarché', rubrique: 'commerce', communes: ['chateaubriant'],
@@ -140,7 +140,7 @@ export const ARTICLES = [
   },
   {
     id: 'rue-du-chateau', titre: 'Rue du Château : rénovation de la rue', rubrique: 'travaux', communes: ['chateaubriant'],
-    resume: null, image: 'img/articles/rue-du-chateau', ia: false, credit: 'Visuel : source à compléter', vues: 24770, chantier: true, tampon: 'Rénovation',
+    resume: null, image: 'img/articles/rue-du-chateau', ia: false, credit: 'Source à compléter', vues: 24770, chantier: true, tampon: 'Rénovation',
     fb: FB + 'pfbid03489UXX8eQ6pN4YJRABCtBjGp8LbxtuF1HCXyDmc1Miq7F3z1yW3NNEyMfZ9wrWebl',
   },
   {
@@ -150,7 +150,7 @@ export const ARTICLES = [
   },
   {
     id: 'jardins-du-chateau', titre: 'La résidence Les Jardins du Château en construction', rubrique: 'travaux', communes: ['chateaubriant'],
-    resume: null, image: 'img/articles/jardins-du-chateau', ia: false, credit: 'Visuel : source à compléter', vues: 13251, chantier: true, tampon: 'En construction',
+    resume: null, image: 'img/articles/jardins-du-chateau', ia: false, credit: 'Source à compléter', vues: 13251, chantier: true, tampon: 'En construction',
     fb: FB + 'pfbid0hhmHUovyfNDBRTRYnrkhXLkyPtTHF2Do8m95VYzc3BZjT5ySgokRH19MijCXv5URl',
   },
   {
@@ -160,7 +160,7 @@ export const ARTICLES = [
   },
   {
     id: 'piscine-espace-dauphin', titre: 'Piscine Espace Dauphin : rénovation en 2026', rubrique: 'travaux', communes: ['chateaubriant'],
-    resume: null, image: 'img/articles/piscine-espace-dauphin', ia: false, credit: 'Visuel : source à compléter', vues: 26524, chantier: true,
+    resume: null, image: 'img/articles/piscine-espace-dauphin', ia: false, credit: 'Source à compléter', vues: 26524, chantier: true,
     tampon: 'Rénovation 2026', echeance: { quoi: 'Rénovation annoncée', libelle: 'en 2026', fin: '2026-12-31' },
     fb: FB + 'pfbid02Gych29rQsyeo9ys5aKncBq52H7KSPoiubrXNs8d4KKebj164oAYh4UnmXWdPTN6ul',
   },

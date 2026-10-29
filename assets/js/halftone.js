@@ -1,5 +1,5 @@
 // Trame d'impression WebGL (OGL) : la photo est imprimée en points d'encre bleue,
-// puis se résout en couleur au défilement ; une loupe de couleur suit le pointeur.
+// puis se résout en couleur ; au survol, un compte-fils d'imprimeur grossit l'image et sa trame.
 import { Renderer, Program, Mesh, Triangle, Texture } from '../vendor/ogl.min.mjs';
 
 const vertex = /* glsl */ `
@@ -18,44 +18,69 @@ uniform float uCell;
 uniform vec2 uMouse;
 uniform float uHover;
 uniform float uRayon;
+uniform float uContain;
+uniform vec3 uFond;
 varying vec2 vUv;
 
 const vec3 PAPIER = vec3(0.906, 0.894, 0.859);
 const vec3 ENCRE = vec3(0.078, 0.165, 0.420);
+const float ZOOM = 1.9;
 
-vec2 cover(vec2 uv) {
+// Cadrage « cover » ou « contain » de la photo dans le bloc
+vec2 cadre(vec2 uv) {
   float rc = uRes.x / uRes.y;
   float ri = uImg.x / uImg.y;
   vec2 s = rc > ri ? vec2(1.0, ri / rc) : vec2(rc / ri, 1.0);
+  if (uContain > 0.5) s = rc > ri ? vec2(rc / ri, 1.0) : vec2(1.0, ri / rc);
   return (uv - 0.5) * s + 0.5;
+}
+vec3 lire(vec2 uv) {
+  vec2 q = cadre(uv);
+  if (q.x < 0.0 || q.x > 1.0 || q.y < 0.0 || q.y > 1.0) return uFond;
+  return texture2D(uTex, q).rgb;
 }
 
 void main() {
   vec2 px = vUv * uRes;
-  float loupe = uHover * (1.0 - smoothstep(uRayon * 0.45, uRayon, distance(px, uMouse)));
-  float r = clamp(uProgress + loupe, 0.0, 1.0);
-  vec3 couleur = texture2D(uTex, cover(vUv)).rgb;
+  float dm = distance(px, uMouse);
+  // Compte-fils : dans la loupe, l'image est agrandie et la trame réapparaît
+  float dans = uHover * (1.0 - smoothstep(uRayon - 2.0, uRayon, dm));
+  vec2 pz = mix(px, uMouse + (px - uMouse) / ZOOM, dans);
+  float r = uProgress * (1.0 - dans);
+  vec3 couleur = lire(pz / uRes);
   // Rien à tramer : on sort tout de suite.
   if (r >= 0.995) { gl_FragColor = vec4(couleur, 1.0); return; }
 
   // Une seule cellule, celle du pixel, sur une grille tournée à 45°.
+  float cellPx = uCell * mix(1.0, ZOOM, dans);
   float c = 0.70710678;
   vec2 p = mat2(c, -c, c, c) * px;
-  vec2 cellule = (floor(p / uCell) + 0.5) * uCell;
+  vec2 cellule = (floor(p / cellPx) + 0.5) * cellPx;
   vec2 centre = mat2(c, c, -c, c) * cellule;
-  vec3 echant = texture2D(uTex, cover(clamp(centre / uRes, 0.0, 1.0))).rgb;
+  vec2 cz = mix(centre, uMouse + (centre - uMouse) / ZOOM, dans);
+  vec3 echant = lire(clamp(cz / uRes, 0.0, 1.0));
   float lum = dot(echant, vec3(0.299, 0.587, 0.114));
   float rayon = sqrt(max(1.0 - lum, 0.0)) * 0.64;
-  float d = length(p - cellule) / uCell;
-  float aa = 1.25 / uCell;
+  float d = length(p - cellule) / cellPx;
+  float aa = 1.25 / cellPx;
   float encre = 1.0 - smoothstep(rayon - aa, rayon + aa, d);
   vec3 trame = mix(PAPIER, ENCRE, encre);
-  gl_FragColor = vec4(mix(trame, couleur, smoothstep(0.05, 1.0, r)), 1.0);
+  vec3 sortie = mix(trame, couleur, smoothstep(0.05, 1.0, r));
+  // Bord de la loupe
+  float anneau = uHover * smoothstep(uRayon - 7.0, uRayon - 4.5, dm) * (1.0 - smoothstep(uRayon - 2.5, uRayon - 0.5, dm));
+  gl_FragColor = vec4(mix(sortie, vec3(0.055, 0.09, 0.2), anneau * 0.92), 1.0);
 }`;
 
-export function monter(el, { progression = 0 } = {}) {
+function hexVersRvb(h) {
+  const v = h.replace('#', '');
+  return [0, 2, 4].map(i => parseInt(v.slice(i, i + 2), 16) / 255);
+}
+
+export function monter(el, { progression = 0, contain = false, fond = null } = {}) {
   const img = el.querySelector('img');
   if (!img) return null;
+  contain = contain || el.dataset.cadrage === 'contain';
+  fond = fond || el.dataset.fond || null;
   const mobile = window.matchMedia('(max-width: 899px)').matches;
   const dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1 : 1.25);
   const test = document.createElement('canvas');
@@ -72,6 +97,7 @@ export function monter(el, { progression = 0 } = {}) {
   const uniforms = {
     uTex: { value: texture }, uRes: { value: [1, 1] }, uImg: { value: [1, 1] },
     uProgress: { value: progression }, uCell: { value: 7 }, uMouse: { value: [-9999, -9999] }, uHover: { value: 0 }, uRayon: { value: 160 },
+    uContain: { value: contain ? 1 : 0 }, uFond: { value: hexVersRvb(fond || '#0E1733') },
   };
   let program;
   try { program = new Program(gl, { vertex, fragment, uniforms, depthTest: false, depthWrite: false }); } catch (e) { return null; }
@@ -88,7 +114,7 @@ export function monter(el, { progression = 0 } = {}) {
     renderer.setSize(r.width, r.height);
     uniforms.uRes.value = [gl.canvas.width, gl.canvas.height];
     uniforms.uCell.value = (mobile ? 5.5 : 6.5) * dpr;
-    uniforms.uRayon.value = Math.max(110, Math.min(r.width, r.height) * 0.32) * dpr;
+    uniforms.uRayon.value = Math.max(70, Math.min(r.width, r.height) * 0.2) * dpr;
     sale = true; boucle();
   }
 
@@ -129,6 +155,7 @@ export function monter(el, { progression = 0 } = {}) {
   el.addEventListener('pointermove', e => { survolCible = 1; bouger(e.clientX, e.clientY); });
   el.addEventListener('pointerleave', () => { survolCible = 0; boucle(); });
   el.addEventListener('touchstart', e => { survolCible = 1; const t = e.touches[0]; bouger(t.clientX, t.clientY); }, { passive: true });
+  el.addEventListener('touchmove', e => { const t = e.touches[0]; bouger(t.clientX, t.clientY); }, { passive: true });
   el.addEventListener('touchend', () => { survolCible = 0; boucle(); }, { passive: true });
 
   return {

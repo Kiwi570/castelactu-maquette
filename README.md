@@ -1,10 +1,24 @@
-# Castel Actu — maquette v1
+# Castel Actu — maquette v2
 
 Maquette du futur site de Castel Actu, média local, indépendant et associatif du Pays de Châteaubriant.
 Site statique (HTML, CSS, JavaScript), sans étape de construction, prêt pour Vercel.
 
 Direction artistique « Rotative » : papier journal, deux encres tirées du logo (bleu Castel, rouge alerte),
 trame d'impression sur les photos, titres Archivo à largeur variable, textes Newsreader.
+
+## Nouveautés de la v2 (audit complet)
+
+- La Une sort de presse : la photo passe de la trame d'impression à la couleur dès l'ouverture, sans attendre le défilement.
+- Compte-fils d'imprimeur au survol (ou au doigt) : une loupe grossit la photo et fait réapparaître la trame.
+- « À la une aussi » en rangée de trois sous la Une ; la photo occupe toute la hauteur de la colonne.
+- Recherche accessible depuis l'en-tête sur toutes les pages ; libellé « Mode calme » visible sur grand écran.
+- Rubriques vides grisées en fin de liste ; sur téléphone, les rubriques défilent sur une seule ligne.
+- Carte des communes : étiquettes placées sans chevauchement et lisibles de 320 px au grand écran.
+- Vidéo : la carte mène à la page Facebook. Qui sommes-nous : citation sur photo, portrait recadré.
+- Envoyer une info : déroulé en trois étapes sous le formulaire, colonne latérale fixe.
+- Corrections : traits de coupe supprimés, ponctuation qui ne passe plus seule à la ligne, débordement de la lettre d'info,
+  contraste des mentions « à compléter », zones tactiles de 44 px, barre de lecture en haut de l'article,
+  logo Central 8 affiché en entier.
 
 ## Pages
 
