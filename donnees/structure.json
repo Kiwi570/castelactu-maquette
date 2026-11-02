@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Castel Actu",
+  "url": "https://castelactu-maquette.vercel.app/",
+  "logo": "https://castelactu-maquette.vercel.app/assets/images/logo-castelactu-480.webp",
+  "foundingDate": "2016-11-13",
+  "founder": { "@type": "Person", "name": "Gaetan Lassalle" },
+  "telephone": "+33699599975",
+  "email": "contact@castelactu.fr",
+  "address": { "@type": "PostalAddress", "streetAddress": "17 rue d’Ancenis", "postalCode": "44110", "addressLocality": "Châteaubriant", "addressCountry": "FR" },
+  "areaServed": ["Châteaubriant", "Erbray", "Soudan", "Fercé", "Rougé", "Louisfert", "Ruffigné", "Villepot", "Soulvache", "Issé", "Treffieux"],
+  "sameAs": ["https://www.facebook.com/CastelActu/"],
+  "description": "Média d’information locale, associatif et indépendant, du Pays de Châteaubriant depuis 2016."
+}

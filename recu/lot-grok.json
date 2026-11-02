@@ -1,0 +1,354 @@
+[
+ {
+  "source": "recu/grok/studio-radio-16x9.jpg",
+  "nom": "grok/studio-radio",
+  "cadrage": [
+   65,
+   45
+  ]
+ },
+ {
+  "source": "recu/grok/studio-radio-9x16.jpg",
+  "nom": "grok/studio-radio-mobile",
+  "cadrage": [
+   60,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/grue-aube-16x9.jpg",
+  "nom": "grok/grue-aube",
+  "cadrage": [
+   60,
+   45
+  ]
+ },
+ {
+  "source": "recu/grok/grue-aube-9x16.jpg",
+  "nom": "grok/grue-aube-mobile",
+  "cadrage": [
+   55,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/telephone-rue-16x9.jpg",
+  "nom": "grok/telephone-rue",
+  "cadrage": [
+   72,
+   50
+  ]
+ },
+ {
+  "source": "recu/grok/telephone-rue-9x16.jpg",
+  "nom": "grok/telephone-rue-mobile",
+  "cadrage": [
+   40,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/redaction-nuit-16x9.jpg",
+  "nom": "grok/redaction-nuit",
+  "cadrage": [
+   65,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/redaction-nuit-9x16.jpg",
+  "nom": "grok/redaction-nuit-mobile",
+  "cadrage": [
+   45,
+   70
+  ]
+ },
+ {
+  "source": "recu/grok/papier-vierge-16x9.jpg",
+  "nom": "grok/papier-vierge",
+  "cadrage": [
+   45,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/papier-vierge-9x16.jpg",
+  "nom": "grok/papier-vierge-mobile",
+  "cadrage": [
+   50,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/feuille-froissee-16x9.jpg",
+  "nom": "grok/feuille-froissee",
+  "cadrage": [
+   55,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/feuille-froissee-9x16.jpg",
+  "nom": "grok/feuille-froissee-mobile",
+  "cadrage": [
+   50,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/bocage-brume-16x9.jpg",
+  "nom": "grok/bocage-brume",
+  "cadrage": [
+   50,
+   50
+  ]
+ },
+ {
+  "source": "recu/grok/bocage-brume-4x5.jpg",
+  "nom": "grok/bocage-brume-mobile",
+  "cadrage": [
+   50,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-association-16x9.jpg",
+  "nom": "grok/rubrique-association",
+  "cadrage": [
+   70,
+   50
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-association-9x16.jpg",
+  "nom": "grok/rubrique-association-mobile",
+  "cadrage": [
+   60,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-bons-plans-16x9.jpg",
+  "nom": "grok/rubrique-bons-plans",
+  "cadrage": [
+   65,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-bons-plans-9x16.jpg",
+  "nom": "grok/rubrique-bons-plans-mobile",
+  "cadrage": [
+   50,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-commerces-16x9.jpg",
+  "nom": "grok/rubrique-commerces",
+  "cadrage": [
+   70,
+   50
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-commerces-9x16.jpg",
+  "nom": "grok/rubrique-commerces-mobile",
+  "cadrage": [
+   55,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-culture-16x9.jpg",
+  "nom": "grok/rubrique-culture",
+  "cadrage": [
+   75,
+   45
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-culture-9x16.jpg",
+  "nom": "grok/rubrique-culture-mobile",
+  "cadrage": [
+   50,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-economie-16x9.jpg",
+  "nom": "grok/rubrique-economie",
+  "cadrage": [
+   70,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-economie-9x16.jpg",
+  "nom": "grok/rubrique-economie-mobile",
+  "cadrage": [
+   50,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-emploi-16x9.jpg",
+  "nom": "grok/rubrique-emploi",
+  "cadrage": [
+   75,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-emploi-9x16.jpg",
+  "nom": "grok/rubrique-emploi-mobile",
+  "cadrage": [
+   60,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-evenements-16x9.jpg",
+  "nom": "grok/rubrique-evenements",
+  "cadrage": [
+   75,
+   40
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-evenements-9x16.jpg",
+  "nom": "grok/rubrique-evenements-mobile",
+  "cadrage": [
+   50,
+   70
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-faits-divers-16x9.jpg",
+  "nom": "grok/rubrique-faits-divers",
+  "cadrage": [
+   70,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-faits-divers-9x16.jpg",
+  "nom": "grok/rubrique-faits-divers-mobile",
+  "cadrage": [
+   50,
+   70
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-high-tech-16x9.jpg",
+  "nom": "grok/rubrique-high-tech",
+  "cadrage": [
+   80,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-high-tech-9x16.jpg",
+  "nom": "grok/rubrique-high-tech-mobile",
+  "cadrage": [
+   50,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-medias-16x9.jpg",
+  "nom": "grok/rubrique-medias",
+  "cadrage": [
+   70,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-medias-9x16.jpg",
+  "nom": "grok/rubrique-medias-mobile",
+  "cadrage": [
+   55,
+   65
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-people-16x9.jpg",
+  "nom": "grok/rubrique-people",
+  "cadrage": [
+   75,
+   45
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-people-9x16.jpg",
+  "nom": "grok/rubrique-people-mobile",
+  "cadrage": [
+   45,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-sport-16x9.jpg",
+  "nom": "grok/rubrique-sport",
+  "cadrage": [
+   70,
+   70
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-sport-9x16.jpg",
+  "nom": "grok/rubrique-sport-mobile",
+  "cadrage": [
+   50,
+   75
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-videos-16x9.jpg",
+  "nom": "grok/rubrique-videos",
+  "cadrage": [
+   80,
+   50
+  ]
+ },
+ {
+  "source": "recu/grok/rubrique-videos-9x16.jpg",
+  "nom": "grok/rubrique-videos-mobile",
+  "cadrage": [
+   45,
+   60
+  ]
+ },
+ {
+  "source": "recu/grok/rotative-16x9.jpg",
+  "nom": "grok/rotative",
+  "cadrage": [
+   50,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/rouleau-encre-4x5.jpg",
+  "nom": "grok/rouleau-encre",
+  "cadrage": [
+   50,
+   40
+  ]
+ },
+ {
+  "source": "recu/grok/route-bocage-16x9.jpg",
+  "nom": "grok/route-bocage",
+  "cadrage": [
+   55,
+   55
+  ]
+ },
+ {
+  "source": "recu/grok/texture-papier-1x1.jpg",
+  "nom": "grok/texture-papier",
+  "cadrage": [
+   50,
+   50
+  ]
+ }
+]

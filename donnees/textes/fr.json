@@ -1,0 +1,560 @@
+{
+  "commun": {
+    "navigation": "Navigation principale",
+    "menu": "Menu",
+    "fermer": "Fermer",
+    "logoAlt": "Castel Actu, retour à l’accueil",
+    "actionEntete": "Alertez-nous",
+    "appeler": "Appeler",
+    "rechercher": "Rechercher",
+    "rechercheLabel": "Chercher une info, une commune, un commerce",
+    "rechercheExemple": "Exemple : piscine, Treffieux, padel",
+    "rubriques": "Rubriques",
+    "contact": "Contact",
+    "association": "Association Castel Actu",
+    "facebook": "Castel Actu sur Facebook",
+    "piedPromesse": "L’info 24/24 de Châteaubriant et sa région depuis 2016. Un média local, indépendant et associatif.",
+    "copyright": "© 2016-2026 Castel Actu",
+    "calmeReduire": "Réduire les animations",
+    "calmeRetablir": "Rétablir les animations",
+    "calmeSysteme": "Animations réduites par le réglage de votre appareil",
+    "sommaire": "Sommaire",
+    "confort": "Confort de lecture",
+    "retourHaut": "Retour en haut",
+    "maquette": "Maquette : les informations marquées « à compléter » seront fournies par Castel Actu.",
+    "evitement": "Aller au contenu",
+    "mentionIa": "Illustration générée",
+    "pause": "Pause",
+    "lecture": "Lecture",
+    "rubanPause": "Mettre en pause le bandeau d’alerte",
+    "alerteRegion": "Bandeau d’alerte Castel Actu",
+    "alerteEnCours": "Alerte :",
+    "rubanPromesse": "L’info 24/24 de Châteaubriant et sa région",
+    "introLigne": "L’info 24/24 depuis 2016",
+    "introAlerte": "Alerte · Castel Actu · Alerte · Castel Actu · Alerte · Castel Actu",
+    "video": "Vidéo",
+    "surFacebook": "Sur Facebook, nouvel onglet",
+    "lireBreve": "Lire la brève",
+    "lireFacebook": "Lire sur Facebook",
+    "lienAFournir": "Lien à fournir",
+    "legendePerspective": "Perspective du projet (droits à vérifier)",
+    "legendeLogo": "Logo de l’enseigne · photo du lieu à fournir",
+    "visuelTypo": "Visuel typographique : {sujet}",
+    "datePublication": "Date de publication à compléter",
+    "audienceSource": "Source : audience de la page Facebook, moyenne sur les 28 derniers jours.",
+    "bientot": "Bientôt : {liste}.",
+    "toutLactu": "Toute l’actu",
+    "rubanDernieres": "Dernières infos"
+  },
+  "pages": {
+    "accueil": {
+      "titre": "Castel Actu : l’info 24/24 de Châteaubriant et sa région",
+      "description": "Castel Actu, média local, indépendant et associatif du Pays de Châteaubriant depuis 2016 : commerces, travaux, économie, sport, culture et vie des 11 communes.",
+      "nav": "Accueil",
+      "partageAlt": "Castel Actu, l’info 24/24 de Châteaubriant et sa région",
+      "accroche": "L’info 24/24 de Châteaubriant et sa région"
+    },
+    "rubrique-travaux": {
+      "titre": "Travaux et projets à Châteaubriant : Castel Actu",
+      "description": "Chantiers, constructions, rénovations et projets du Pays de Châteaubriant, suivis par Castel Actu.",
+      "nav": "Travaux et projets",
+      "partageAlt": "Rubrique Travaux et projets de Castel Actu",
+      "accroche": "Les chantiers du Pays de Châteaubriant"
+    },
+    "article-central-8": {
+      "titre": "Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin : Castel Actu",
+      "description": "Bowling, laser, trampoline et arcade au 10 avenue Jean-Moulin, à Châteaubriant : la brève la plus lue de Castel Actu.",
+      "nav": "Central 8",
+      "partageAlt": "Brève de Castel Actu sur Central 8",
+      "accroche": "Central 8, nouveau complexe de loisirs"
+    },
+    "videos-podcasts": {
+      "titre": "Vidéos et podcasts : Castel Actu",
+      "description": "Les vidéos en bref, les podcasts « En bref » et le direct de Castel Actu, l’actualité du Pays de Châteaubriant accessible gratuitement.",
+      "nav": "Vidéos et podcasts",
+      "partageAlt": "Vidéos et podcasts de Castel Actu",
+      "accroche": "L’actu en vidéo et en podcast"
+    },
+    "alertez-nous": {
+      "titre": "Alertez-nous : envoyer une info à Castel Actu",
+      "description": "Particulier, association, commerce, entreprise : partagez vos infos, photos ou vidéos avec Castel Actu.",
+      "nav": "Alertez-nous",
+      "partageAlt": "Envoyer une info à Castel Actu",
+      "accroche": "Vous avez vu quelque chose ?"
+    },
+    "qui-sommes-nous": {
+      "titre": "Qui sommes-nous ? Castel Actu, média local et associatif",
+      "description": "Castel Actu, aventure locale née le 13 novembre 2016 : un média associatif et indépendant au service du Pays de Châteaubriant.",
+      "nav": "Qui sommes-nous",
+      "partageAlt": "Castel Actu, média local depuis 2016",
+      "accroche": "Un média local, indépendant et associatif"
+    },
+    "mentions-legales": {
+      "titre": "Mentions légales : Castel Actu",
+      "description": "Éditeur, directeur de la publication, hébergeur, droit de réponse, crédits et confidentialité de Castel Actu.",
+      "nav": "Mentions légales",
+      "partageAlt": "Mentions légales de Castel Actu",
+      "accroche": "Mentions légales"
+    },
+    "404": {
+      "titre": "Page introuvable : Castel Actu",
+      "description": "Cette page n’existe pas ou plus.",
+      "nav": "Page introuvable",
+      "partageAlt": "Page introuvable",
+      "accroche": "Page introuvable"
+    }
+  },
+  "statuts": {
+    "construction": "En construction",
+    "renovation": "Rénovation",
+    "travaux": "Chantier en cours",
+    "projet": "Projet",
+    "prochainement": "Prochainement",
+    "annule": "Projet annulé"
+  },
+  "valeurs": {
+    "proche": {
+      "titre": "Proche des gens.",
+      "texte": "Parce que le local commence par l’humain."
+    },
+    "fiable": {
+      "titre": "Fiable et vérifiée.",
+      "texte": "Pour informer sans déformer."
+    },
+    "respect": {
+      "titre": "Respectueuse.",
+      "texte": "Des faits comme des personnes."
+    }
+  },
+  "images": {
+    "studio": "Petit studio de radio la nuit : micro, casque et lampe de bureau",
+    "telephone": "Une personne, vue de dos, filme une rue pavée à la tombée de la nuit",
+    "encre": "Rouleau d’imprimerie qui étale une encre rouge sur du papier",
+    "grue": "Grue et immeuble en construction à l’aube, dans la brume",
+    "redaction": "Bureau de rédaction la nuit : ordinateur, carnet, café et appareil photo",
+    "rotative": "Bande de papier qui défile dans une presse d’imprimerie",
+    "papier": "Pile de feuilles vierges et stylo plume sur un bureau sombre",
+    "feuille": "Boule de papier froissé sur un fond noir",
+    "bocage": "Bocage dans la brume du matin, haies et petits champs",
+    "camera": "Caméra sur trépied qui filme une rue à l’heure bleue, vue de dos",
+    "medias": "Casque de studio posé sur une petite table de mixage"
+  },
+  "podcast": {
+    "surTitre": "Podcast · En bref",
+    "ecouter": "Écouter « {titre} »",
+    "aFournir": "Extrait audio à fournir",
+    "statut": "Extrait audio à fournir par Castel Actu : rien n’est lu dans la maquette."
+  },
+  "tampon": {
+    "alt": "Tampon : Castel Actu, 10 ans, 2016 – 2026",
+    "cercle": "CASTEL ACTU · 2016 – 2026 · L’INFO LOCALE 24/24 · ",
+    "ans": "ANS"
+  },
+  "accueil": {
+    "dateRepli": "Novembre 2026",
+    "manchetteZone": "Pays de Châteaubriant · 11 communes",
+    "manchette": "Castel Actu",
+    "promesse": "L’info 24/24 de Châteaubriant et sa région, depuis 2016",
+    "aLaUne": "À la Une",
+    "vuesFacebook": "vues sur Facebook",
+    "lireUne": "Lire la brève",
+    "toutLeFil": "Tout le fil",
+    "fil": {
+      "surTitre": "Le fil",
+      "titre": "Toute l’actualité",
+      "intro": "Commerces, travaux, économie, sport, culture : toutes les infos de Castel Actu, à trier par rubrique, par commune ou par format.",
+      "filtres": "Filtrer le fil",
+      "parRubrique": "Par rubrique",
+      "tout": "Tout",
+      "vide": "bientôt",
+      "commune": "Commune",
+      "toutesCommunes": "Toutes les communes",
+      "format": "Par format",
+      "tousFormats": "Tous formats",
+      "articles": "Articles",
+      "videos": "Vidéos",
+      "chercher": "Chercher dans le fil",
+      "resultat": "{n} infos",
+      "aucun": "Aucune info ne correspond à ces filtres.",
+      "reinitialiser": "Tout réafficher",
+      "plus": "Afficher plus d’infos",
+      "resultatUn": "1 info",
+      "resultatDefaut": "{n} infos, dont {u} à la Une ci-dessus",
+      "bientot": "Rubriques à venir"
+    },
+    "pays": {
+      "surTitre": "Commune par commune",
+      "titre": "Le Pays de Châteaubriant",
+      "intro": "Onze communes suivies par Castel Actu. Touchez une commune pour voir ses infos dans le fil.",
+      "info": "{n} info",
+      "infos": "{n} infos",
+      "aucune": "aucune info",
+      "carteAlt": "Plan des onze communes suivies par Castel Actu, avec leur nombre d’infos",
+      "note": "Plan schématique : positions approximatives des communes."
+    },
+    "plusLus": {
+      "surTitre": "Le classement",
+      "titre": "Ce que vous avez le plus lu",
+      "source": "Vues relevées sur le site actuel de Castel Actu (publications Facebook)."
+    },
+    "ecoute": {
+      "surTitre": "À voir, à écouter",
+      "titre": "En vidéo et en podcast",
+      "intro": "Les sujets de Castel Actu en vidéo, accessibles gratuitement, et l’essentiel de l’actu en une minute avec les podcasts « En bref ».",
+      "tout": "Vidéos et podcasts",
+      "videos": "Vidéos en bref · {n} sujets",
+      "codeStudio": "Studio"
+    },
+    "chantiers": {
+      "surTitre": "{n} chantiers et projets suivis",
+      "titre": "Ça bouge en ville",
+      "rubrique": "Toute la rubrique Travaux et projets",
+      "region": "Chantiers et projets, défilement horizontal"
+    },
+    "alerte": {
+      "surTitre": "Alertez-nous",
+      "titre": "Vous avez vu quelque chose ?",
+      "texte": "Particulier, association, commerce, entreprise : devenez acteur de l’actualité locale. Partagez vos infos, photos ou vidéos avec Castel Actu.",
+      "etape1": "Ce que vous avez vu : une info, une photo, une vidéo, un événement.",
+      "etape2": "Où : la commune et le lieu.",
+      "etape3": "Vos coordonnées, pour que la rédaction puisse vérifier.",
+      "action": "Envoyer une info",
+      "codeVisuel": "Alertez-nous"
+    },
+    "dixAns": {
+      "surTitre": "Depuis le 13 novembre 2016",
+      "titre": "Dix ans d’info locale",
+      "texte": "Castel Actu, c’est avant tout une aventure locale avec une envie simple : raconter le Pays de Châteaubriant tel qu’il se vit au quotidien.",
+      "compteRepli": "10 ans",
+      "date": "le 13 novembre 2026",
+      "audience": "million de vues par mois",
+      "action": "Qui sommes-nous ?"
+    }
+  },
+  "dixAns": {
+    "avant": "Castel Actu aura 10 ans le vendredi 13 novembre 2026",
+    "jour": "Castel Actu a 10 ans aujourd’hui",
+    "apres": "Castel Actu a 10 ans depuis le 13 novembre 2026",
+    "jours": "J−{n}"
+  },
+  "mentions": {
+    "surTitre": "Informations légales",
+    "titre": "Mentions légales",
+    "intro": "Éditeur, directeur de la publication, hébergeur, droit de réponse, crédits et confidentialité de Castel Actu.",
+    "fiche": {
+      "titre": "À fournir par Castel Actu",
+      "texte": "<ul><li>Statut et adresse du siège à confirmer : le site actuel indique « 17 rue d’Ancenis » et « centre-ville ».</li><li>Adresse e-mail à confirmer : le site actuel écrit aussi « contact@CasteActu.fr ».</li><li>Chiffre d’audience à confirmer : 1,7 million de vues, 1 million de vues ou 200 000 lecteurs par mois selon les pages.</li><li>Dates de publication des brèves et textes complets : à compléter. Dates d’ouverture annoncées (Central 8, Le Smas’h, Crédit Mutuel, supérette de Treffieux) : à confirmer.</li><li>Fichiers audio des podcasts, lien du direct, présentation de Castel FM : à fournir.</li><li>Portrait du fondateur et photo de Central 8 : à fournir.</li><li>Droits des photos tierces et des perspectives de projets : à vérifier.</li><li>Politique de confidentialité, modalités d’adhésion, de don et de bénévolat : à compléter.</li></ul>"
+    },
+    "editeur": {
+      "titre": "Éditeur",
+      "texte": "<p>Association « Castel Actu », 17 rue d’Ancenis, 44110 Châteaubriant.<br>Téléphone : 06 99 59 99 75 · E-mail : contact@castelactu.fr<br>SIRET : 100 220 995 00011 · RNA : W441007944<br>Association déclarée le 21 janvier 2026 ; page Facebook créée le 13 novembre 2016.</p>"
+    },
+    "publication": {
+      "titre": "Directeur de la publication",
+      "texte": "<p>Gaetan Lassalle.</p>"
+    },
+    "hebergeur": {
+      "titre": "Hébergeur",
+      "texte": "<p>Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis (adresse relevée sur vercel.com le 2 novembre 2026). Téléphone : non publié sur vercel.com, à compléter.</p>"
+    },
+    "reponse": {
+      "titre": "Droit de réponse",
+      "texte": "<p>Toute personne nommée ou désignée dans une publication de Castel Actu peut demander l’insertion d’une réponse, dans les conditions prévues par l’article 6 de la loi du 21 juin 2004 pour la confiance dans l’économie numérique, en écrivant au directeur de la publication : contact@castelactu.fr ou 17 rue d’Ancenis, 44110 Châteaubriant. Modalités pratiques à faire valider par l’association.</p>"
+    },
+    "propriete": {
+      "titre": "Propriété et reproduction",
+      "texte": "<p>© 2016-2026 Castel Actu. Reproduction interdite sans autorisation, comme l’indique le site actuel. Les logos et marques cités appartiennent à leurs propriétaires.</p>"
+    },
+    "credits": {
+      "titre": "Crédits",
+      "texte": "<p>Photographies : Castel Actu, sauf mention contraire. Perspectives de projets : documents des porteurs de projets, droits à vérifier. Logo de Central 8 : propriété de l’enseigne. Les images marquées « Illustration générée » ont été créées par intelligence artificielle (Grok pour cette maquette, et illustrations ChatGPT publiées par Castel Actu) ; cette mention est conservée sur le site final. Polices : Fraunces, Inter Tight et IBM Plex Mono, sous licence SIL Open Font License.</p>"
+    },
+    "confidentialite": {
+      "titre": "Confidentialité",
+      "texte": "<p>Les formulaires de cette maquette sont simulés : aucune donnée n’est envoyée ni conservée. Sur le site final, les informations envoyées par « Alertez-nous » serviront seulement à traiter l’info et à recontacter son auteur. Politique de confidentialité complète (responsable du traitement, finalités, durée de conservation, droits d’accès, de rectification et d’effacement, contact) : à compléter, conformément au RGPD.</p>"
+    },
+    "cookies": {
+      "titre": "Cookies",
+      "texte": "<p>Cette maquette ne dépose aucun cookie de mesure d’audience ni de publicité. Elle garde seulement dans votre navigateur votre choix « Réduire les animations ».</p>"
+    }
+  },
+  "introuvable": {
+    "titre": "Erratum : cette page n’existe pas",
+    "texte": "Elle n’est jamais sortie des presses, ou elle a été retirée.",
+    "retour": "Revenir à la Une",
+    "surTitre": "Erreur 404",
+    "fil": "Parcourir le fil"
+  },
+  "rubrique": {
+    "surTitre": "Rubrique",
+    "sujets": "{n} chantiers et projets suivis",
+    "statutsN": "{n} états d’avancement",
+    "voirListe": "Voir la liste",
+    "filtres": "Filtrer la rubrique",
+    "parStatut": "Par état d’avancement",
+    "chercher": "Chercher dans la rubrique",
+    "resultat": "{n} infos",
+    "resultatUn": "1 info",
+    "etat": {
+      "surTitre": "Où en sont-ils ?",
+      "titre": "L’état des chantiers",
+      "texte": "Chaque sujet suivi par Castel Actu, rangé selon ce que disent ses publications : en construction, en rénovation, en projet, annoncé ou annulé.",
+      "alt": "Barres : nombre de sujets par état d’avancement"
+    },
+    "plan": {
+      "surTitre": "Sur le plan",
+      "titre": "Où ça se passe",
+      "texte": "{n} communes concernées pour l’instant. Touchez une commune pour voir toutes ses infos dans le fil.",
+      "alt": "Plan des communes : nombre de chantiers et projets par commune"
+    },
+    "autres": {
+      "surTitre": "Les autres rubriques",
+      "titre": "Toute l’actualité du Pays",
+      "texte": "Les autres rubriques de Castel Actu ouvrent sur le fil de l’accueil, déjà trié.",
+      "n": "{n} infos",
+      "un": "1 info"
+    },
+    "liste": {
+      "surTitre": "La liste",
+      "titre": "Tous les chantiers et projets"
+    }
+  },
+  "rubriques": {
+    "travaux": {
+      "intro": "Chantiers, constructions, rénovations et projets du Pays de Châteaubriant : ce qui sort de terre, ce qui se transforme, ce qui est annoncé et ce qui est abandonné.",
+      "action": "Signaler un chantier",
+      "exemple": "Exemple : piscine, résidence, rue",
+      "appel": "Un chantier démarre près de chez vous ? Envoyez une photo à la rédaction."
+    }
+  },
+  "article": {
+    "formatVideo": "Vidéo sur Facebook",
+    "voirVideo": "Voir la vidéo sur Facebook",
+    "lireFacebook": "Lire sur Facebook",
+    "partager": "Partager",
+    "lienCopie": "Lien de la brève copié.",
+    "essentiel": "L’essentiel",
+    "commune": "Commune",
+    "source": "Source",
+    "postFacebook": "Publication Castel Actu sur Facebook",
+    "texteAFournir": "Le texte complet de cette brève est aujourd’hui publié sur la page Facebook de Castel Actu. Il sera repris ici, sur le site final (à compléter).",
+    "note": "Une précision, une correction, une photo du lieu ? La rédaction met la brève à jour avec vos informations vérifiées.",
+    "lieu": {
+      "surTitre": "Où ?",
+      "titre": "Sur le plan",
+      "autres": "Toutes les infos de {commune}",
+      "alt": "Plan des communes : {commune} est signalée",
+      "ici": "Ici"
+    },
+    "aussi": {
+      "surTitre": "À lire aussi",
+      "titre": "Dans la même veine"
+    },
+    "appel": "Vous avez une info sur ce sujet ? Envoyez-la à la rédaction.",
+    "chiffre": {
+      "surTitre": "Audience",
+      "texte": "vues sur la publication Facebook de Castel Actu, relevées sur le site actuel."
+    }
+  },
+  "medias": {
+    "surTitre": "À voir, à écouter",
+    "titre": "Vidéos et podcasts",
+    "intro": "Les sujets de Castel Actu en vidéo, accessibles gratuitement, et l’essentiel de l’actu en une minute avec les podcasts « En bref ».",
+    "nVideos": "{n} vidéos en bref",
+    "nPodcasts": "{n} podcasts",
+    "envoyer": "Envoyer une vidéo",
+    "ecouter": "Écouter les podcasts",
+    "direct": {
+      "surTitre": "Le direct",
+      "titre": "En direct du Pays",
+      "texte": "Castel Actu propose un direct vidéo de l’actualité locale. Le lien du direct sera intégré ici sur le site final.",
+      "attente": "Lien du direct : à fournir"
+    },
+    "podcasts": {
+      "surTitre": "Podcasts",
+      "titre": "En bref, en une minute",
+      "texte": "Deux formats courts publiés par Castel Actu : l’économie et les événements du Pays, en un peu plus d’une minute."
+    },
+    "videos": {
+      "surTitre": "{n} vidéos en bref",
+      "titre": "Les vidéos en bref",
+      "texte": "Chaque vidéo s’ouvre sur la page Facebook de Castel Actu, dans un nouvel onglet."
+    },
+    "fm": {
+      "surTitre": "Castel FM",
+      "titre": "Castel FM",
+      "texte": "Castel FM figure sur le site actuel de Castel Actu. Présentation, programme et écoute : à compléter par l’association."
+    },
+    "appel": "Vous avez filmé quelque chose ? Envoyez votre vidéo à la rédaction."
+  },
+  "alerte": {
+    "surTitre": "Envoyer une info",
+    "titre": "Alertez-nous",
+    "intro": "Particulier, association, commerce, entreprise : devenez acteur de l’actualité locale. Partagez vos infos, photos ou vidéos !",
+    "commencer": "Envoyer une info",
+    "form": {
+      "surTitre": "En quatre étapes",
+      "titre": "Votre info, pas à pas",
+      "deroule": "Déroulé : quatre étapes",
+      "etapes": {
+        "quoi": "Quoi ?",
+        "ou": "Où ?",
+        "details": "Les détails",
+        "vous": "Vos coordonnées"
+      },
+      "type": "Type d’info",
+      "rubrique": "Rubrique (facultatif)",
+      "rubriqueAucune": "Je ne sais pas",
+      "commune": "Commune",
+      "communeChoisir": "Choisir une commune",
+      "communeAutre": "Autre commune",
+      "lieu": "Lieu précis (facultatif)",
+      "lieuExemple": "Exemple : rue du Château, zone Horizon",
+      "titreInfo": "En une phrase",
+      "description": "Ce que vous avez vu",
+      "quand": "Date (facultatif)",
+      "fichier": "Photos ou vidéos (facultatif)",
+      "fichierAide": "Dans cette maquette, aucun fichier n’est envoyé.",
+      "prenom": "Prénom",
+      "nom": "Nom (facultatif)",
+      "email": "E-mail",
+      "tel": "Téléphone (facultatif)",
+      "accord": "J’accepte que la rédaction me recontacte pour vérifier cette info.",
+      "donnees": "Vos données servent seulement à traiter votre info et à vous recontacter. Rien n’est envoyé dans cette maquette. <a href=\"/mentions-legales#confidentialite\">Politique de confidentialité</a> (à compléter).",
+      "precedent": "Étape précédente",
+      "suivant": "Étape suivante",
+      "envoyer": "Envoyer à la rédaction",
+      "envoye": "Envoi simulé : rien n’a été envoyé. Sur le site final, votre info partira vers la rédaction de Castel Actu.",
+      "sujet": "À propos de : {titre}",
+      "champRequis": "Ce champ est à remplir.",
+      "emailInvalide": "Adresse e-mail à vérifier (exemple : nom@domaine.fr).",
+      "etapeAnnonce": "Étape {n} sur 4 : {titre}",
+      "quoiTitre": "Que voulez-vous signaler ?",
+      "demo": "Formulaire de démonstration : rien n’est envoyé dans cette maquette."
+    },
+    "types": {
+      "info": {
+        "nom": "Une info",
+        "texte": "Ce qui se passe près de chez vous"
+      },
+      "photo": {
+        "nom": "Une photo",
+        "texte": "Un chantier, un commerce, un lieu"
+      },
+      "video": {
+        "nom": "Une vidéo",
+        "texte": "Une scène filmée sur place"
+      },
+      "evenement": {
+        "nom": "Un événement",
+        "texte": "Une date à annoncer"
+      },
+      "alerte": {
+        "nom": "Une alerte",
+        "texte": "Route coupée, intempéries, incident"
+      },
+      "contact": {
+        "nom": "Un message",
+        "texte": "Suggestion, témoignage, question"
+      }
+    },
+    "recap": {
+      "titre": "Récapitulatif",
+      "type": "Type",
+      "rubrique": "Rubrique",
+      "ou": "Où",
+      "titreInfo": "En une phrase",
+      "fichiers": "Fichiers",
+      "contact": "Contact",
+      "note": "Le récapitulatif se remplit pendant que vous écrivez.",
+      "titreCourt": "Votre envoi"
+    },
+    "contact": {
+      "surTitre": "Sans formulaire",
+      "titre": "Écrire ou appeler la rédaction",
+      "email": "E-mail",
+      "tel": "Téléphone",
+      "adresse": "Adresse",
+      "reseaux": "Réseaux",
+      "note": "Horaires de la rédaction et délai de réponse : à compléter."
+    }
+  },
+  "qui": {
+    "surTitre": "Castel Actu",
+    "titre": "Qui sommes-nous ?",
+    "intro": "C’est avant tout une aventure locale née le 13 novembre 2016, avec une envie simple : raconter le Pays de Châteaubriant tel qu’il se vit au quotidien.",
+    "depuis": "Depuis le 13 novembre 2016",
+    "statut": "Association déclarée le 21 janvier 2026",
+    "ecrire": "Écrire à la rédaction",
+    "soutenirLien": "Soutenir Castel Actu",
+    "histoire": {
+      "surTitre": "L’histoire",
+      "titre": "De la page Facebook à l’association",
+      "texte": "Depuis ses débuts, Castel Actu s’est construit au plus près du terrain, à l’écoute des habitants, des associations, des acteurs locaux et de toutes celles et ceux qui font vivre le territoire.",
+      "creation": {
+        "date": "13 novembre 2016",
+        "titre": "La page Castel Actu naît",
+        "texte": "Création de la page Facebook : l’aventure commence."
+      },
+      "association": {
+        "date": "21 janvier 2026",
+        "titre": "Castel Actu devient une association",
+        "texte": "Déclaration de l’association « Castel Actu »."
+      },
+      "dixAns": {
+        "date": "13 novembre 2026",
+        "titre": "Dix ans d’info locale",
+        "texte": "Castel Actu fête ses 10 ans."
+      },
+      "etat": {
+        "passe": "Passé",
+        "jour": "Aujourd’hui",
+        "avenir": "À venir"
+      }
+    },
+    "indep": {
+      "surTitre": "Indépendant et associatif",
+      "titre": "Informer avec sérieux… et avec cœur",
+      "texte": "Castel Actu est aujourd’hui un média associatif indépendant. Ce statut reflète pleinement son engagement : proposer une information libre, sans influence politique ou commerciale, guidée uniquement par l’intérêt général et la proximité avec le territoire.",
+      "texte2": "Informations pratiques, actualités, événements, initiatives, vie associative ou municipale : ici, l’info est locale, concrète et accessible à tous."
+    },
+    "fondateur": {
+      "monogrammeAlt": "Monogramme G, en attendant le portrait du fondateur",
+      "portrait": "Portrait à fournir",
+      "surTitre": "Le fondateur",
+      "citation": "Votre média d’information locale, digital et indépendant.",
+      "nom": "Gaetan",
+      "role": "fondateur et directeur de la publication",
+      "texte": "Depuis 2016, votre fidélité, vos messages et vos partages font vivre Castel Actu chaque jour. Ce média existe grâce à vous et pour vous."
+    },
+    "transp": {
+      "surTitre": "Transparence",
+      "titre": "Qui publie Castel Actu",
+      "editeur": "Éditeur",
+      "directeur": "Directeur de la publication",
+      "directeurNom": "Gaetan Lassalle",
+      "declaration": "Association déclarée",
+      "declarationDate": "Le 21 janvier 2026",
+      "rna": "Numéro RNA",
+      "siret": "SIRET",
+      "financement": "Financement",
+      "financementTexte": "Sources de financement : à compléter."
+    },
+    "soutenir": {
+      "surTitre": "Soutenir",
+      "titre": "Faire grandir l’info locale",
+      "adherer": "Adhérer à l’association",
+      "don": "Faire un don",
+      "benevole": "Devenir bénévole",
+      "partager": "Partager",
+      "aCompleter": "Modalités à compléter par l’association.",
+      "partagerTexte": "Vos partages et vos infos font vivre Castel Actu chaque jour.",
+      "action": "Proposer votre aide",
+      "aCompleterCourt": "À compléter"
+    }
+  },
+  "partage": {
+    "zone": "Pays de Châteaubriant",
+    "depuis": "Depuis 2016"
+  }
+}

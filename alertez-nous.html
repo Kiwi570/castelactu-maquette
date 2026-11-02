@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alertez-nous : envoyer une info à Castel Actu</title>
+<meta name="description" content="Particulier, association, commerce, entreprise : partagez vos infos, photos ou vidéos avec Castel Actu.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://castelactu-maquette.vercel.app/alertez-nous">
+<style>:root{--fond:#f3eee4;--texte:#141414;--voile-fond:#141414;--ouverture-fond:#141414;--menu-fond:#f3eee4}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f3eee4">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Castel Actu">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Alertez-nous : envoyer une info à Castel Actu">
+<meta property="og:description" content="Particulier, association, commerce, entreprise : partagez vos infos, photos ou vidéos avec Castel Actu.">
+<meta property="og:url" content="https://castelactu-maquette.vercel.app/alertez-nous">
+<meta property="og:image" content="https://castelactu-maquette.vercel.app/assets/partage/alertez-nous-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Envoyer une info à Castel Actu">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"Castel Actu","url":"https://castelactu-maquette.vercel.app/","logo":"https://castelactu-maquette.vercel.app/assets/images/logo-castelactu-480.webp","foundingDate":"2016-11-13","founder":{"@type":"Person","name":"Gaetan Lassalle"},"telephone":"+33699599975","email":"contact@castelactu.fr","address":{"@type":"PostalAddress","streetAddress":"17 rue d’Ancenis","postalCode":"44110","addressLocality":"Châteaubriant","addressCountry":"FR"},"areaServed":["Châteaubriant","Erbray","Soudan","Fercé","Rougé","Louisfert","Ruffigné","Villepot","Soulvache","Issé","Treffieux"],"sameAs":["https://www.facebook.com/CastelActu/"],"description":"Média d’information locale, associatif et indépendant, du Pays de Châteaubriant depuis 2016."}</script>
+</head>
+<body id="haut" class="page-formulaire">
+<div data-voile aria-hidden="true">
+  <div class="voile-bandes"><span></span><span></span><span></span></div>
+  <div class="voile-contenu"><img class="voile-logo" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718"><span data-voile-libelle>Alertez-nous</span></div>
+</div>
+<div class="ouverture-panneau" data-ouverture data-effet="rotative" aria-hidden="true">
+  <div class="ouverture-centre"><img class="ouverture-logo" src="/assets/images/logo-castelactu-480.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="240px" alt="" width="1238" height="718"><p class="ouverture-ligne">L’info 24/24 depuis 2016</p></div>
+  <div class="ouverture-bandes"><span class="ouverture-bande" style="--i:0"><span>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin<i aria-hidden="true">✦</i>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin<i aria-hidden="true">✦</i>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span></span><span class="ouverture-bande" style="--i:1"><span>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson<i aria-hidden="true">✦</i>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson<i aria-hidden="true">✦</i>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span></span><span class="ouverture-bande" style="--i:2"><span>La Bijouterie de Camille a ouvert zone Horizon<i aria-hidden="true">✦</i>La Bijouterie de Camille a ouvert zone Horizon<i aria-hidden="true">✦</i>La Bijouterie de Camille a ouvert zone Horizon</span></span><span class="ouverture-bande" style="--i:3"><span>La rue du Château en rénovation<i aria-hidden="true">✦</i>La rue du Château en rénovation<i aria-hidden="true">✦</i>La rue du Château en rénovation</span></span><span class="ouverture-bande" style="--i:4"><span>Travaux de rénovation pour Bricomarché<i aria-hidden="true">✦</i>Travaux de rénovation pour Bricomarché<i aria-hidden="true">✦</i>Travaux de rénovation pour Bricomarché</span></span><span class="ouverture-bande" style="--i:5"><span>Travaux de voirie sur la route Châteaubriant – Soudan (D771)<i aria-hidden="true">✦</i>Travaux de voirie sur la route Châteaubriant – Soudan (D771)<i aria-hidden="true">✦</i>Travaux de voirie sur la route Châteaubriant – Soudan (D771)</span></span><span class="ouverture-bande" style="--i:6"><span>Un nouvel espace commercial rue du 8-Mai-1945<i aria-hidden="true">✦</i>Un nouvel espace commercial rue du 8-Mai-1945<i aria-hidden="true">✦</i>Un nouvel espace commercial rue du 8-Mai-1945</span></span></div>
+  <span class="ouverture-alerte"><span>Alerte · Castel Actu · Alerte · Castel Actu · Alerte · Castel Actu</span></span>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<span id="note-facebook" hidden>Sur Facebook, nouvel onglet</span>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" data-libelle="Accueil">
+      <img class="" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718"><span class="visuellement-cache">Castel Actu, retour à l’accueil</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/#fil" data-libelle="Accueil">Toute l’actu</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/videos-et-podcasts" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li><a href="/qui-sommes-nous" data-libelle="Qui sommes-nous">Qui sommes-nous</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <button type="button" class="entete-recherche" data-recherche-bouton aria-controls="recherche" aria-expanded="false" aria-label="Rechercher"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="entete-recherche-libelle">Rechercher</span></button>
+      <a class="bouton bouton--alerte" href="/alertez-nous" data-libelle="Alertez-nous" aria-current="page">Alertez-nous</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="recherche" class="recherche" data-recherche role="dialog" aria-modal="true" aria-label="Rechercher" hidden>
+  <form class="recherche-form conteneur" action="/" method="get" role="search" data-recherche-form>
+    <label for="recherche-champ" class="recherche-label">Chercher une info, une commune, un commerce</label>
+    <div class="recherche-rangee">
+      <input id="recherche-champ" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Exemple : piscine, Treffieux, padel">
+      <button type="submit" class="bouton">Rechercher</button>
+      <button type="button" class="recherche-fermer" data-recherche-fermer aria-label="Fermer"><span aria-hidden="true">×</span></button>
+    </div>
+  </form>
+</div>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-grille">
+    <ul class="menu-pages"><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/rubriques/travaux-et-projets" class="menu-lien" data-libelle="Travaux et projets">Travaux et projets</a></li><li style="--i:2"><a href="/videos-et-podcasts" class="menu-lien" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li style="--i:3"><a href="/qui-sommes-nous" class="menu-lien" data-libelle="Qui sommes-nous">Qui sommes-nous</a></li><li style="--i:4"><a href="/alertez-nous" class="menu-lien menu-lien--alerte" data-libelle="Alertez-nous" aria-current="page">Alertez-nous</a></li></ul>
+    <div class="menu-cote">
+      <p class="sur-titre">Rubriques</p>
+      <ul class="menu-rubriques"><li style="--i:6"><a href="/?rubrique=actualite#fil" data-libelle="Accueil">Actualité</a></li><li style="--i:7"><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li style="--i:8"><a href="/?rubrique=commerces#fil" data-libelle="Accueil">Commerces</a></li><li style="--i:9"><a href="/?rubrique=economie#fil" data-libelle="Accueil">Économie</a></li><li style="--i:10"><a href="/?rubrique=sport#fil" data-libelle="Accueil">Sport</a></li><li style="--i:11"><a href="/?rubrique=evenements#fil" data-libelle="Accueil">Événements</a></li><li style="--i:12"><a href="/?rubrique=culture#fil" data-libelle="Accueil">Culture</a></li></ul>
+      <p class="menu-bientot">Bientôt : Faits divers, Association, Médias, People, High-tech, Bons plans, Emploi.</p>
+      <p><a class="bouton bouton--contour" href="tel:+33699599975">Appeler 06 99 59 99 75</a></p>
+      <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+    </div>
+  </div>
+</div>
+<main id="contenu" tabindex="-1">
+<div class="ruban-alerte" data-effet="ruban-alerte" role="region" aria-label="Bandeau d’alerte Castel Actu">
+  <p class="visuellement-cache" role="status">Pas d’alerte en cours</p>
+  <div class="ruban-fenetre" aria-hidden="true"><div class="ruban-piste" id="ruban-alerte" data-boucle-css><span class="ruban-morceau"><span class="ruban-etat"><span class="ruban-point" aria-hidden="true"></span> Pas d’alerte en cours</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-titre">Dernières infos</span><span class="ruban-info">Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le nouveau Crédit Mutuel prend forme zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Un nouvel espace commercial rue du 8-Mai-1945</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">La Bijouterie de Camille a ouvert zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span>L’info 24/24 de Châteaubriant et sa région<span class="ruban-sep" aria-hidden="true">✦</span></span><span class="ruban-morceau"><span class="ruban-etat"><span class="ruban-point" aria-hidden="true"></span> Pas d’alerte en cours</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-titre">Dernières infos</span><span class="ruban-info">Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le nouveau Crédit Mutuel prend forme zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Un nouvel espace commercial rue du 8-Mai-1945</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">La Bijouterie de Camille a ouvert zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span>L’info 24/24 de Châteaubriant et sa région<span class="ruban-sep" aria-hidden="true">✦</span></span></div></div>
+  <button type="button" class="ruban-pause" data-pause-pour="ruban-alerte" data-libelle-pause="Pause" data-libelle-lecture="Lecture" aria-label="Mettre en pause le bandeau d’alerte"><span data-libelle-bouton>Pause</span></button>
+</div>
+<section class="page-tete page-tete--image conteneur" id="debut">
+  <div class="page-tete-texte">
+    <p class="sur-titre tete-anim" data-anime="gsap" data-tete="fondu">Envoyer une info</p>
+    <h1 class="impression impression--tete" data-effet="impression" data-texte="Alertez-nous"><span class="impression-encre">Alertez-nous</span></h1>
+    <p class="section-intro tete-anim" data-anime="gsap" data-tete="fondu">Particulier, association, commerce, entreprise : devenez acteur de l’actualité locale. Partagez vos infos, photos ou vidéos !</p>
+    <p class="tete-infos mono tete-anim" data-anime="gsap" data-tete="fondu" data-info-cle><a href="mailto:contact@castelactu.fr">contact@castelactu.fr</a><a href="tel:+33699599975">06 99 59 99 75</a></p>
+    <p class="tete-actions tete-anim" data-anime="gsap" data-tete="fondu"><a class="bouton bouton--alerte" href="#formulaire" data-action-principale data-survol="magnetique">Envoyer une info</a></p>
+  </div>
+  <figure class="media page-tete-media tete-anim" data-grok data-anime="gsap" data-tete="media" data-fx="onde" style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/telephone-rue-mobile-640.webp 640w, /assets/images/grok/telephone-rue-mobile-784.webp 784w" sizes="(max-width: 760px) 92vw, 46vw">
+    <img src="/assets/images/grok/telephone-rue-1168.webp" srcset="/assets/images/grok/telephone-rue-640.webp 640w, /assets/images/grok/telephone-rue-1168.webp 1168w" sizes="(max-width: 760px) 92vw, 46vw" alt="Une personne, vue de dos, filme une rue pavée à la tombée de la nuit" width="1168" height="784" fetchpriority="high" loading="eager" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+</section>
+<section class="envoi" id="formulaire" data-masque-barre>
+  <div class="conteneur envoi-grille">
+    <div class="envoi-principal">
+      <header class="section-tete">
+        <p class="sur-titre">En quatre étapes</p>
+        <h2 data-anime="lignes">Votre info, pas à pas</h2>
+      </header>
+      <div class="etapes-visuel" data-visuel>
+      <ol class="etapes" data-etapes-liste aria-label="Déroulé : quatre étapes">
+        <li class="etape-puce etape-puce--active" data-etape-puce="0" aria-current="step"><span class="mono">01</span>Quoi ?</li><li class="etape-puce" data-etape-puce="1"><span class="mono">02</span>Où ?</li><li class="etape-puce" data-etape-puce="2"><span class="mono">03</span>Les détails</li><li class="etape-puce" data-etape-puce="3"><span class="mono">04</span>Vos coordonnées</li>
+      </ol>
+      <svg class="etapes-trait" viewBox="0 0 1000 8" preserveAspectRatio="none" aria-hidden="true" data-fx="trace" focusable="false"><path d="M2 4 H998" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <p class="note-demo">Formulaire de démonstration : rien n’est envoyé dans cette maquette.</p>
+      <form class="formulaire formulaire--etapes" data-formulaire data-etapes data-requis="Ce champ est à remplir." data-email="Adresse e-mail à vérifier (exemple : nom@domaine.fr)." action="#" novalidate>
+        <input type="hidden" name="sujet" value="" data-sujet-champ data-sujets="{&quot;central-8&quot;:&quot;Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin&quot;,&quot;le-smash&quot;:&quot;Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson&quot;,&quot;credit-mutuel-horizon&quot;:&quot;Le nouveau Crédit Mutuel prend forme zone Horizon&quot;,&quot;zone-commerciale-8-mai&quot;:&quot;Un nouvel espace commercial rue du 8-Mai-1945&quot;,&quot;bijouterie-de-camille&quot;:&quot;La Bijouterie de Camille a ouvert zone Horizon&quot;,&quot;bricomarche&quot;:&quot;Travaux de rénovation pour Bricomarché&quot;,&quot;super-u-station-lavage&quot;:&quot;Super U : une nouvelle station de lavage automobile&quot;,&quot;jmt-nouvelle-enseigne&quot;:&quot;JMT, une nouvelle enseigne bientôt à Châteaubriant ?&quot;,&quot;treffieux-superette-api&quot;:&quot;Treffieux : une supérette API en accès libre 7 jours sur 7&quot;,&quot;quartier-ville-marie&quot;:&quot;Le nouveau quartier La Ville Marie sort de terre&quot;,&quot;rue-du-chateau&quot;:&quot;La rue du Château en rénovation&quot;,&quot;residence-aristide-briand&quot;:&quot;La résidence Aristide-Briand en construction&quot;,&quot;residence-jardins-du-chateau&quot;:&quot;La résidence Les Jardins du Château en construction&quot;,&quot;salle-xavier-hunault&quot;:&quot;La salle des associations Xavier-Hunault&quot;,&quot;piscine-espace-dauphin&quot;:&quot;Piscine Espace Dauphin : la rénovation de 2026&quot;,&quot;voirie-d771&quot;:&quot;Travaux de voirie sur la route Châteaubriant – Soudan (D771)&quot;,&quot;rue-aristide-briand&quot;:&quot;Rue Aristide-Briand : un projet de rénovation&quot;,&quot;theatre-de-verdure-choisel&quot;:&quot;Un théâtre de verdure sur le site de Choisel&quot;,&quot;hauts-de-bere&quot;:&quot;Les Hauts de Béré : le projet est annulé&quot;,&quot;maison-des-associations&quot;:&quot;La Maison des associations, prochainement&quot;,&quot;domaine-moulin-de-bere&quot;:&quot;Le Domaine du Moulin de Béré : des logements&quot;,&quot;chateau-de-la-trinite&quot;:&quot;Le château de la Trinité : un nouveau projet&quot;,&quot;alain-hunault-mairie&quot;:&quot;Alain Hunault reconduit à la mairie de Châteaubriant&quot;,&quot;foire-de-bere-2026&quot;:&quot;Foire de Béré 2026 : quatre jours du 11 au 14 septembre&quot;,&quot;theatre-de-verre-2025-2026&quot;:&quot;Théâtre de Verre : la saison 2025-2026&quot;}">
+        <p class="sujet-rappel" data-sujet-rappel data-modele="À propos de : {titre}" hidden></p>
+        <p class="visuellement-cache" role="status" data-etape-annonce data-modele="Étape {n} sur 4 : {titre}"></p>
+        <fieldset class="etape" data-etape="0">
+          <legend class="etape-titre">Que voulez-vous signaler ?</legend>
+          <div class="choix-types" role="radiogroup" aria-label="Type d’info">
+            <label class="choix-type"><input type="radio" name="type" value="info" checked required><span class="choix-type-nom">Une info</span><span class="choix-type-texte">Ce qui se passe près de chez vous</span></label><label class="choix-type"><input type="radio" name="type" value="photo" required><span class="choix-type-nom">Une photo</span><span class="choix-type-texte">Un chantier, un commerce, un lieu</span></label><label class="choix-type"><input type="radio" name="type" value="video" required><span class="choix-type-nom">Une vidéo</span><span class="choix-type-texte">Une scène filmée sur place</span></label><label class="choix-type"><input type="radio" name="type" value="evenement" required><span class="choix-type-nom">Un événement</span><span class="choix-type-texte">Une date à annoncer</span></label><label class="choix-type"><input type="radio" name="type" value="alerte" required><span class="choix-type-nom">Une alerte</span><span class="choix-type-texte">Route coupée, intempéries, incident</span></label><label class="choix-type"><input type="radio" name="type" value="contact" required><span class="choix-type-nom">Un message</span><span class="choix-type-texte">Suggestion, témoignage, question</span></label>
+          </div>
+          <div class="champ">
+            <label for="f-rubrique">Rubrique (facultatif)</label>
+            <select id="f-rubrique" name="rubrique">
+              <option value="">Je ne sais pas</option>
+              <option value="actualite">Actualité</option><option value="travaux">Travaux et projets</option><option value="commerces">Commerces</option><option value="economie">Économie</option><option value="sport">Sport</option><option value="evenements">Événements</option><option value="culture">Culture</option><option value="faits-divers">Faits divers</option><option value="association">Association</option><option value="medias">Médias</option><option value="people">People</option><option value="high-tech">High-tech</option><option value="bons-plans">Bons plans</option><option value="emploi">Emploi</option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset class="etape" data-etape="1" hidden>
+          <legend class="etape-titre">Où ?</legend>
+          <div class="champ">
+            <label for="f-commune">Commune</label>
+            <select id="f-commune" name="commune" required>
+              <option value="">Choisir une commune</option>
+              <option value="chateaubriant">Châteaubriant</option><option value="erbray">Erbray</option><option value="soudan">Soudan</option><option value="ferce">Fercé</option><option value="rouge">Rougé</option><option value="louisfert">Louisfert</option><option value="ruffigne">Ruffigné</option><option value="villepot">Villepot</option><option value="soulvache">Soulvache</option><option value="isse">Issé</option><option value="treffieux">Treffieux</option>
+              <option value="autre">Autre commune</option>
+            </select>
+          </div>
+          <div class="champ"><label for="f-lieu">Lieu précis (facultatif)</label><input id="f-lieu" name="lieu" autocomplete="off" placeholder="Exemple : rue du Château, zone Horizon"></div>
+        </fieldset>
+        <fieldset class="etape" data-etape="2" hidden>
+          <legend class="etape-titre">Les détails</legend>
+          <div class="champ"><label for="f-titre">En une phrase</label><input id="f-titre" name="titre" required maxlength="120"></div>
+          <div class="champ"><label for="f-description">Ce que vous avez vu</label><textarea id="f-description" name="description" rows="5" required></textarea></div>
+          <div class="champ"><label for="f-quand">Date (facultatif)</label><input id="f-quand" name="quand" type="date"></div>
+          <div class="champ"><label for="f-fichier">Photos ou vidéos (facultatif)</label><input id="f-fichier" name="fichier" type="file" accept="image/*,video/*" multiple><p class="champ-aide">Dans cette maquette, aucun fichier n’est envoyé.</p></div>
+        </fieldset>
+        <fieldset class="etape" data-etape="3" hidden>
+          <legend class="etape-titre">Vos coordonnées</legend>
+          <div class="champs-duo">
+            <div class="champ"><label for="f-prenom">Prénom</label><input id="f-prenom" name="prenom" autocomplete="given-name" required></div>
+            <div class="champ"><label for="f-nom">Nom (facultatif)</label><input id="f-nom" name="nom" autocomplete="family-name"></div>
+          </div>
+          <div class="champs-duo">
+            <div class="champ"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="champ"><label for="f-tel">Téléphone (facultatif)</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="champ champ--case"><input id="f-accord" name="accord" type="checkbox" required><label for="f-accord">J’accepte que la rédaction me recontacte pour vérifier cette info.</label></div>
+          <p class="mention-donnees">Vos données servent seulement à traiter votre info et à vous recontacter. Rien n’est envoyé dans cette maquette. <a href="/mentions-legales#confidentialite">Politique de confidentialité</a> (à compléter).</p>
+        </fieldset>
+        <div class="etapes-actions">
+          <button type="button" class="bouton bouton--contour" data-etape-precedente hidden>Étape précédente</button>
+          <button type="button" class="bouton" data-etape-suivante>Étape suivante</button>
+          <button type="submit" class="bouton bouton--alerte" data-etape-envoyer hidden>Envoyer à la rédaction</button>
+        </div>
+        <p data-message-envoi role="status" tabindex="-1" hidden data-texte="Envoi simulé : rien n’a été envoyé. Sur le site final, votre info partira vers la rédaction de Castel Actu."></p>
+      </form>
+    </div>
+    <aside class="recap" aria-labelledby="recap-titre" data-recap>
+      <p class="sur-titre" id="recap-titre">Récapitulatif</p>
+      <dl class="recap-liste">
+        <div><dt>Type</dt><dd data-recap-champ="type">—</dd></div>
+        <div><dt>Rubrique</dt><dd data-recap-champ="rubrique">—</dd></div>
+        <div><dt>Où</dt><dd data-recap-champ="commune,lieu">—</dd></div>
+        <div><dt>En une phrase</dt><dd data-recap-champ="titre">—</dd></div>
+        <div><dt>Fichiers</dt><dd data-recap-champ="fichier">—</dd></div>
+        <div><dt>Contact</dt><dd data-recap-champ="prenom,email">—</dd></div>
+      </dl>
+      <p class="recap-note">Le récapitulatif se remplit pendant que vous écrivez.</p>
+    </aside>
+  </div>
+</section>
+<section class="contact-direct" id="contact">
+  <div class="conteneur contact-grille">
+    <figure class="media contact-media" data-grok data-anime="rideau" style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/rubrique-videos-mobile-640.webp 640w, /assets/images/grok/rubrique-videos-mobile-784.webp 784w" sizes="(max-width: 760px) 92vw, 44vw">
+    <img src="/assets/images/grok/rubrique-videos-1168.webp" srcset="/assets/images/grok/rubrique-videos-640.webp 640w, /assets/images/grok/rubrique-videos-1168.webp 1168w" sizes="(max-width: 760px) 92vw, 44vw" alt="Caméra sur trépied qui filme une rue à l’heure bleue, vue de dos" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+    <div>
+      <p class="sur-titre">Sans formulaire</p>
+      <h2 data-anime="lignes">Écrire ou appeler la rédaction</h2>
+      <dl class="fiche fiche--contact" data-anime="cascade">
+        <div><dt>E-mail</dt><dd><a href="mailto:contact@castelactu.fr">contact@castelactu.fr</a></dd></div>
+        <div><dt>Téléphone</dt><dd><a href="tel:+33699599975">06 99 59 99 75</a></dd></div>
+        <div><dt>Adresse</dt><dd>Association Castel Actu, 17 rue d’Ancenis, 44110 Châteaubriant</dd></div>
+        <div><dt>Réseaux</dt><dd><a href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook <svg class="icone icone--fleche" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></dd></div>
+      </dl>
+      <p class="note-source">Horaires de la rédaction et délai de réponse : à compléter.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-tete">
+    <img class="pied-logo" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718">
+    <p class="pied-promesse">L’info 24/24 de Châteaubriant et sa région depuis 2016. Un média local, indépendant et associatif.</p>
+  </div>
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="sur-titre">Contact</p>
+      <p>Association Castel Actu<br>17 rue d’Ancenis, 44110 Châteaubriant<br><a href="tel:+33699599975">06 99 59 99 75</a><br><a href="mailto:contact@castelactu.fr">contact@castelactu.fr</a></p>
+      <p><a href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook <svg class="icone icone--fleche" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p class="sur-titre">Sommaire</p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/videos-et-podcasts" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li><a href="/qui-sommes-nous" data-libelle="Qui sommes-nous">Qui sommes-nous</a></li><li><a href="/alertez-nous" data-libelle="Alertez-nous" aria-current="page">Alertez-nous</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <nav aria-label="Rubriques">
+      <p class="sur-titre">Rubriques</p>
+      <ul class="pied-rubriques"><li><a href="/?rubrique=actualite#fil" data-libelle="Accueil">Actualité</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/?rubrique=commerces#fil" data-libelle="Accueil">Commerces</a></li><li><a href="/?rubrique=economie#fil" data-libelle="Accueil">Économie</a></li><li><a href="/?rubrique=sport#fil" data-libelle="Accueil">Sport</a></li><li><a href="/?rubrique=evenements#fil" data-libelle="Accueil">Événements</a></li><li><a href="/?rubrique=culture#fil" data-libelle="Accueil">Culture</a></li></ul>
+    </nav>
+    <div>
+      <p class="sur-titre">Confort de lecture</p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » seront fournies par Castel Actu.</p><p>© 2016-2026 Castel Actu</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33699599975">Appeler</a>
+  <a class="bouton bouton--alerte" href="/alertez-nous" data-libelle="Alertez-nous">Alertez-nous</a>
+</div>
+</body>
+</html>

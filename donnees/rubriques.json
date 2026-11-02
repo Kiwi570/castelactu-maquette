@@ -1,0 +1,16 @@
+[
+  { "id": "actualite", "nom": "Actualité" },
+  { "id": "travaux", "nom": "Travaux et projets", "page": "rubrique-travaux" },
+  { "id": "commerces", "nom": "Commerces" },
+  { "id": "economie", "nom": "Économie" },
+  { "id": "sport", "nom": "Sport" },
+  { "id": "evenements", "nom": "Événements" },
+  { "id": "culture", "nom": "Culture" },
+  { "id": "faits-divers", "nom": "Faits divers" },
+  { "id": "association", "nom": "Association" },
+  { "id": "medias", "nom": "Médias" },
+  { "id": "people", "nom": "People" },
+  { "id": "high-tech", "nom": "High-tech" },
+  { "id": "bons-plans", "nom": "Bons plans" },
+  { "id": "emploi", "nom": "Emploi" }
+]

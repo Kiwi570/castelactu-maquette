@@ -1,0 +1,21 @@
+[
+  {"source": "recu/site/articles/bijouterie-de-camille.jpg", "nom": "articles/bijouterie-de-camille", "cadrage": [42, 40]},
+  {"source": "recu/site/articles/bricomarche-renovation.jpg", "nom": "articles/bricomarche", "cadrage": [50, 40]},
+  {"source": "recu/site/articles/super-u-station-lavage.jpg", "nom": "articles/super-u-station-lavage", "cadrage": [55, 35]},
+  {"source": "recu/site/articles/domaine-moulin-de-bere.jpg", "nom": "articles/domaine-moulin-de-bere", "cadrage": [55, 45]},
+  {"source": "recu/site/articles/hauts-de-bere.jpg", "nom": "articles/hauts-de-bere", "cadrage": [45, 50]},
+  {"source": "recu/site/articles/theatre-de-verdure-choisel.jpg", "nom": "articles/theatre-de-verdure-choisel", "cadrage": [50, 45]},
+  {"source": "recu/site/articles/chateau-de-la-trinite.jpg", "nom": "articles/chateau-de-la-trinite", "cadrage": [38, 45]},
+  {"source": "recu/site/articles/piscine-espace-dauphin.jpg", "nom": "articles/piscine-espace-dauphin", "cadrage": [55, 60]},
+  {"source": "recu/site/articles/residence-jardins-du-chateau.jpg", "nom": "articles/residence-jardins-du-chateau", "cadrage": [68, 55]},
+  {"source": "recu/site/articles/quartier-ville-marie.png", "nom": "articles/quartier-ville-marie", "cadrage": [45, 55]},
+  {"source": "recu/site/articles/central-8-b.png", "nom": "articles/central-8-logo", "cadrage": [50, 50]},
+  {"source": "recu/site/articles/credit-mutuel-horizon.png", "nom": "grok/client/credit-mutuel-horizon", "cadrage": [50, 55]},
+  {"source": "recu/site/articles/le-smash.png", "nom": "grok/client/le-smash", "cadrage": [55, 45]},
+  {"source": "recu/site/articles/zone-commerciale-8-mai.png", "nom": "grok/client/zone-commerciale-8-mai", "cadrage": [55, 55]},
+  {"source": "recu/site/articles/maison-des-associations.png", "nom": "grok/client/maison-des-associations", "cadrage": [40, 50]},
+  {"source": "recu/site/articles/salle-associations-xavier-hunault.png", "nom": "grok/client/salle-xavier-hunault", "cadrage": [45, 55]},
+  {"source": "recu/site/articles/rue-du-chateau.png", "nom": "grok/client/rue-du-chateau", "cadrage": [50, 55]},
+  {"source": "recu/site/articles/rue-aristide-briand.png", "nom": "grok/client/rue-aristide-briand", "cadrage": [50, 55]},
+  {"source": "recu/site/articles/residence-aristide-briand.png", "nom": "grok/client/residence-aristide-briand", "cadrage": [50, 45]}
+]

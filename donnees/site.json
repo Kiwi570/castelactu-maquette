@@ -1,0 +1,44 @@
+{
+  "nom": "Castel Actu",
+  "adresse": "https://castelactu-maquette.vercel.app",
+  "siteActuel": "castelactu.wixsite.com",
+  "siteActuelAutres": [
+    "castelactu.fr"
+  ],
+  "version": 1,
+  "langues": [
+    "fr"
+  ],
+  "navigation": [
+    "accueil",
+    "rubrique-travaux",
+    "videos-podcasts",
+    "qui-sommes-nous"
+  ],
+  "actionEntete": {
+    "page": "alertez-nous"
+  },
+  "couleurs": {
+    "fond": "#f3eee4",
+    "texte": "#141414",
+    "voile": "#141414",
+    "ouverture": "#141414",
+    "menu": "#f3eee4",
+    "theme": "#f3eee4"
+  },
+  "contact": {
+    "telephone": "06 99 59 99 75",
+    "telephoneLien": "+33699599975",
+    "email": "contact@castelactu.fr",
+    "adresse": "17 rue d’Ancenis, 44110 Châteaubriant",
+    "facebook": "https://www.facebook.com/CastelActu/"
+  },
+  "dixAns": "2026-11-13T00:00:00+01:00",
+  "fuseau": "Europe/Paris",
+  "polices": [
+    "/assets/fonts/fraunces.woff2",
+    "/assets/fonts/inter-tight.woff2"
+  ],
+  "imagePartage": "articles/bijouterie-de-camille-1280.webp",
+  "curseur": true
+}

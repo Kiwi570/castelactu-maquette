@@ -1,0 +1,13 @@
+[
+  { "id": "chateaubriant", "nom": "Châteaubriant", "lat": 47.7172, "lon": -1.3761 },
+  { "id": "erbray", "nom": "Erbray", "lat": 47.6556, "lon": -1.3194 },
+  { "id": "soudan", "nom": "Soudan", "lat": 47.7381, "lon": -1.3061 },
+  { "id": "ferce", "nom": "Fercé", "lat": 47.8094, "lon": -1.4167 },
+  { "id": "rouge", "nom": "Rougé", "lat": 47.7833, "lon": -1.4483 },
+  { "id": "louisfert", "nom": "Louisfert", "lat": 47.6772, "lon": -1.4339 },
+  { "id": "ruffigne", "nom": "Ruffigné", "lat": 47.7597, "lon": -1.5097 },
+  { "id": "villepot", "nom": "Villepot", "lat": 47.7764, "lon": -1.2858 },
+  { "id": "soulvache", "nom": "Soulvache", "lat": 47.8381, "lon": -1.4694 },
+  { "id": "isse", "nom": "Issé", "lat": 47.6239, "lon": -1.4517 },
+  { "id": "treffieux", "nom": "Treffieux", "lat": 47.6194, "lon": -1.5367 }
+]

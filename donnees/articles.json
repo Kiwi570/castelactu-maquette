@@ -1,0 +1,480 @@
+[
+  {
+    "slug": "central-8",
+    "page": "article-central-8",
+    "titre": "Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin",
+    "chapeau": "Bowling, laser, trampoline et arcade au 10 avenue Jean-Moulin, à Châteaubriant. L’ouverture était annoncée pour le printemps 2026.",
+    "rubrique": "economie",
+    "etiquette": "Loisirs",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "vues": 103295,
+    "une": true,
+    "image": {
+      "nom": "articles/central-8-logo",
+      "type": "logo",
+      "alt": "Logo de Central 8, en blanc sur fond bordeaux"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02wukghx9Uchhcfv1aoY7bbJCfAcV26KhjLkPYjTVsjXaYQ6a8dFZqeTxvCL6J2LJWl",
+    "details": [
+      {
+        "libelle": "Adresse",
+        "valeur": "10 avenue Jean-Moulin, Châteaubriant"
+      },
+      {
+        "libelle": "Activités",
+        "valeur": "Bowling, laser, trampoline, arcade"
+      },
+      {
+        "libelle": "Ouverture annoncée",
+        "valeur": "Printemps 2026 (à confirmer)"
+      },
+      {
+        "libelle": "Plus d’infos",
+        "valeur": "central8.fr"
+      }
+    ]
+  },
+  {
+    "slug": "le-smash",
+    "titre": "Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson",
+    "chapeau": "Construction de la structure sport et loisirs au 16 avenue du Président-Wilson. L’ouverture était annoncée pour août 2026.",
+    "rubrique": "sport",
+    "etiquette": "Sport",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "vues": 56640,
+    "image": {
+      "nom": "grok/client/le-smash",
+      "type": "ia",
+      "alt": "Vue aérienne imaginée du complexe Le Smas’h et de son parking"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0215mpmS8nWje72c7aVjGTUEi9G7GXtU6MzVXjhi3QsorEd7CVk12gunv4uFsdgdzul",
+    "details": [
+      {
+        "libelle": "Adresse",
+        "valeur": "16 avenue du Président-Wilson, Châteaubriant"
+      },
+      {
+        "libelle": "Activités",
+        "valeur": "Padel, badminton, pickleball"
+      },
+      {
+        "libelle": "Ouverture annoncée",
+        "valeur": "Août 2026 (à confirmer)"
+      }
+    ]
+  },
+  {
+    "slug": "credit-mutuel-horizon",
+    "titre": "Le nouveau Crédit Mutuel prend forme zone Horizon",
+    "chapeau": "Construction de la banque rue du Président-Kennedy, en zone Horizon. L’ouverture était annoncée courant 2026.",
+    "rubrique": "economie",
+    "etiquette": "Économie",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "vues": 35444,
+    "vuesNote": "35 441 ou 35 444 selon les encadrés du site actuel : à confirmer",
+    "image": {
+      "nom": "grok/client/credit-mutuel-horizon",
+      "type": "ia",
+      "alt": "Bâtiment blanc imaginé du futur Crédit Mutuel, au bord d’un parking"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0DgcFxuikbJHJMZFaB6vxLykpkNiBLXuPWeKwe41xmxLDv9B5tVLL3Eia1oyXtMfKl",
+    "statut": "construction"
+  },
+  {
+    "slug": "zone-commerciale-8-mai",
+    "titre": "Un nouvel espace commercial rue du 8-Mai-1945",
+    "chapeau": "À proximité de Burger King, plusieurs magasins doivent ouvrir. 90 places de parking sont prévues.",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "image": {
+      "nom": "grok/client/zone-commerciale-8-mai",
+      "type": "ia",
+      "alt": "Bâtiment commercial imaginé, bardage bois, devant un parking"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid094Aq2kaifFJn6xyEkS6c33ZtoAp4Cg6fbzJurwDoyyJFSRG8FSqk5dLQUxRcW3bGl",
+    "statut": "construction"
+  },
+  {
+    "slug": "bijouterie-de-camille",
+    "titre": "La Bijouterie de Camille a ouvert zone Horizon",
+    "chapeau": "Une sélection de bijoux au 1 rue du Président-Kennedy, ouverte depuis le 3 février 2026. Téléphone : 02 40 28 81 47.",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "image": {
+      "nom": "articles/bijouterie-de-camille",
+      "type": "photo",
+      "alt": "Façade de la Bijouterie de Camille, enseigne noire et vitrine éclairée"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0XdVPUY6itGnmmV1f11H8BktQ3xrzbJatRY8Va3PyN6V8Kxb1RKbyg84wEitEJyagl"
+  },
+  {
+    "slug": "bricomarche",
+    "titre": "Travaux de rénovation pour Bricomarché",
+    "chapeau": "Façade, parking, drive : le magasin de la rue du Président-Kennedy se refait une beauté. La fin des travaux était annoncée courant 2026.",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "video",
+    "image": {
+      "nom": "articles/bricomarche",
+      "type": "photo",
+      "alt": "Magasin Bricomarché et son parking, façade en travaux"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02m7sSRE7zHt6TayZL979wb4p3Ufea42x4WHcndgb94GRSYfRp3bE47UsiqtWsE2PJl",
+    "statut": "renovation"
+  },
+  {
+    "slug": "super-u-station-lavage",
+    "titre": "Super U : une nouvelle station de lavage automobile",
+    "chapeau": "Une nouvelle station de lavage a pris place au Super U de Châteaubriant.",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/super-u-station-lavage",
+      "type": "photo",
+      "alt": "Portique de la nouvelle station de lavage, toit rouge"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0P8JCjHiWNBRygFDcKZ61GSMKP5VUJgLXYxSA48t7GMbh5FjV9zdpAYHCj1hruFv6l"
+  },
+  {
+    "slug": "jmt-nouvelle-enseigne",
+    "titre": "JMT, une nouvelle enseigne bientôt à Châteaubriant ?",
+    "chapeau": "Une nouvelle enseigne pourrait prochainement s’installer à Châteaubriant.",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": null,
+    "facebook": null,
+    "motVisuel": "Enseigne"
+  },
+  {
+    "slug": "treffieux-superette-api",
+    "titre": "Treffieux : une supérette API en accès libre 7 jours sur 7",
+    "chapeau": "Une supérette en accès libre, ouverte tous les jours. Son ouverture était annoncée le 25 mars à 9 h (année à confirmer).",
+    "rubrique": "commerces",
+    "etiquette": "Commerce",
+    "communes": [
+      "treffieux"
+    ],
+    "format": "article",
+    "image": null,
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02Zuk2akBdhvDtpFc2j1XhkbSHVDkbTyPxsRdFfjYXvYmE5ow6V8sBDVHRay1QAAJ7l",
+    "motVisuel": "Supérette"
+  },
+  {
+    "slug": "quartier-ville-marie",
+    "titre": "Le nouveau quartier La Ville Marie sort de terre",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/quartier-ville-marie",
+      "type": "perspective",
+      "alt": "Perspective du quartier La Ville Marie : maisons blanches et allée plantée"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02nkmsWadEtFkcwtHgpfjwtAtKjjYW9U91nkNwhdwMhhpVp1cnhewxjKdgX2qS5L6il",
+    "statut": "construction"
+  },
+  {
+    "slug": "rue-du-chateau",
+    "titre": "La rue du Château en rénovation",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "grok/client/rue-du-chateau",
+      "type": "ia",
+      "alt": "Rue pavée imaginée après rénovation, avec massifs plantés"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid03489UXX8eQ6pN4YJRABCtBjGp8LbxtuF1HCXyDmc1Miq7F3z1yW3NNEyMfZ9wrWebl",
+    "statut": "renovation"
+  },
+  {
+    "slug": "residence-aristide-briand",
+    "titre": "La résidence Aristide-Briand en construction",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "grok/client/residence-aristide-briand",
+      "type": "ia",
+      "alt": "Immeuble imaginé à balcons, en pierre claire, sur une place plantée"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02ypPDVFhB4Hj6ccEiLkoDYsZncE5oxJCFVsTc7o3Km5W3iZwqEkYgkYF7yBbsgTJcl",
+    "statut": "construction"
+  },
+  {
+    "slug": "residence-jardins-du-chateau",
+    "titre": "La résidence Les Jardins du Château en construction",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/residence-jardins-du-chateau",
+      "type": "perspective",
+      "alt": "Perspective de la résidence Les Jardins du Château, immeuble blanc à balcons"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0hhmHUovyfNDBRTRYnrkhXLkyPtTHF2Do8m95VYzc3BZjT5ySgokRH19MijCXv5URl",
+    "statut": "construction"
+  },
+  {
+    "slug": "salle-xavier-hunault",
+    "titre": "La salle des associations Xavier-Hunault",
+    "chapeau": "La future salle des associations Xavier-Hunault fait partie des travaux en cours.",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "grok/client/salle-xavier-hunault",
+      "type": "ia",
+      "alt": "Salle associative imaginée, bardage bois, au bord d’un parc"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0Ea3fGNCbrXqipi2JY4isLjV5yhNjNAAPtriav9DVGn6Szhkrm62cX5zWH8n491fml",
+    "statut": "construction"
+  },
+  {
+    "slug": "piscine-espace-dauphin",
+    "titre": "Piscine Espace Dauphin : la rénovation de 2026",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Travaux",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/piscine-espace-dauphin",
+      "type": "perspective",
+      "alt": "Perspective de la piscine Espace Dauphin rénovée, sous les pins"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid02Gych29rQsyeo9ys5aKncBq52H7KSPoiubrXNs8d4KKebj164oAYh4UnmXWdPTN6ul",
+    "statut": "renovation"
+  },
+  {
+    "slug": "voirie-d771",
+    "titre": "Travaux de voirie sur la route Châteaubriant – Soudan (D771)",
+    "chapeau": "Aménagement de la route au Bois du Parc et à La Sablière : sécurisation et modernisation de la zone en bordure de route.",
+    "rubrique": "travaux",
+    "etiquette": "Transport",
+    "communes": [
+      "chateaubriant",
+      "soudan"
+    ],
+    "format": "video",
+    "image": {
+      "nom": "grok/route-bocage",
+      "type": "grok",
+      "alt": "Route de campagne entre les haies, avec quelques cônes de chantier",
+      "facultative": true
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0QKkkCBjAp2iXihYs2qW8SDbzGVG3RA3pDzxA114UzpFANZBEt8Q1iRZomoqryaqWl",
+    "statut": "travaux"
+  },
+  {
+    "slug": "rue-aristide-briand",
+    "titre": "Rue Aristide-Briand : un projet de rénovation",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Projet",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "grok/client/rue-aristide-briand",
+      "type": "ia",
+      "alt": "Croquis imaginé de la rue Aristide-Briand rénovée, arbres et piétons"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid021Mpx3E5ez3cqJqLV74MoJmnFb7s4Y28qvUvqYXsF4iDwWDfTkqgdLsuPG8PZYpDml",
+    "statut": "projet"
+  },
+  {
+    "slug": "theatre-de-verdure-choisel",
+    "titre": "Un théâtre de verdure sur le site de Choisel",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Projet",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/theatre-de-verdure-choisel",
+      "type": "photo",
+      "alt": "Panneau de présentation du théâtre de verdure, plan dessiné du site"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0in874XtHkxUnEmYMSfu7JHgHVygufR9mRsAXw9tDAciDxfxWBWfgcHNjeXeu69tNl",
+    "statut": "projet"
+  },
+  {
+    "slug": "hauts-de-bere",
+    "titre": "Les Hauts de Béré : le projet est annulé",
+    "chapeau": "Le programme immobilier Les Hauts de Béré est annulé.",
+    "rubrique": "travaux",
+    "etiquette": "Projet",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/hauts-de-bere",
+      "type": "photo",
+      "alt": "Panneau publicitaire du programme Les Hauts de Béré"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0bH94nYR3uJVoRDT8bFWy3Wv2jXBUGFLTTfRYmBYNLGDFPUnc7awXqSZ5aC6GpzvSl",
+    "statut": "annule"
+  },
+  {
+    "slug": "maison-des-associations",
+    "titre": "La Maison des associations, prochainement",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Projet",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "grok/client/maison-des-associations",
+      "type": "ia",
+      "alt": "Bâtiment ancien en pierre et brique imaginé en Maison des associations"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0KKN9KHtSGzWsYnZL7Uzihvq3bmUTc9vcuz4aHpDsMnS6EmTW629TFLUBQqFQLvv3l",
+    "statut": "prochainement"
+  },
+  {
+    "slug": "domaine-moulin-de-bere",
+    "titre": "Le Domaine du Moulin de Béré : des logements",
+    "chapeau": "Appartements T2 ou T3 et maisons T4 ou T5 sont annoncés au Domaine du Moulin de Béré.",
+    "rubrique": "travaux",
+    "etiquette": "Logement",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/domaine-moulin-de-bere",
+      "type": "photo",
+      "alt": "Panneau du programme Le Domaine du Moulin de Béré"
+    },
+    "facebook": null,
+    "statut": "projet"
+  },
+  {
+    "slug": "chateau-de-la-trinite",
+    "titre": "Le château de la Trinité : un nouveau projet",
+    "chapeau": "",
+    "rubrique": "travaux",
+    "etiquette": "Patrimoine",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": {
+      "nom": "articles/chateau-de-la-trinite",
+      "type": "photo",
+      "alt": "Le château de la Trinité derrière les arbres, vu depuis la rue"
+    },
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0xy2NYHHouCJKiHdK5Cr2BzxwzVkaUH46UfJEwJEtqENSpfTXFNZ5QYjaj2znYuJ2l",
+    "statut": "projet"
+  },
+  {
+    "slug": "alain-hunault-mairie",
+    "titre": "Alain Hunault reconduit à la mairie de Châteaubriant",
+    "chapeau": "",
+    "rubrique": "actualite",
+    "etiquette": "Vie locale",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "image": null,
+    "facebook": "https://www.facebook.com/CastelActu/posts/pfbid0e7qAfaPnvXL8EfCu2S35bC3RnGJzp84YNyqr1o1hJS6m2Rfk5vdhbhXdpMbwv5QCl",
+    "motVisuel": "Mairie"
+  },
+  {
+    "slug": "foire-de-bere-2026",
+    "titre": "Foire de Béré 2026 : quatre jours du 11 au 14 septembre",
+    "chapeau": "La Foire de Béré était programmée du 11 au 14 septembre 2026 à Châteaubriant. En 2023, elle avait accueilli 45 123 visiteurs.",
+    "rubrique": "evenements",
+    "etiquette": "Événement",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "debut": "2026-09-11",
+    "fin": "2026-09-14",
+    "image": null,
+    "facebook": null,
+    "externe": {
+      "libelle": "foiredebere.fr",
+      "url": "https://www.foiredebere.fr/"
+    },
+    "motVisuel": "Foire"
+  },
+  {
+    "slug": "theatre-de-verre-2025-2026",
+    "titre": "Théâtre de Verre : la saison 2025-2026",
+    "chapeau": "",
+    "rubrique": "culture",
+    "etiquette": "Culture",
+    "communes": [
+      "chateaubriant"
+    ],
+    "format": "article",
+    "fin": "2026-06-30",
+    "finNote": "Fin de saison : date à confirmer",
+    "image": null,
+    "facebook": null,
+    "externe": {
+      "libelle": "mairie-chateaubriant.fr",
+      "url": "https://www.mairie-chateaubriant.fr/theatre-de-verre/"
+    },
+    "motVisuel": "Saison"
+  }
+]

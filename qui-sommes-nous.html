@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qui sommes-nous ? Castel Actu, média local et associatif</title>
+<meta name="description" content="Castel Actu, aventure locale née le 13 novembre 2016 : un média associatif et indépendant au service du Pays de Châteaubriant.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://castelactu-maquette.vercel.app/qui-sommes-nous">
+<style>:root{--fond:#f3eee4;--texte:#141414;--voile-fond:#141414;--ouverture-fond:#141414;--menu-fond:#f3eee4}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f3eee4">
+<link rel="icon" href="/assets/images/favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Castel Actu">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Qui sommes-nous ? Castel Actu, média local et associatif">
+<meta property="og:description" content="Castel Actu, aventure locale née le 13 novembre 2016 : un média associatif et indépendant au service du Pays de Châteaubriant.">
+<meta property="og:url" content="https://castelactu-maquette.vercel.app/qui-sommes-nous">
+<meta property="og:image" content="https://castelactu-maquette.vercel.app/assets/partage/qui-sommes-nous-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Castel Actu, média local depuis 2016">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsMediaOrganization","name":"Castel Actu","url":"https://castelactu-maquette.vercel.app/","logo":"https://castelactu-maquette.vercel.app/assets/images/logo-castelactu-480.webp","foundingDate":"2016-11-13","founder":{"@type":"Person","name":"Gaetan Lassalle"},"telephone":"+33699599975","email":"contact@castelactu.fr","address":{"@type":"PostalAddress","streetAddress":"17 rue d’Ancenis","postalCode":"44110","addressLocality":"Châteaubriant","addressCountry":"FR"},"areaServed":["Châteaubriant","Erbray","Soudan","Fercé","Rougé","Louisfert","Ruffigné","Villepot","Soulvache","Issé","Treffieux"],"sameAs":["https://www.facebook.com/CastelActu/"],"description":"Média d’information locale, associatif et indépendant, du Pays de Châteaubriant depuis 2016."}</script>
+</head>
+<body id="haut" class="page-association">
+<div data-voile aria-hidden="true">
+  <div class="voile-bandes"><span></span><span></span><span></span></div>
+  <div class="voile-contenu"><img class="voile-logo" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718"><span data-voile-libelle>Qui sommes-nous</span></div>
+</div>
+<div class="ouverture-panneau" data-ouverture data-effet="rotative" aria-hidden="true">
+  <div class="ouverture-centre"><img class="ouverture-logo" src="/assets/images/logo-castelactu-480.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="240px" alt="" width="1238" height="718"><p class="ouverture-ligne">L’info 24/24 depuis 2016</p></div>
+  <div class="ouverture-bandes"><span class="ouverture-bande" style="--i:0"><span>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin<i aria-hidden="true">✦</i>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin<i aria-hidden="true">✦</i>Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span></span><span class="ouverture-bande" style="--i:1"><span>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson<i aria-hidden="true">✦</i>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson<i aria-hidden="true">✦</i>Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span></span><span class="ouverture-bande" style="--i:2"><span>La Bijouterie de Camille a ouvert zone Horizon<i aria-hidden="true">✦</i>La Bijouterie de Camille a ouvert zone Horizon<i aria-hidden="true">✦</i>La Bijouterie de Camille a ouvert zone Horizon</span></span><span class="ouverture-bande" style="--i:3"><span>La rue du Château en rénovation<i aria-hidden="true">✦</i>La rue du Château en rénovation<i aria-hidden="true">✦</i>La rue du Château en rénovation</span></span><span class="ouverture-bande" style="--i:4"><span>Travaux de rénovation pour Bricomarché<i aria-hidden="true">✦</i>Travaux de rénovation pour Bricomarché<i aria-hidden="true">✦</i>Travaux de rénovation pour Bricomarché</span></span><span class="ouverture-bande" style="--i:5"><span>Travaux de voirie sur la route Châteaubriant – Soudan (D771)<i aria-hidden="true">✦</i>Travaux de voirie sur la route Châteaubriant – Soudan (D771)<i aria-hidden="true">✦</i>Travaux de voirie sur la route Châteaubriant – Soudan (D771)</span></span><span class="ouverture-bande" style="--i:6"><span>Un nouvel espace commercial rue du 8-Mai-1945<i aria-hidden="true">✦</i>Un nouvel espace commercial rue du 8-Mai-1945<i aria-hidden="true">✦</i>Un nouvel espace commercial rue du 8-Mai-1945</span></span></div>
+  <span class="ouverture-alerte"><span>Alerte · Castel Actu · Alerte · Castel Actu · Alerte · Castel Actu</span></span>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<span id="note-facebook" hidden>Sur Facebook, nouvel onglet</span>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" data-libelle="Accueil">
+      <img class="" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718"><span class="visuellement-cache">Castel Actu, retour à l’accueil</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/#fil" data-libelle="Accueil">Toute l’actu</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/videos-et-podcasts" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li><a href="/qui-sommes-nous" data-libelle="Qui sommes-nous" aria-current="page">Qui sommes-nous</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <button type="button" class="entete-recherche" data-recherche-bouton aria-controls="recherche" aria-expanded="false" aria-label="Rechercher"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="entete-recherche-libelle">Rechercher</span></button>
+      <a class="bouton bouton--alerte" href="/alertez-nous" data-libelle="Alertez-nous">Alertez-nous</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="recherche" class="recherche" data-recherche role="dialog" aria-modal="true" aria-label="Rechercher" hidden>
+  <form class="recherche-form conteneur" action="/" method="get" role="search" data-recherche-form>
+    <label for="recherche-champ" class="recherche-label">Chercher une info, une commune, un commerce</label>
+    <div class="recherche-rangee">
+      <input id="recherche-champ" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Exemple : piscine, Treffieux, padel">
+      <button type="submit" class="bouton">Rechercher</button>
+      <button type="button" class="recherche-fermer" data-recherche-fermer aria-label="Fermer"><span aria-hidden="true">×</span></button>
+    </div>
+  </form>
+</div>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-grille">
+    <ul class="menu-pages"><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/rubriques/travaux-et-projets" class="menu-lien" data-libelle="Travaux et projets">Travaux et projets</a></li><li style="--i:2"><a href="/videos-et-podcasts" class="menu-lien" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li style="--i:3"><a href="/qui-sommes-nous" class="menu-lien" data-libelle="Qui sommes-nous" aria-current="page">Qui sommes-nous</a></li><li style="--i:4"><a href="/alertez-nous" class="menu-lien menu-lien--alerte" data-libelle="Alertez-nous">Alertez-nous</a></li></ul>
+    <div class="menu-cote">
+      <p class="sur-titre">Rubriques</p>
+      <ul class="menu-rubriques"><li style="--i:6"><a href="/?rubrique=actualite#fil" data-libelle="Accueil">Actualité</a></li><li style="--i:7"><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li style="--i:8"><a href="/?rubrique=commerces#fil" data-libelle="Accueil">Commerces</a></li><li style="--i:9"><a href="/?rubrique=economie#fil" data-libelle="Accueil">Économie</a></li><li style="--i:10"><a href="/?rubrique=sport#fil" data-libelle="Accueil">Sport</a></li><li style="--i:11"><a href="/?rubrique=evenements#fil" data-libelle="Accueil">Événements</a></li><li style="--i:12"><a href="/?rubrique=culture#fil" data-libelle="Accueil">Culture</a></li></ul>
+      <p class="menu-bientot">Bientôt : Faits divers, Association, Médias, People, High-tech, Bons plans, Emploi.</p>
+      <p><a class="bouton bouton--contour" href="tel:+33699599975">Appeler 06 99 59 99 75</a></p>
+      <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+    </div>
+  </div>
+</div>
+<main id="contenu" tabindex="-1">
+<div class="ruban-alerte" data-effet="ruban-alerte" role="region" aria-label="Bandeau d’alerte Castel Actu">
+  <p class="visuellement-cache" role="status">Pas d’alerte en cours</p>
+  <div class="ruban-fenetre" aria-hidden="true"><div class="ruban-piste" id="ruban-alerte" data-boucle-css><span class="ruban-morceau"><span class="ruban-etat"><span class="ruban-point" aria-hidden="true"></span> Pas d’alerte en cours</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-titre">Dernières infos</span><span class="ruban-info">Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le nouveau Crédit Mutuel prend forme zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Un nouvel espace commercial rue du 8-Mai-1945</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">La Bijouterie de Camille a ouvert zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span>L’info 24/24 de Châteaubriant et sa région<span class="ruban-sep" aria-hidden="true">✦</span></span><span class="ruban-morceau"><span class="ruban-etat"><span class="ruban-point" aria-hidden="true"></span> Pas d’alerte en cours</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-titre">Dernières infos</span><span class="ruban-info">Central 8, le nouveau complexe de loisirs de l’avenue Jean-Moulin</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le Smas’h, un complexe de padel, badminton et pickleball avenue du Président-Wilson</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Le nouveau Crédit Mutuel prend forme zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">Un nouvel espace commercial rue du 8-Mai-1945</span><span class="ruban-sep" aria-hidden="true">✦</span><span class="ruban-info">La Bijouterie de Camille a ouvert zone Horizon</span><span class="ruban-sep" aria-hidden="true">✦</span>L’info 24/24 de Châteaubriant et sa région<span class="ruban-sep" aria-hidden="true">✦</span></span></div></div>
+  <button type="button" class="ruban-pause" data-pause-pour="ruban-alerte" data-libelle-pause="Pause" data-libelle-lecture="Lecture" aria-label="Mettre en pause le bandeau d’alerte"><span data-libelle-bouton>Pause</span></button>
+</div>
+<section class="page-tete page-tete--image conteneur" id="debut">
+  <div class="page-tete-texte">
+    <p class="sur-titre tete-anim" data-anime="gsap" data-tete="fondu">Castel Actu</p>
+    <h1 class="impression impression--tete" data-effet="impression" data-texte="Qui sommes-nous ?"><span class="impression-encre">Qui sommes-nous ?</span></h1>
+    <p class="section-intro tete-anim" data-anime="gsap" data-tete="fondu">C’est avant tout une aventure locale née le 13 novembre 2016, avec une envie simple : raconter le Pays de Châteaubriant tel qu’il se vit au quotidien.</p>
+    <p class="tete-infos mono tete-anim" data-anime="gsap" data-tete="fondu" data-info-cle><strong>Depuis le 13 novembre 2016</strong><span>Association déclarée le 21 janvier 2026</span></p>
+    <p class="tete-actions tete-anim" data-anime="gsap" data-tete="fondu">
+      <a href="/alertez-nous?type=contact#formulaire" class="bouton" data-libelle="Alertez-nous" data-action-principale data-survol="magnetique">Écrire à la rédaction</a>
+      <a class="lien-fleche" href="#soutenir">Soutenir Castel Actu</a>
+    </p>
+  </div>
+  <figure class="media page-tete-media tete-anim" data-grok data-anime="gsap" data-tete="media" data-fx="onde" style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/redaction-nuit-mobile-640.webp 640w, /assets/images/grok/redaction-nuit-mobile-784.webp 784w" sizes="(max-width: 760px) 92vw, 46vw">
+    <img src="/assets/images/grok/redaction-nuit-1168.webp" srcset="/assets/images/grok/redaction-nuit-640.webp 640w, /assets/images/grok/redaction-nuit-1168.webp 1168w" sizes="(max-width: 760px) 92vw, 46vw" alt="Bureau de rédaction la nuit : ordinateur, carnet, café et appareil photo" width="1168" height="784" fetchpriority="high" loading="eager" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+</section>
+<section class="histoire" id="histoire">
+  <div class="conteneur">
+    <header class="section-tete">
+      <p class="sur-titre">L’histoire</p>
+      <h2 class="impression" data-effet="impression" data-texte="De la page Facebook à l’association"><span class="impression-encre">De la page Facebook à l’association</span></h2>
+      <p class="section-intro">Depuis ses débuts, Castel Actu s’est construit au plus près du terrain, à l’écoute des habitants, des associations, des acteurs locaux et de toutes celles et ceux qui font vivre le territoire.</p>
+    </header>
+    <ol class="frise-histoire" data-anime="cascade" data-jalons="{&quot;passe&quot;:&quot;Passé&quot;,&quot;jour&quot;:&quot;Aujourd’hui&quot;,&quot;avenir&quot;:&quot;À venir&quot;}">
+      <li class="jalon jalon--passe" data-jalon="2016-11-13"><span class="jalon-date mono">13 novembre 2016</span><strong class="jalon-titre">La page Castel Actu naît</strong><span class="jalon-texte">Création de la page Facebook : l’aventure commence.</span><span class="jalon-etat mono">Passé</span></li><li class="jalon jalon--passe" data-jalon="2026-01-21"><span class="jalon-date mono">21 janvier 2026</span><strong class="jalon-titre">Castel Actu devient une association</strong><span class="jalon-texte">Déclaration de l’association « Castel Actu ».</span><span class="jalon-etat mono">Passé</span></li><li class="jalon jalon--avenir" data-jalon="2026-11-13"><span class="jalon-date mono">13 novembre 2026</span><strong class="jalon-titre">Dix ans d’info locale</strong><span class="jalon-texte">Castel Actu fête ses 10 ans.</span><span class="jalon-etat mono">À venir</span></li>
+    </ol>
+    <svg class="frise-histoire-trait" viewBox="0 0 1000 10" preserveAspectRatio="none" aria-hidden="true" data-fx="trace" focusable="false"><path d="M2 5 H998" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+    <figure class="media histoire-media" data-grok data-fx="parallaxe" data-fx-force="8" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/grok/rotative-1168.webp" srcset="/assets/images/grok/rotative-640.webp 640w, /assets/images/grok/rotative-1168.webp 1168w" sizes="(max-width: 760px) 92vw, 80vw" alt="Bande de papier qui défile dans une presse d’imprimerie" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  </div>
+</section>
+<section class="independant" id="independant">
+  <div class="conteneur indep-grille">
+    <figure class="media indep-media" data-grok data-anime="rideau" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/grok/rouleau-encre-784.webp" srcset="/assets/images/grok/rouleau-encre-640.webp 640w, /assets/images/grok/rouleau-encre-784.webp 784w" sizes="(max-width: 760px) 70vw, 30vw" alt="Rouleau d’imprimerie qui étale une encre rouge sur du papier" width="784" height="1168" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+    <div>
+      <p class="sur-titre">Indépendant et associatif</p>
+      <h2 data-anime="lignes">Informer avec sérieux… et avec cœur</h2>
+      <p class="section-intro" data-anime>Castel Actu est aujourd’hui un média associatif indépendant. Ce statut reflète pleinement son engagement : proposer une information libre, sans influence politique ou commerciale, guidée uniquement par l’intérêt général et la proximité avec le territoire.</p>
+      <p data-anime>Informations pratiques, actualités, événements, initiatives, vie associative ou municipale : ici, l’info est locale, concrète et accessible à tous.</p>
+      <ul class="valeurs" data-anime="cascade">
+        <li><strong>Proche des gens.</strong> Parce que le local commence par l’humain.</li>
+        <li><strong>Fiable et vérifiée.</strong> Pour informer sans déformer.</li>
+        <li><strong>Respectueuse.</strong> Des faits comme des personnes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="fondateur" id="fondateur">
+  <div class="conteneur fondateur-grille">
+    <figure class="monogramme" data-visuel role="img" aria-label="Monogramme G, en attendant le portrait du fondateur" data-effet="tampon-10-ans">
+      <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false"><circle cx="100" cy="100" r="94" class="tampon-bord"/><circle cx="100" cy="100" r="80" class="tampon-bord tampon-bord--fin"/><text x="100" y="128" text-anchor="middle" class="monogramme-lettre">G</text></svg>
+      <figcaption class="mono">Portrait à fournir</figcaption>
+    </figure>
+    <div>
+      <p class="sur-titre">Le fondateur</p>
+      <blockquote class="citation" data-anime="mots"><p>Votre média d’information locale, digital et indépendant.</p></blockquote>
+      <p class="citation-auteur" data-anime><strong>Gaetan</strong>, fondateur et directeur de la publication</p>
+      <p data-anime>Depuis 2016, votre fidélité, vos messages et vos partages font vivre Castel Actu chaque jour. Ce média existe grâce à vous et pour vous.</p>
+    </div>
+  </div>
+</section>
+<section class="transparence" id="transparence">
+  <div class="conteneur transp-grille">
+    <div>
+      <p class="sur-titre">Transparence</p>
+      <h2 class="impression impression--clair" data-effet="impression" data-texte="Qui publie Castel Actu"><span class="impression-encre">Qui publie Castel Actu</span></h2>
+      <p class="audience audience--clair" data-visuel><strong class="audience-chiffre" data-compteur="1.7">1,7</strong> million de vues par mois<span class="audience-source">Source : audience de la page Facebook, moyenne sur les 28 derniers jours.</span></p>
+    </div>
+    <dl class="fiche fiche--clair" data-anime="cascade">
+      <div><dt>Éditeur</dt><dd>Association Castel Actu, 17 rue d’Ancenis, 44110 Châteaubriant</dd></div>
+      <div><dt>Directeur de la publication</dt><dd>Gaetan Lassalle</dd></div>
+      <div><dt>Association déclarée</dt><dd>Le 21 janvier 2026</dd></div>
+      <div><dt>Numéro RNA</dt><dd class="mono">W441007944</dd></div>
+      <div><dt>SIRET</dt><dd class="mono">100 220 995 00011</dd></div>
+      <div><dt>Financement</dt><dd>Sources de financement : à compléter.</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="soutenir" id="soutenir">
+  <div class="conteneur soutenir-grille">
+    <div class="soutenir-tampon"><div class="tampon" data-superpose data-effet="tampon-10-ans">
+  <svg viewBox="0 0 320 320" role="img" aria-label="Tampon : Castel Actu, 10 ans, 2016 – 2026" focusable="false">
+    <defs><path id="tampon-qui-cercle" d="M160 160 m-118 0 a118 118 0 1 1 236 0 a118 118 0 1 1 -236 0"/></defs>
+    <circle cx="160" cy="160" r="150" class="tampon-bord"/>
+    <circle cx="160" cy="160" r="98" class="tampon-bord tampon-bord--fin"/>
+    <text class="tampon-cercle"><textPath href="#tampon-qui-cercle" startOffset="0">CASTEL ACTU · 2016 – 2026 · L’INFO LOCALE 24/24 · </textPath></text>
+    <text x="160" y="178" text-anchor="middle" class="tampon-dix">10</text>
+    <text x="160" y="214" text-anchor="middle" class="tampon-ans">ANS</text>
+    <path class="tampon-etoile" d="M160 66l4 9 10 1-7.5 6.5 2.5 9.5-9-5-9 5 2.5-9.5L146 76l10-1z"/>
+  </svg>
+</div></div>
+    <div>
+      <p class="sur-titre">Soutenir</p>
+      <h2 data-anime="lignes">Faire grandir l’info locale</h2>
+      <ul class="soutiens" data-anime="cascade">
+        <li><strong>Adhérer à l’association</strong><span>À compléter</span></li>
+        <li><strong>Faire un don</strong><span>À compléter</span></li>
+        <li><strong>Devenir bénévole</strong><span>À compléter</span></li>
+        <li><strong>Partager</strong><span>Vos partages et vos infos font vivre Castel Actu chaque jour.</span></li>
+      </ul>
+      <p class="note-source" data-anime>Modalités à compléter par l’association.</p>
+      <p class="dix-actions" data-anime>
+        <a href="/alertez-nous?type=contact&amp;rubrique=association#formulaire" class="bouton bouton--alerte" data-libelle="Alertez-nous" data-survol="magnetique">Proposer votre aide</a>
+        <a class="lien-fleche" href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook <svg class="icone icone--fleche" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-tete">
+    <img class="pied-logo" src="/assets/images/logo-castelactu-240.webp" srcset="/assets/images/logo-castelactu-240.webp 240w, /assets/images/logo-castelactu-480.webp 480w, /assets/images/logo-castelactu-960.webp 960w" sizes="120px" alt="" width="1238" height="718">
+    <p class="pied-promesse">L’info 24/24 de Châteaubriant et sa région depuis 2016. Un média local, indépendant et associatif.</p>
+  </div>
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="sur-titre">Contact</p>
+      <p>Association Castel Actu<br>17 rue d’Ancenis, 44110 Châteaubriant<br><a href="tel:+33699599975">06 99 59 99 75</a><br><a href="mailto:contact@castelactu.fr">contact@castelactu.fr</a></p>
+      <p><a href="https://www.facebook.com/CastelActu/" target="_blank" rel="noopener">Castel Actu sur Facebook <svg class="icone icone--fleche" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p class="sur-titre">Sommaire</p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/videos-et-podcasts" data-libelle="Vidéos et podcasts">Vidéos et podcasts</a></li><li><a href="/qui-sommes-nous" data-libelle="Qui sommes-nous" aria-current="page">Qui sommes-nous</a></li><li><a href="/alertez-nous" data-libelle="Alertez-nous">Alertez-nous</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <nav aria-label="Rubriques">
+      <p class="sur-titre">Rubriques</p>
+      <ul class="pied-rubriques"><li><a href="/?rubrique=actualite#fil" data-libelle="Accueil">Actualité</a></li><li><a href="/rubriques/travaux-et-projets" data-libelle="Travaux et projets">Travaux et projets</a></li><li><a href="/?rubrique=commerces#fil" data-libelle="Accueil">Commerces</a></li><li><a href="/?rubrique=economie#fil" data-libelle="Accueil">Économie</a></li><li><a href="/?rubrique=sport#fil" data-libelle="Accueil">Sport</a></li><li><a href="/?rubrique=evenements#fil" data-libelle="Accueil">Événements</a></li><li><a href="/?rubrique=culture#fil" data-libelle="Accueil">Culture</a></li></ul>
+    </nav>
+    <div>
+      <p class="sur-titre">Confort de lecture</p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » seront fournies par Castel Actu.</p><p>© 2016-2026 Castel Actu</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33699599975">Appeler</a>
+  <a class="bouton bouton--alerte" href="/alertez-nous" data-libelle="Alertez-nous">Alertez-nous</a>
+</div>
+</body>
+</html>

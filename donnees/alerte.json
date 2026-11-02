@@ -1,0 +1,5 @@
+{
+  "active": false,
+  "texte": "Pas d’alerte en cours",
+  "exemple": "Quand une alerte est en cours (route coupée, intempéries, coupure), elle s’affiche ici en rouge, sur toutes les pages."
+}

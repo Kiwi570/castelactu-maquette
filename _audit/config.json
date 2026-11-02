@@ -1,0 +1,21 @@
+{
+  "siteActuel": "castelactu.wixsite.com",
+  "pagesTypes": [
+    "/",
+    "/rubriques/travaux-et-projets",
+    "/articles/central-8",
+    "/videos-et-podcasts",
+    "/alertez-nous",
+    "/qui-sommes-nous"
+  ],
+  "effets": [
+    "rotative",
+    "impression",
+    "ruban-alerte",
+    "radar-communes",
+    "coupures",
+    "frise-chantiers",
+    "tampon-10-ans",
+    "onde-podcast"
+  ]
+}
